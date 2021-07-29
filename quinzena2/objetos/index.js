@@ -143,22 +143,21 @@
             let userName = prompt('Digite seu nome:')
             let userAge = Number(prompt('Digite sua idade:'))
             let userProfession = prompt('Digite sua profissão:')
-
-            let userData = {
+            let userInfo = {
                 namePerson: userName,
                 age: userAge,
                 profession: userProfession
             }
 
-            return console.log(userData, typeof userData)
+            return userInfo
         }
 
-        askUser()
+        const userInfo = askUser()
+        console.log(userInfo, typeof userInfo)
 
     // Ex - 2
 
         const movieOne = {
-
             filmName: 'Interestelar',
             releaseDate: 2014
         }
