@@ -129,11 +129,9 @@
     const houseGameSf = (gameType, gameStage, numberOfTickets, category) => {
         let allValues = []
     
-        if (gameType === 'DO' && gameStage === 'SF' && category === 1 || gameType === 'IN' && gameStage === 'SF' && category === 1) {
+        if (gameType === 'DO' && gameStage === 'SF' && category === 1){
             allValues[0] = 1320
             allValues[1] = (allValues[0] * numberOfTickets)
-            allValues[2] = 1320 / 4.10
-            allValues[3] = ((allValues[2] / 4.10) * numberOfTickets)
             return allValues
 
         } else if (gameType === 'DO' && gameStage === 'SF' && category === 2) {
