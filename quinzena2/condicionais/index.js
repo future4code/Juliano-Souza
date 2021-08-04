@@ -129,11 +129,10 @@
     const houseGameSf = (gameType, gameStage, numberOfTickets, category) => {
         let allValues = []
     
-        if (gameType === 'DO' && gameStage === 'SF' && category === 1){
+        if (gameType === 'DO' && gameStage === 'SF' && category === 1) {
             allValues[0] = 1320
             allValues[1] = (allValues[0] * numberOfTickets)
             return allValues
-
         } else if (gameType === 'DO' && gameStage === 'SF' && category === 2) {
             allValues[0] = 880
             allValues[1] = (allValues[0] * numberOfTickets)
@@ -158,7 +157,6 @@
             allValuesDt[0] = 600
             allValuesDt[1] = (allValuesDt[0] * numberOfTickets)
             return allValuesDt
-
         } else if (gameType === 'DO' && gameStage === 'DT' && category === 2) {
             allValuesDt[0] = 440
             allValuesDt[1] = (allValuesDt[0] * numberOfTickets)
@@ -183,7 +181,6 @@
             allValuesFi[0] = 1980
             allValuesFi[1] = (allValuesFi[0] * numberOfTickets)
             return allValuesFi
-
         } else if (gameType === 'DO' && gameStage === 'FI' && category === 2) {
             allValuesFi[0] = 1320
             allValuesFi[1] = (allValuesFi[0] * numberOfTickets)
@@ -203,22 +200,19 @@
 
     const internationalGameSf = (gameType, gameStage, numberOfTickets, category) => {
         let allValuesInGamesSf = []
-    
+  
         if (gameType === 'IN' && gameStage === 'SF' && category === 1) {
             allValuesInGamesSf[0] = 1320 / 4.10
             allValuesInGamesSf[1] = (allValuesInGamesSf[0] * numberOfTickets)
             return allValuesInGamesSf
-
         } else if (gameType === 'IN' && gameStage === 'SF' && category === 2) {
             allValuesInGamesSf[0] = 880 / 4.10
             allValuesInGamesSf[1] = (allValuesInGamesSf[0] * numberOfTickets)
             return allValuesInGamesSf
-
         } else if (gameType === 'IN' && gameStage === 'SF' && category === 3) {
             allValuesInGamesSf[0] = 550 / 4.10
             allValuesInGamesSf[1] = (allValuesInGamesSf[0] * numberOfTickets)
             return allValuesInGamesSf
-
         } else if (gameType === 'IN' && gameStage === 'SF' && category === 4){
             allValuesInGamesSf[0] = 220 / 4.10
             allValuesInGamesSf[1] = (allValuesInGamesSf[0] * numberOfTickets)
@@ -235,7 +229,6 @@
             allValuesInGamesDt[0] = 600 / 4.10
             allValuesInGamesDt[1] = (allValuesInGamesDt[0] * numberOfTickets)
             return allValuesInGamesDt
-
         } else if (gameType === 'IN' && gameStage === 'DT' && category === 2) {
             allValuesInGamesDt[0] = 440 / 4.10
             allValuesInGamesDt[1] = (allValuesInGamesDt[0] * numberOfTickets)
@@ -260,7 +253,6 @@
             allValuesInGamesFi[0] = 1980 / 4.10
             allValuesInGamesFi[1] = (allValuesInGamesFi[0] * numberOfTickets)
             return allValuesInGamesFi
-
         } else if (gameType === 'IN' && gameStage === 'FI' && category === 2) {
             allValuesInGamesFi[0] = 1320 / 4.10
             allValuesInGamesFi[1] = (allValuesInGamesFi[0] * numberOfTickets)
