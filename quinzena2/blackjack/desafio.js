@@ -22,7 +22,7 @@
    const computerCards = computerCardsDraw()
 
 
-   const AllGame = (userCards, computerCards) => {
+   const allGame = (userCards, computerCards) => {
       let userScore = userCards[0].valor + userCards[1].valor
       let computerScore = computerCards[0].valor + computerCards[1].valor
       let guardaValores = []
@@ -73,7 +73,7 @@
    if (confirm('Quer iniciar uma nova rodada?')) {
       userCardsDraw()
       computerCardsDraw()
-      AllGame(userCards, computerCards)
+      allGame(userCards, computerCards)
    } else {
       console.log('O jogo acabou!')
    }
