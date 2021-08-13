@@ -46,6 +46,18 @@ function retornaNumerosPares(array) {
 // EXERCÍCIO 04
 function retornaMaiorNumero(array) {
 
+  const verifyBiggerNumber = array => {
+    let el = array[0]
+    for (const i of array) {
+      if (i > el) {
+        el = i
+      }
+    }
+    return el
+  }
+
+  return verifyBiggerNumber(array)
+
 }
 
 // EXERCÍCIO 05
