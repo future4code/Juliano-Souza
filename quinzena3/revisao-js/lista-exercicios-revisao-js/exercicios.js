@@ -55,7 +55,6 @@ function retornaMaiorNumero(array) {
     }
     return el
   }
-
   return verifyBiggerNumber(array)
 
 }
@@ -72,6 +71,12 @@ function retornaQuantidadeElementos(array) {
 
 // EXERCÍCIO 06
 function retornaExpressoesBooleanas() {
+
+  const chekingBoolean = () => {
+    const answers = [false, false, true, true, true]
+    return answers
+  }
+  return chekingBoolean()
 
 }
 
