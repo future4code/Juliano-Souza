@@ -347,6 +347,16 @@ function ordenaPorNome(consultasNome) {
 // EXERCÍCIO 19B
 function ordenaPorData(consultasData) {
 
+  const getTime = (dataDaConsulta) => {
+    let [day, month, year] = dataDaConsulta.split("/")
+    return new Date(`${year}-${month}-${day}`).getTime()
+  }
+
+  const orderingDate = consultasData.sort((a, b) => {
+    return getTime(a.dataDaConsulta) - getTime(b.dataDaConsulta)
+  })
+  return orderingDate
+
 }
 
 // EXERCÍCIO 20
