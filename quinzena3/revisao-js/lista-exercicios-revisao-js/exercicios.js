@@ -333,6 +333,15 @@ function retornaPessoasNaoAutorizadas(pessoas) {
 // EXERCÍCIO 19A
 function ordenaPorNome(consultasNome) {
 
+  const order = (a, b) => {
+    if (a.nome < b.nome)
+      return -1;
+    if (a.nome > b.nome)
+      return 1;
+    return 0;
+  }
+  return consultasNome.sort(order)
+
 }
 
 // EXERCÍCIO 19B
