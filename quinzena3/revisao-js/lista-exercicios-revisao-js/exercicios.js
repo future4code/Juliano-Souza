@@ -114,12 +114,43 @@ function checaTriangulo(a, b, c) {
 
 // EXERCÍCIO 09
 function comparaDoisNumeros(num1, num2) {
-  // Formato do objeto a ser retornado:
-  // {
-  //   maiorNumero: X,
-  //   maiorDivisivelPorMenor: Y,
-  //   diferenca: Z
-  // }
+  
+  const checkingNumbers = (num1, num2) => {
+    let numbersData = {
+      maiorNumero: 0,
+      maiorDivisivelPorMenor: 0,
+      diferenca: 0
+    }
+
+    let smallerNumber
+
+    if (num1 > num2) {
+      numbersData.maiorNumero = num1
+    } else {
+      numbersData.maiorNumero = num2
+    }
+
+    if (num1 < num2) {
+      smallerNumber = num1
+    } else {
+      smallerNumber = num2
+    }
+
+    if (numbersData.maiorNumero % smallerNumber === 0 || numbersData.maiorNumero % smallerNumber === 1) {
+      numbersData.maiorDivisivelPorMenor = true
+    } else {
+      numbersData.maiorDivisivelPorMenor = false
+    }
+
+    if (num1 - num2 >= 0) {
+      numbersData.diferenca = num1 - num2
+    } else {
+      numbersData.diferenca = num2 - num1
+    }
+    return numbersData
+  }
+  return numbersData = checkingNumbers(num1, num2)
+
 }
 
 // EXERCÍCIO 10
