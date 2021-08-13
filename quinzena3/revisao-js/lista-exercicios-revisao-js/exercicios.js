@@ -241,6 +241,17 @@ function imprimeChamada() {
 // EXERCÍCIO 14
 function criaRetangulo(lado1, lado2) {
 
+  const criaRetangulo = (lado1, lado2) => {
+    const triangleInfo = {
+      largura: lado1,
+      altura: lado2,
+      perimetro: (2 * (lado1 + lado2)),
+      area: lado1 * lado2
+    }
+    return triangleInfo
+  }
+  return triangleInfo = criaRetangulo(lado1, lado2)
+
 }
 
 // EXERCÍCIO 15
