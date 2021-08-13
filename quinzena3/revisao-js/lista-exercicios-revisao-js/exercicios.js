@@ -63,6 +63,11 @@ function retornaMaiorNumero(array) {
 // EXERCÍCIO 05
 function retornaQuantidadeElementos(array) {
   
+  const sizeOfArray = array => {
+    return array.length
+  }
+  return sizeOfArray(array)
+
 }
 
 // EXERCÍCIO 06
