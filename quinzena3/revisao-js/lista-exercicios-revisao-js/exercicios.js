@@ -295,6 +295,9 @@ function multiplicaArrayPor2(array) {
 // EXERCÍCIO 17B
 function multiplicaArrayPor2S(array) {
 
+  const stringValues = multiplicaArrayPor2(array).map(arr => arr.toString())
+  return stringValues
+
 }
 
 // EXERCÍCIO 17C
