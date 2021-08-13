@@ -257,6 +257,15 @@ function criaRetangulo(lado1, lado2) {
 // EXERCÍCIO 15
 function anonimizaPessoa(pessoa) {
 
+  const receiveObj = obj => {
+    objTruncatedName = {
+      ...pessoa,
+      nome: 'ANÔNIMO'
+    }
+    return objTruncatedName
+  }
+  return receiveObj(pessoa)
+
 }
 
 // EXERCÍCIO 16A
