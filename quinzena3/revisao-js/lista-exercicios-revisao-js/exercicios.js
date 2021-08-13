@@ -156,6 +156,40 @@ function comparaDoisNumeros(num1, num2) {
 // EXERCÍCIO 10
 function segundoMaiorEMenor(array) {
 
+  const secBiggestAndSmaller = arr => {
+    let secBiggestLog = []
+    let secSmallerLog = []
+    let secBiggest = 0
+    let secSmaller = arr[arr.length - 1]
+    let results = []
+
+    for (const i of arr) {
+      if (i > secBiggest) {
+        secBiggestLog.push(i)
+        secBiggest = i
+      }
+    }
+    for (const i of arr) {
+      if (i < secSmaller) {
+        secSmallerLog.push(i)
+        secSmaller = i
+      }
+    }
+    if (secSmallerLog.length === 1) {
+      for (const i of arr) {
+        if (i <= secSmaller) {
+          secSmallerLog.push(arr[1])
+          secSmaller = i
+        }
+      }
+      results.push(secBiggestLog[secBiggestLog.length - 2], secSmallerLog[secSmallerLog.length - 1])
+    } else {
+      results.push(secBiggestLog[secBiggestLog.length - 2], secSmallerLog[secSmallerLog.length - 2])
+    }
+    return results
+  }
+  return secBiggestAndSmaller(array)
+
 }
 
 // EXERCÍCIO 11
