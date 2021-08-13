@@ -303,6 +303,15 @@ function multiplicaArrayPor2S(array) {
 // EXERCÍCIO 17C
 function verificaParidade(array) {
 
+  const oddOrPair = array.map(value => {
+    if (value % 2 === 0) {
+      return `${value} é par`
+    } else {
+      return `${value} é ímpar`
+    }
+  })
+  return oddOrPair
+
 }
 
 // EXERCÍCIO 18A
