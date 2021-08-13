@@ -14,7 +14,17 @@ function inverteArray(array) {
 
 // EXERCÍCIO 02
 function retornaNumerosParesElevadosADois(array) {
-
+  
+  let raisingPairs = []
+  const pairFilter = array => {
+    for (const i of array) {
+      if (i % 2 === 0)
+        raisingPairs.push(i ** 2)
+    }
+    return raisingPairs
+  }
+  return raisingPairs = pairFilter(array)
+  
 }
 
 // EXERCÍCIO 03
