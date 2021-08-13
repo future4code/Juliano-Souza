@@ -24,11 +24,22 @@ function retornaNumerosParesElevadosADois(array) {
     return raisingPairs
   }
   return raisingPairs = pairFilter(array)
-  
+
 }
 
 // EXERCÍCIO 03
 function retornaNumerosPares(array) {
+
+  const verifyPair = array => {
+    let pairNumbers = []
+    for (const i of array) {
+      if (i % 2 === 0) {
+        pairNumbers.push(i)
+      }
+    }
+    return pairNumbers
+  }
+  return pairNumbers = verifyPair(array)
 
 }
 
