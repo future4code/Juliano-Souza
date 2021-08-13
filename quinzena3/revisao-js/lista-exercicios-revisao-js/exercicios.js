@@ -279,6 +279,9 @@ function maioresDe18(arrayDePessoas) {
 // EXERCÍCIO 16B
 function menoresDe18(arrayDePessoas) {
 
+  const oldEnough = arrayDePessoas.filter(obj => obj.idade < 18)
+  return oldEnough
+
 }
 
 // EXERCÍCIO 17A
