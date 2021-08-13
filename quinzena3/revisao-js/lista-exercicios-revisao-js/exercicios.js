@@ -362,4 +362,19 @@ function ordenaPorData(consultasData) {
 // EXERCÍCIO 20
 function calculaSaldo(contas) {
 
+  for (const i of contas) {
+    let saldoTotal = i.saldoTotal
+    let receiveArr
+    let total = 0
+
+    const soma = (item) => {
+      total += item
+    }
+    receiveArr = i.compras
+    receiveArr.forEach(soma)
+    
+    i.saldoTotal = saldoTotal - total
+  }
+  return (contas)
+
 }
