@@ -230,7 +230,12 @@ function filmeFavorito() {
 
 // EXERCÍCIO 13
 function imprimeChamada() {
-  // "Venha assistir ao filme NOME_DO_FILME, de ANO, dirigido por DIRECAO e estrelado por ELENCO."
+  
+  const makePhrase = favoriteMovie => {
+    return `Venha assistir ao filme ${favoriteMovie.nome}, de ${favoriteMovie.ano}, dirigido por ${favoriteMovie.diretor} e estrelado por ${favoriteMovie.atores[0]}, ${favoriteMovie.atores[1]}, ${favoriteMovie.atores[2]}, ${favoriteMovie.atores[3]}.`
+  }
+  return retunedPhrase = makePhrase(filmeFavorito())
+
 }
 
 // EXERCÍCIO 14
