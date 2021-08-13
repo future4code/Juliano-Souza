@@ -195,6 +195,21 @@ function segundoMaiorEMenor(array) {
 // EXERCÍCIO 11
 function ordenaArray(array) {
 
+  const ascendingOrder = arr => {
+    let support
+    for (let index = 0; index < arr.length; index++) {
+      for (let i = 0; i < arr.length - (index - 1); i++) {
+        if (arr[i] > arr[i + 1]) {
+          support = arr[i + 1]
+          arr[i + 1] = arr[i]
+          arr[i] = support
+        }
+      }
+    }
+    return arr
+  }
+  return ascendingArr = ascendingOrder(array)
+
 }
 
 // EXERCÍCIO 12
