@@ -1,52 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/CSS/config/config.css">
+    <link rel="stylesheet" href="/CSS/style/style.css">
     <title>Adicionar Produto</title>
 </head>
 <body>
-    <div>
-        <p>Tem De Tudo</p>
+    <div class="greetings">
+        <p class="greetings__title">Tem De Tudo</p>
     </div>
     
-    <div>
-        <a href="index.html">Página Inicial</a>
-        <a href="ctrl-estoque.html">Controle de Estoque</a>
-        <a href="add-produto.html">Adicionar Produto</a>
-        <a href="funcionarios.html">Funcionários</a>
+    <div class="navigation">
+        <a class="navigation__link" href="index.html">Página Inicial</a>
+        <a class="navigation__link" href="ctrl-estoque.html">Controle de Estoque</a>
+        <a class="navigation__link" href="add-produto.html">Adicionar Produto</a>
+        <a class="navigation__link" href="funcionarios.html">Funcionários</a>
     </div>
 
     
-    <h2>Adicionar Produto</h2>
-    <form action="">
-        <div>
+    <h2 class="subtitle">Adicionar Produto</h2>
+    <form class="form" action="" autocomplete="off">
+        <div class="form__data__product">
             <label for="link-foto">Link para foto: </label>
-            <input type="url" id="link-foto" name="link-foto">
+            <input class="form__input" type="url" id="link-foto" name="link-foto">
         </div>
         
-        <div>
+        <div class="form__data__product">
             <label for="descricao">Descrição do produto: </label>
             <!-- Adicione o id apropriado para o input abaixo -->
-            <input type="text" id="descrição" name="descrição">
+            <input  class="form__input" type="text" id="descrição" name="descrição">
         </div>
         
-        <div>
+        <div class="form__data__product">
             <label for="preco">Preço (em R$): </label>
             <!-- Adicione o id apropriado e o type para receber números abaixo -->
-            <input type="text" id="preço" name="preço">
+            <input  class="form__input" type="text" id="preço" name="preço">
         </div>
         
-        <div>
+        <div class="form__data__product">
             <!-- Preencha as propriedades necessárias para os elementos abaixo -->
             <label>Quantidade disponível: </label>
-            <input>
+            <input class="form__input">
         </div>
 
-        <div class="form-add">
+        <div class="form-add form__data__product">
             <!-- Adicione ao type do botão abaixo o valor para que ele submeta o formulário -->
-            <button type="submit">Adicionar</button>
+            <button class="form__button" type="submit">Adicionar</button>
         </div>
 
     </form>
