@@ -62,7 +62,6 @@ div img {
     height: 15px;
 }
 
-
 /** 
   *
   *  ESTILOS HOME 
@@ -103,6 +102,11 @@ div:last-child {
 
 table {
     width: 60%;
+}
+
+td img {
+    width: 50px;
+    margin-left: 40%;
 }
 
 td button {
