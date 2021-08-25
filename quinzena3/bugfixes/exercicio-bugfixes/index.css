@@ -53,6 +53,14 @@ div img {
     background-color: #c44f00;
 }
 
+.botão-hover:active {
+    color: white;
+}
+
+.botão-hover:hover {
+    background-color: rgb(99, 99, 99);
+}
+
 .container {
     height: 500px;
     text-align: center;
