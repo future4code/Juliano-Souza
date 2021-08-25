@@ -83,6 +83,14 @@ div img {
     width: 24px;
 }
 
+.lupa:hover {
+    opacity: 0.5;
+}
+
+.lupa:active {
+    opacity: 1;
+}
+
 /** 
   *
   *  ESTILOS HOME 
