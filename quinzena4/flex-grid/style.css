@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*  */
+
+body {
+    display: grid;
+    grid: 8vh 100vh 8vh / 25% 75%;
+    grid-template-areas: 
+        'header header'
+        'nav main'
+        'footer footer'
+    ;
+}
+
+
+/* Estilização do header */
+
+.header {
+    grid-area: header;
+    padding: 0 15px;
+    background-color: mediumvioletred;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__section-one {
+    display: flex;
+    align-items: center;
+}
+
+.section-one__title {
+    font-size: 20px;
+    padding-left: 10px;
+}
+
+.section-one__image {
+    width: 15px;
+}
+
+/* Navegação lateral */ 
+
+.nav {
+    padding: 15px;
+    grid-area: nav;
+    background-color: #f2d0e0;
+}
+
+.nav__icon {
+    width: 15px;
+}
+
+.nav__icon-2 {
+    width: 15px;
+}
+
+.nav__item-list {
+    padding-bottom: 15px;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item-list__two {
+    align-self: flex-start;
+}
+
+.nav__item-list a{
+    text-decoration: none;
+    color: #000;
+    padding-left: 15px;
+}
+
+/* Menu */
+
+.main {
+    grid-area: main;
+    background-color: #FFFFFF;
+    padding: 15px;
+}
+
+.main__section-one {
+    height: 100%;
+    display: grid;
+    grid: repeat(2, 1fr) / repeat(4, 1fr);
+    gap: 15px;
+}
+
+.section-one__card {
+    box-shadow: 2px 2px 2px darkgray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+}
+
+.card__image {
+    width: 100%;
+
+}
+
+.card__title {
+    padding-top: 10px;
+}
+
+.card__paragraph {
+    padding-top: 10px;
+    text-align: center;
+}
+
+/* Rodapé */
+
+.footer {
+    margin-top: 10px;
+    grid-area: footer;
+    background-color: mediumvioletred;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
