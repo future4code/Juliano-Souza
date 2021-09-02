@@ -1,0 +1,26 @@
+@media screen and (max-width: 880px) {
+    .main__video-details {
+        height: 83.5vh;
+    }
+
+    .section__video-details {
+        width: 65vw;
+        justify-content: center;
+    }
+
+    .section__description {
+        padding: 20px 0;
+    }
+
+    .labetubers-views {
+        margin: 0;
+    }
+
+}
+
+@media screen and (max-width: 540px) {
+    .section__video-details {
+        width: 85vw;
+    }
+}
+
