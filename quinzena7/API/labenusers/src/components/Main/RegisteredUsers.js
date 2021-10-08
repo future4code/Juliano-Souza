@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 import axios from "axios"
-import RemoveIcon from "./x.png"
-import LoadGif from "../Main/giphy.gif"
+import RemoveIcon from "./close.png"
+import BlobSvg from "./blob.svg"
 
 
 const Container = styled.main`
@@ -18,8 +18,8 @@ const Container = styled.main`
 `
 const WrapperInfo = styled.div`
     width: 70%;
-    height: 55%;
-    /* background-color: lime; */
+    height: 56%;
+    /* background-color: darkkhaki; */
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
@@ -63,7 +63,11 @@ const List = styled.ul`
         background-color: #00000020;
         border-radius: 5px;
     }
-        
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+
 `
 const Wrapper = styled.div`
     background-color: #1D1E22;
@@ -77,7 +81,7 @@ const Wrapper = styled.div`
     border-radius: 6px;
 `
 const UserInfoContainer = styled.div`
-    display: flex;
+    display: ${props => props.hideButton ? 'none' : 'flex'};
     flex-flow: column nowrap;
     justify-content: center;
     /* background-color: lime; */
@@ -106,7 +110,7 @@ const RemoveBtn = styled.button`
     outline: none;
     border: none;
     color: #FFF;
-    border-radius: 6px 0 0 0;
+    border-radius: 6px 0 0 6px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     cursor: pointer;
@@ -116,14 +120,14 @@ const RemoveBtn = styled.button`
     }
 `
 const InfoContainer = styled.div`
+    height: 75%;
     margin: 20px 0;
     width: 100%;
     color: #FFF;
     /* background-color: lime; */
 `
 const InfoLabel = styled.p`
-    font-size: 1.2em;
-    font-weight: 500;
+    font-size: 1em;
     margin-bottom: 5px;
     display: ${props => props.hideButton && 'none'};
 `
@@ -134,7 +138,7 @@ const EditBtn = styled.button`
     background-color: #413EF7;
     outline: none;
     border: none;
-    border-radius: 0 6px 0 0;
+    border-radius: 0 6px 6px 0;
     color: #FFF;
     font-weight: 500;
     cursor: pointer;
@@ -147,9 +151,9 @@ const EditBtn = styled.button`
 `
 const BackButton = styled.button`
     margin-top: -20px;
+    height: 40px;
     width: 70%;
-    height: 35px;
-    border-radius: 0 0 6px 6px;
+    border-radius: 6px;
     border: none;
     outline: none;
     font-weight: 500;
@@ -165,19 +169,14 @@ const BtnContainer = styled.div`
     /* background-color: lime; */
     height: 40px;
     margin-top: 40px;
-    display: flex;
+    display: ${props => props.hideButton ? 'none' : 'flex'};
     justify-content: center;
     align-items: center;
 `
-const LoadingGif = styled.img`
-    display: block;
-    margin: auto;
-    width: 100px;
-    /* border: 4px solid green; */
-`
 const InputContainer = styled.div`
-    margin-top: 10px;
-    /* background-color: lime; */
+    margin-top: 40px;
+    height: 80%;
+    /* background-color: red; */
     display: ${props => props.editSection ? 'flex' : 'none'};
     flex-flow: column nowrap;
     align-items: center;
@@ -186,17 +185,39 @@ const InputContainer = styled.div`
 const NewName = styled.input`
     margin-bottom: 3px;
     width: 80%;
-    padding: .5em;
     font-family: 'Montserrat', sans-serif;
-`
-const NewEmail = styled.input`
+    border-radius: 6px 6px 0 0;
+    height: 40px;
+    padding: .5em .5em;
+    font-size: 1em;
+    background-color: #2F3137;
+    outline: none;
+    border: none;
+    color: #FFF;
     margin-bottom: 3px;
-    width: 80%;
-    padding: .5em;   
-    font-family: 'Montserrat', sans-serif;
+    &:focus {
+        border: 1.5px solid #FFFfff30;
+    }
 `
-const SaveEdit = styled(EditBtn)`
-    width: 80%;
+const NewEmail = styled(NewName)`
+    margin-bottom: 30px;
+    border-radius: 0 0 6px 6px;
+`
+const SaveEdit = styled.button`
+    width: 70%;
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #413EF7;
+    outline: none;
+    border: none;
+    border-radius: 6px 6px 0 0;
+    color: #FFF;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 200ms linear;
+    &:hover {
+        opacity: 0.9;
+    }
 `
 const SearchContainer = styled.div`
     height: 35px;
@@ -232,6 +253,30 @@ const SearchBtn = styled(EditBtn)`
         opacity: 0.9;
     }
 `
+const EditContainer = styled.div`
+    height: 70%;
+    /* background-color: lime; */
+`
+const is_rotating = keyframes`
+    to {
+    transform: rotate(1turn);
+    }
+`
+const Loader = styled.div`
+    animation: ${is_rotating} 1s infinite;
+    border: 6px solid #2F3137;
+    border-radius: 50%;
+    border-top-color: #413EF7;
+    height: 40px;
+    width: 40px;
+`
+const LabelEdit = styled(Title)`
+    font-size: 1.2em;
+`
+const LabelInfo = styled.div`
+    margin-top: -40px;
+    text-align: center; 
+`
 
 function RegisteredUsers({handleScreen}) {
     const [allUsers, setAllUsers] = useState([])
@@ -241,11 +286,17 @@ function RegisteredUsers({handleScreen}) {
     const [newName, setNewName] = useState('')
     const [newEmail, setNewEmail] = useState('')
     const [searchUserInput, setSearchUserInput] = useState('')
+    const [loading, setLoading] = useState(false);
 
     const getAllUsers = async () => {
         const getAllUsers = 'https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users'
         const authKEY = { headers: {Authorization: 'juliano-banu'} }
-        await axios.get(getAllUsers, authKEY).then(res => setAllUsers(res.data)).catch(rej => console.log(rej))
+        await axios.get(getAllUsers, authKEY)
+        .then(res => {
+            setAllUsers(res.data)
+            setLoading(false)
+        })
+        .catch(rej => console.log(rej))
     }
 
     const deleteUser = async (id) => {
@@ -260,6 +311,7 @@ function RegisteredUsers({handleScreen}) {
     }
 
     useEffect(() => {
+        setLoading(true)
         getAllUsers()
     }, [])
 
@@ -269,9 +321,15 @@ function RegisteredUsers({handleScreen}) {
     const getUserInfo = async (id) => {
         setUserInfoScreen(!userInfoScreen)
         setEditSection(false)
+        setLoading(true)
         let getUserInfo = `https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`
         const authKEY = { headers: {Authorization: 'juliano-banu'} }
-        await axios.get(getUserInfo, authKEY).then(res => setUserInfo(res.data)).catch(rej => console.log(rej))
+        await axios.get(getUserInfo, authKEY)
+        .then(res => {
+            setUserInfo(res.data)
+            setLoading(false)
+        })
+        .catch(rej => console.log(rej))
     }
 
     const editUser = async (id) => {
@@ -295,6 +353,7 @@ function RegisteredUsers({handleScreen}) {
         let searchUserURL = `https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/search?name=${name}`
         const authKEY = { headers: {Authorization: 'juliano-banu'} }
         await axios.get(searchUserURL, authKEY).then(res => setAllUsers(res.data)).catch(rej => alert('Erro'))
+        setSearchUserInput('')
     }
     
     if (!userInfoScreen) {
@@ -311,8 +370,12 @@ function RegisteredUsers({handleScreen}) {
                       <SearchBtn onClick={() => searchUsers(searchUserInput)}>Buscar</SearchBtn>
                   </SearchContainer>
                   <List>
-                  {allUsers.length === 0 ? 
-                    <LoadingGif src={LoadGif} alt={'gslakjaf'}/>  
+                  {loading ? 
+                    <Loader/>  
+                    :
+                    allUsers.length === 0
+                    ?
+                    <LabelEdit>Não há usuários cadastrados!</LabelEdit>
                     :
                     allUsers.map((value, i) => {
                         return (
@@ -346,25 +409,27 @@ function RegisteredUsers({handleScreen}) {
             <>
                 <Container>
                     <Title>Informações do Usuário</Title>
-                    {userInfo.length === 0 ?
-                        <LoadingGif src={LoadGif} alt={'gslakjaf'}/>  
+                    {loading ?
+                        <Loader/>  
                     :
                     <WrapperInfo>
                         <InfoContainer>
-                            <UserInfoContainer>
-                                <InfoLabel hideButton= {editSection}>{userInfo.name && `Nome: ${userInfo.name}`}</InfoLabel>
-                                <InfoLabel hideButton= {editSection}>{userInfo.email && `Email: ${userInfo.email}`}</InfoLabel>
+                            <UserInfoContainer hideButton= {editSection}>
+                                <InfoLabel>{userInfo.name && `Nome: ${userInfo.name}`}</InfoLabel>
+                                <InfoLabel>{userInfo.email && `Email: ${userInfo.email}`}</InfoLabel>
                             </UserInfoContainer>
-                            {userInfo.length !== 0 &&
-                                <div>
-                                    <BtnContainer>
-                                        <RemoveBtn
-                                            onClick={() => deleteUser(userInfo.id)}
-                                            hideButton= {editSection}
-                                        >Remover</RemoveBtn>
-                                        <EditBtn hideButton= {editSection} onClick={() => setEditSection(!editSection)}>Editar Informações</EditBtn>
+                            {userInfo.length === 0 ?
+                                <LabelInfo>
+                                    <LabelEdit>Não há Informações</LabelEdit>
+                                </LabelInfo>
+                                : userInfo.length !== 0 ?
+                                <EditContainer>
+                                    <BtnContainer hideButton= {editSection}>
+                                        <RemoveBtn onClick={() => deleteUser(userInfo.id)}>Remover</RemoveBtn>
+                                        <EditBtn onClick={() => setEditSection(!editSection)}>Editar Informações</EditBtn>
                                     </BtnContainer>
                                     <InputContainer editSection={editSection}>
+                                        <LabelEdit>Insira os novos dados</LabelEdit>
                                         <NewName
                                             placeholder={'Nome'}
                                             value={newName}
@@ -379,7 +444,8 @@ function RegisteredUsers({handleScreen}) {
                                         </NewEmail>
                                         <SaveEdit onClick={() => editUser(userInfo.id)}>Salvar Alterações</SaveEdit>
                                     </InputContainer>
-                                </div>
+                                </EditContainer>
+                                : null
                             }
                         </InfoContainer>
                         <BackButton
