@@ -459,7 +459,7 @@ function RegisteredUsers({handleScreen}) {
                                         <TableData>{userInfo.name}</TableData>
                                     </TableRow>
                                     <TableRow>
-                                        <TableHead>Idade</TableHead>
+                                        <TableHead>Email</TableHead>
                                         <TableData>{userInfo.email}</TableData>
                                     </TableRow>
                                 </Table>
