@@ -17,9 +17,13 @@ const GlobalStyle = createGlobalStyle`
 // Styles
 
 const Title = styled.h1`
+    height: 10vh;
     text-align: center;
     font-size: 3.5em;
     color: #1D1E22;
+    @media(max-width: 560px) {
+      font-size: 3em;
+    }
 `
 
 function Header() {

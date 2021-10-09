@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import styled, { keyframes } from "styled-components"
 import axios from "axios"
 import RemoveIcon from "./close.png"
-import BlobSvg from "./blob.svg"
 
 
 const Container = styled.main`
@@ -15,20 +14,40 @@ const Container = styled.main`
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
+    @media(max-width: 950px) {
+        width: 70%;
+    }
+    @media(max-width: 560px) {
+        width: 90%;
+    }
+    @media(max-width: 440px) {
+        margin: 0 auto;
+        width: 100%;
+        border-radius: 0;
+        height: 90vh;
+    }
 `
 const WrapperInfo = styled.div`
     width: 70%;
     height: 56%;
-    /* background-color: darkkhaki; */
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
+    @media(max-width: 560px) {
+        width: 80%;
+    }
 `
 const Title = styled.h2`
     font-size: 2em;
     color: #FFFF;
     margin-bottom: 15px;
+    @media(max-width: 560px) {
+        font-size: 1.7em;
+    }
+    @media(max-width: 440px) {
+        font-size: 1.5em;
+    }
 `
 const Button = styled.button`
     margin-top: 5px;
@@ -49,7 +68,6 @@ const Button = styled.button`
     }
 `
 const List = styled.ul`
-    /* background-color: lime; */
     list-style-type: none;
     margin: 10px 0;
     width: 70%;
@@ -63,11 +81,6 @@ const List = styled.ul`
         background-color: #00000020;
         border-radius: 5px;
     }
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-
 `
 const Wrapper = styled.div`
     background-color: #1D1E22;
@@ -210,7 +223,7 @@ const SaveEdit = styled.button`
     background-color: #413EF7;
     outline: none;
     border: none;
-    border-radius: 6px 6px 0 0;
+    border-radius: 6px;
     color: #FFF;
     font-weight: 500;
     cursor: pointer;
@@ -269,14 +282,41 @@ const Loader = styled.div`
     border-top-color: #413EF7;
     height: 40px;
     width: 40px;
+    margin: 20% auto;
 `
 const LabelEdit = styled(Title)`
     font-size: 1.2em;
+`
+const NoUserAlert = styled(LabelEdit)`
+    text-align: center;
+    margin-top: 20%;
 `
 const LabelInfo = styled.div`
     margin-top: -40px;
     text-align: center; 
 `
+const Table = styled.table`
+    display: ${props => props.handleTable ? 'none' : 'inline-table'};
+    padding: 0.1em;
+    background-color: #ffffff20;
+    /* background-color: #3D3BE120; */
+    border-radius: 5px;
+`
+const TableRow = styled.tr`
+    font-size: .9em;
+    height: 2em;
+    background-color: #2F3137;
+    width: 10px;
+`
+const TableHead = styled.th`
+    padding-left: 10px;
+    padding-right: 10px;
+`
+const TableData = styled.td`
+    padding-left: 10px;
+    padding-right: 10px;
+`
+
 
 function RegisteredUsers({handleScreen}) {
     const [allUsers, setAllUsers] = useState([])
@@ -286,7 +326,7 @@ function RegisteredUsers({handleScreen}) {
     const [newName, setNewName] = useState('')
     const [newEmail, setNewEmail] = useState('')
     const [searchUserInput, setSearchUserInput] = useState('')
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     const getAllUsers = async () => {
         const getAllUsers = 'https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users'
@@ -311,7 +351,6 @@ function RegisteredUsers({handleScreen}) {
     }
 
     useEffect(() => {
-        setLoading(true)
         getAllUsers()
     }, [])
 
@@ -350,10 +389,17 @@ function RegisteredUsers({handleScreen}) {
     }
 
     const searchUsers = async (name) => {
+        setSearchUserInput('')
+        setAllUsers([])
+        setLoading(true)
         let searchUserURL = `https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/search?name=${name}`
         const authKEY = { headers: {Authorization: 'juliano-banu'} }
-        await axios.get(searchUserURL, authKEY).then(res => setAllUsers(res.data)).catch(rej => alert('Erro'))
-        setSearchUserInput('')
+        await axios.get(searchUserURL, authKEY)
+        .then(res => {
+            setAllUsers(res.data)
+            setLoading(false)
+        })
+        .catch(() => alert('Erro'))
     }
     
     if (!userInfoScreen) {
@@ -375,23 +421,21 @@ function RegisteredUsers({handleScreen}) {
                     :
                     allUsers.length === 0
                     ?
-                    <LabelEdit>Não há usuários cadastrados!</LabelEdit>
+                    <NoUserAlert>Não há usuários cadastrados!</NoUserAlert>
                     :
                     allUsers.map((value, i) => {
                         return (
-                            <Wrapper>
+                            <Wrapper key={i}>
                                 <ListItem
-                                  key={i}
-                                  onClick={() => getUserInfo(value.id)}
-                                  >
-                                    {value.name}
-                                
+                                    onClick={() => getUserInfo(value.id)}
+                                >
+                                {value.name}
                                 </ListItem>
                                 <Remove
-                                  src={RemoveIcon}
-                                  alt={'Remove'}
-                                  onClick={() => deleteUser(value.id)}
-                                  />
+                                    src={RemoveIcon}
+                                    alt={'Remove'}
+                                    onClick={() => deleteUser(value.id)}
+                                />
                             </Wrapper>
                             )
                         })}
@@ -415,8 +459,16 @@ function RegisteredUsers({handleScreen}) {
                     <WrapperInfo>
                         <InfoContainer>
                             <UserInfoContainer hideButton= {editSection}>
-                                <InfoLabel>{userInfo.name && `Nome: ${userInfo.name}`}</InfoLabel>
-                                <InfoLabel>{userInfo.email && `Email: ${userInfo.email}`}</InfoLabel>
+                                <Table border="1" handleTable= {userInfo.length === 0}>
+                                    <TableRow>
+                                        <TableHead>Nome</TableHead>
+                                        <TableData>{userInfo.name}</TableData>
+                                    </TableRow>
+                                    <TableRow>
+                                        <TableHead>Idade</TableHead>
+                                        <TableData>{userInfo.email}</TableData>
+                                    </TableRow>
+                                </Table>
                             </UserInfoContainer>
                             {userInfo.length === 0 ?
                                 <LabelInfo>

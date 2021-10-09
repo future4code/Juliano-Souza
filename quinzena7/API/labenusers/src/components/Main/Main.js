@@ -14,11 +14,26 @@ const Container = styled.main`
     justify-content: center;
     background-color: #1D1E22;
     border-radius: 10px;
+    @media(max-width: 950px) {
+        width: 60%;
+    }
+    @media(max-width: 560px) {
+        width: 80%;
+    }
+    @media(max-width: 440px) {
+        margin: 0 auto;
+        width: 100%;
+        border-radius: 0;
+        height: 90vh;
+    }
 `
 const Title = styled.h2`
     font-size: 2em;
     color: #FFFF;
     margin-bottom: 25px;
+    @media(max-width: 440px) {
+        font-size: 1.7em;
+    }
 `
 const InputName = styled.input`
     border-radius: 6px 6px 0 0;
