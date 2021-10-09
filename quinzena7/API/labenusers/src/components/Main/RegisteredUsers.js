@@ -139,11 +139,6 @@ const InfoContainer = styled.div`
     color: #FFF;
     /* background-color: lime; */
 `
-const InfoLabel = styled.p`
-    font-size: 1em;
-    margin-bottom: 5px;
-    display: ${props => props.hideButton && 'none'};
-`
 const EditBtn = styled.button`
     cursor: pointer;
     width: 45%;
@@ -316,7 +311,6 @@ const TableData = styled.td`
     padding-left: 10px;
     padding-right: 10px;
 `
-
 
 function RegisteredUsers({handleScreen}) {
     const [allUsers, setAllUsers] = useState([])
