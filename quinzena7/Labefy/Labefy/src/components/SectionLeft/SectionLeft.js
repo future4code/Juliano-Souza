@@ -10,19 +10,24 @@ import Arrow from "../Playlists/Icons/arrow.png"
 
 const Container = styled.div`
     grid-area: SectionLeft;
-    /* background-color: lightskyblue; */
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-evenly;
     align-items: center;
     padding: 5px 10px;
+    @media(max-width: 800px) {
+        margin: 0 auto;
+        width: 85%;
+        height: 120%;
+    }
 `
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 // Card Menu Options
 
 const CardMenuOptions = styled.div`
-    background-color: #0E0A19;
+    /* background-color: #0E0A19; */
+    background-color: #FDE4E3;
     /* background-color: #F7F7F7; */
     width: 90%;
     height: 38%;
@@ -31,6 +36,9 @@ const CardMenuOptions = styled.div`
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
+    @media(max-width: 800px) {
+        display: none;
+    }
 `
 // Favorite Tracks
 
@@ -45,7 +53,7 @@ const FavoriteTracks = styled.div`
     padding: 0 25px;
     cursor: pointer;
     /* color: #0E0A19; */
-    color: #FFFFFF;
+    color: #0E0A19;
 `
 const FavoriteText = styled.span`
     text-transform: uppercase;
@@ -71,6 +79,9 @@ const CardNewsOne = styled.div`
     width: 90%;
     height: 28%;
     border-radius: 10px;
+    @media(max-width: 800px) {
+        height: 45%;
+    }
 `
 // Image Section
 
@@ -97,6 +108,9 @@ const Image = styled.img`
 const Paragraph = styled.p`
     font-size: 0.7em;
     padding: 5px;
+    @media(max-width: 800px) {
+        font-size: 0.9em;
+    }
 `
 // Card News Two
 
@@ -105,6 +119,9 @@ const CardNewsTwo = styled.div`
     width: 90%;
     height: 28%;
     border-radius: 10px;
+    @media(max-width: 800px) {
+        height: 45%;
+    }
 `
 const ImageSectionTwo = styled(ImageSectionOne)`
     background-image: url(${props => props.backgroundImg});

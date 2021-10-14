@@ -9,7 +9,11 @@ import Tracks from './Tracks/Tracks';
 
 const Container = styled.div`
     grid-area: Playlists;
-    /* background-color: khaki; */
+    @media(max-width: 800px) {
+        width: 100%;
+        padding: 10px;
+        height: 55vh;
+    }
 `
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

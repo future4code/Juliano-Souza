@@ -1,12 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { createGlobalStyle } from 'styled-components';
-// import axios from "axios"
 import styled from "styled-components"
 import Header from './components/Header/Header';
 import Playlists from './components/Playlists/Playlists';
 import SectionLeft from './components/SectionLeft/SectionLeft';
-import SectionRight from './components/SectionRight/SectionRight';
-// import Tracks from './components/Playlists/Tracks/Tracks'
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -29,6 +26,14 @@ const Body = styled.div`
   'SectionLeft Playlists Playlists'
   'SectionLeft . .'
   ;
+  @media(max-width: 800px) {
+    grid: 8vh 110vh 52vh / 25% 50% 25%;
+    grid-template-areas: 
+    'Header Header Header'
+    'Playlists Playlists Playlists'
+    'SectionLeft SectionLeft SectionLeft'
+  ;
+  }
 `
 
 
@@ -41,7 +46,6 @@ function App() {
       <Header/>
       <SectionLeft/>
       <Playlists/>
-      {/* <SectionRight/> */}
     </Body>
   );
 }

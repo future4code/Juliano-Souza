@@ -16,16 +16,11 @@ const Logo = styled.span`
     font-size: 2em;
     font-weight: 700;
 `
-const LogoSpan = styled.span`
-    color: #F25843;
-    background-color: #FEF2F2;
-    padding-right: 30px;
-`
 
 function Header() {
     return (
         <Container>
-            <Logo>Labe<LogoSpan>fy</LogoSpan></Logo>
+            <Logo>Labefy</Logo>
         </Container>
     )
 }

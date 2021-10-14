@@ -1,8 +1,6 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import styled, { keyframes } from "styled-components"
 import Audio from './Audio/Audio'
-import Pause from "./Icons/pause.png"
-import Play from "./Icons/play.png"
 import Like from "./Icons/like.png"
 import Liked from "./Icons/liked.png"
 
@@ -12,18 +10,30 @@ import Liked from "./Icons/liked.png"
 const Body = styled.div`
     width: 67%;
     height: 125%;
+    @media(max-width: 800px) {
+        width: 100%;
+        padding: 10px;
+        max-height: 55vh;
+    }
 `
 
 // Container
 
 const Container = styled.div`
     grid-area: Tracks;
-    /* background-color: lightsalmon; */
     padding-top: 12px;
     width: 100%;
-    height: 100%;
+    max-height: 100%;
     display: ${props => props.handleTrackDisplay ? 'block' : 'none'};
     overflow-y: auto;
+    ::-webkit-scrollbar {
+    background-color: #FFFFFF;
+    width: 0.001px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #00000020;
+    border-radius: 5px;
+  }
 `
 
 // Button
@@ -37,7 +47,6 @@ const AddTrackContainer = styled.div`
     align-items: flex-start;
     justify-content: space-evenly;
 `
-
 const AddTrackBtn = styled.button`
     background-color: #FEF2F2;
     border: 1px solid #E06464;
@@ -81,7 +90,7 @@ const TrackCard = styled.div`
 // Track
 
 const TrackPosition = styled.div`
-    width: 60px;
+    padding: 0 20px;
     min-height: inherit;
     /* background-color: darkorange; */
     border-radius: 10px 0 0 10px;
@@ -95,20 +104,32 @@ const TrackPosition = styled.div`
 `
 const TrackData = styled.div`
     flex-grow: 1;
+    min-width: 80px;
     /* background-color: hotpink; */
     min-height: inherit;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
+    
 `
 const Singer = styled.span`
     color: #F25844;
     font-size: 1em;
     font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
 `
 const TrackName = styled.span`
     font-size: 1.2em;
     font-weight: 700;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
 `
 const LikeTrack = styled.div`
     width: 40px;
