@@ -1,9 +1,7 @@
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 import styled from "styled-components"
-import Header from './components/Header/Header';
 import Playlists from './components/Playlists/Playlists';
-// import SectionLeft from './components/SectionLeft/SectionLeft';
 import Background from './Images/LabefyBg.jpg'
 
 const GlobalStyle = createGlobalStyle`
@@ -23,13 +21,13 @@ const Body = styled.div`
   display: grid;
   grid: 8vh 40vh 52vh / 25% 50% 25%;
   grid-template-areas: 
-  'Header Header Header'
+  '. . .'
   'Playlists Playlists Playlists'
   '. . .'
   ;
   justify-items: center;
   background-image: url(${Background});
-  background-position: center;
+  background-position: center center;
   background-size: cover;
 
   @media(max-width: 800px) {
@@ -40,15 +38,11 @@ const Body = styled.div`
   }
 `
 
-
-
 function App() {
 
   return (
     <Body>
       <GlobalStyle/>
-      {/* <Header/> */}
-      {/* <SectionLeft/> */}
       <Playlists/>
     </Body>
   );

@@ -157,12 +157,6 @@ const Player = styled.div`
     align-items: center;
     cursor: pointer;
 `
-const Icon = styled.img`
-    width: 20px;
-    &:active {
-        transform: scale(.9);
-    }
-`
 const TrackCover = styled.div`
     width: 70px;
     min-height: inherit;

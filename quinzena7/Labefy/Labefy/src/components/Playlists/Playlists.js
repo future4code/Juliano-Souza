@@ -250,7 +250,6 @@ const PlaylistAlert = styled.span`
 function Playlists() {
 
     const [createPlaylist, setCreatePlaylist] = useState(false)
-    const [randomNumber, setRandomNumber] = useState(-1)
     const [playlist, setPlaylist] = useState([])
     const [playlistName, setPlaylistName] = useState('')
     const [responseAlert, setResponseAlert] = useState('')
@@ -296,7 +295,6 @@ function Playlists() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     const makePlaylist = (userPlaylistName) => {
-        const sortNumber = Math.floor(Math.random() * 6)
 
         const URL = 'https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists'
         const AUTH = {headers: {Authorization: "juliano-banu"}}
@@ -305,7 +303,6 @@ function Playlists() {
         .then(() => {
             getAllPlaylists()
             setResponseAlert('Success')
-            setRandomNumber(sortNumber)
             setTimeout(() => setResponseAlert(''), 2500)
         })
         .catch(() => {
