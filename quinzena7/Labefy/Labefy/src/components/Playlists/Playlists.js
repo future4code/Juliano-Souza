@@ -8,7 +8,10 @@ import Tracks from './Tracks/Tracks';
 // Container
 
 const Container = styled.div`
+    background-color: #FFFFFF;
     grid-area: Playlists;
+    width: 50%;
+    /* backdrop-filter: blur(8px); */
     @media(max-width: 800px) {
         width: 100%;
         padding: 10px;
@@ -27,11 +30,17 @@ const InfoWrapper = styled.div`
     flex-flow: row nowrap;
     justify-content: flex-start;
     align-items: center;
+    @media(max-width: 800px) {
+        justify-content: center;
+    }
 `
 const Title = styled.span`
     letter-spacing: -2px;
     font-size: 3.5em;
     font-weight: 700;
+    @media(max-width: 550px) {
+        font-size: 3em;
+    }
 `
 const CreatePlaylistBtn = styled.button`
     background-color: #FEF2F2;
@@ -48,6 +57,9 @@ const CreatePlaylistBtn = styled.button`
     &:active {
         transform: scale(.92);
     }
+    @media(max-width: 550px) {
+        font-size: 0.72em;
+    }
 `
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -56,7 +68,7 @@ const CreatePlaylistBtn = styled.button`
 const PlaylistWrapper = styled.div`
     width: 100%;
     height: 65%;
-    /* background-color: darkcyan; */
+    padding: 0 5px;
     display: ${props => !props.creatPlaylistState ? 'flex' : 'none'};
     flex-flow: row nowrap;
     justify-content: space-between;
@@ -180,7 +192,7 @@ const LengthAlert = styled.span`
 const InputNamePlaylist = styled.input`
     /* background-color: #FEF2F2; */
     border: 1px solid #E06464;
-    width: 30%;
+    width: 40%;
     padding: 0.5em 1em;
     border-radius: 15px;
     outline: none;
@@ -259,23 +271,23 @@ function Playlists() {
 
     
     const setBackgroundColor = (i) => {
-        const backgroundColors = ['#FDE4E3', '#F25843', '#F1F3F4', '#E7F1C5', '#FFF0B5', '#5CEF8A']
+        const backgroundColors = ['#FDE4E3', '#F25843', '#F1F3F4', '#E7F1C5', '#FFF0B5']
 
-        return i === 0 ? backgroundColors[0] :
-               i === 1 ? backgroundColors[1] :
-               i === 2 ? backgroundColors[2] :
-               i === 3 ? backgroundColors[3] :
-               i === 4 ? backgroundColors[4] :
-               backgroundColors[5]
+        return i % backgroundColors.length -1 === 0 ? backgroundColors[0] :
+               i % backgroundColors.length === 1 ? backgroundColors[1] :
+               i % backgroundColors.length === 2 ? backgroundColors[2] :
+               i % backgroundColors.length === 3 ? backgroundColors[3] :
+               i % backgroundColors.length === 4 ? backgroundColors[4] :
+               backgroundColors[2]
     }
-    const setFontColor = (i, randomNumber) => {
+    const setFontColor = (i) => {
         const fontColors = ['#F25843', '#FDE4E3', '#175677', '#4E1D7B', '#2C2D87', '#0E0A19']
 
-        return i === 0 ? fontColors[0] :
-               i === 1 ? fontColors[1] :
-               i === 2 ? fontColors[2] :
-               i === 3 ? fontColors[3] :
-               i === 4 ? fontColors[4] :
+        return i % fontColors.length -1 === 0 ? fontColors[0] :
+               i % fontColors.length === 1 ? fontColors[1] :
+               i % fontColors.length === 2 ? fontColors[2] :
+               i % fontColors.length === 3 ? fontColors[3] :
+               i % fontColors.length === 4 ? fontColors[4] :
                fontColors[5]
     }
     useEffect(() => {
@@ -427,7 +439,7 @@ function Playlists() {
                                         setCurrentId(value.id)
                                     }}
                                     key={i} 
-                                    setBackgroundColor={setBackgroundColor(i, randomNumber)}
+                                    setBackgroundColor={setBackgroundColor(i)}
                                     >
                                     <PlaylistTitle setFontColor={setFontColor(i)}>{value.name}</PlaylistTitle>
                                     <DeleteIcon src={Delete} alt={'Delete Playlist Icon'}onClick={() => deletePlaylist(value.id)}/>
@@ -468,8 +480,6 @@ function Playlists() {
 
                 loading={trackLoading}
                 />
-            
-
         </Container>
     )
 }

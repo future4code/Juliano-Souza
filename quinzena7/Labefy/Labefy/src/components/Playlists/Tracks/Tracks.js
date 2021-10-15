@@ -8,12 +8,14 @@ import Liked from "./Icons/liked.png"
 // Body 
 
 const Body = styled.div`
-    width: 67%;
-    height: 125%;
+    width: 100%;
+    height: 100%;
+    background-color: #FFFFFF;
+    /* backdrop-filter: blur(1px); */
     @media(max-width: 800px) {
         width: 100%;
         padding: 10px;
-        max-height: 55vh;
+        max-height: 45vh;
     }
 `
 
@@ -104,8 +106,7 @@ const TrackPosition = styled.div`
 `
 const TrackData = styled.div`
     flex-grow: 1;
-    min-width: 80px;
-    /* background-color: hotpink; */
+    min-width: 100px;
     min-height: inherit;
     display: flex;
     flex-flow: column nowrap;
@@ -130,6 +131,9 @@ const TrackName = styled.span`
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
+    @media (max-width: 550px) {
+        width: 10ch;
+    }
 `
 const LikeTrack = styled.div`
     width: 40px;
@@ -161,7 +165,6 @@ const Icon = styled.img`
 `
 const TrackCover = styled.div`
     width: 70px;
-    background-color: honeydew;
     min-height: inherit;
     border-radius: 0 10px 10px 0;
     display: flex;
@@ -170,10 +173,9 @@ const TrackCover = styled.div`
 `
 const Image = styled.img`
     width: inherit;
-    /* width: 50px; */
-    background-color: lightsalmon;
     border-radius: 10px;
     object-fit: fill;
+    width: 45px;
 `
 
 //
@@ -332,7 +334,7 @@ function Tracks({handleTrackDisplay, trackList, changeAddTrackDisplay, stateTrac
                             </Player>
                             
                             <TrackCover>
-                                <Image/>
+                                <Image src={'https://travelpedia.com.br/wp-content/uploads/2018/01/Music-icon.png'}/>
                             </TrackCover>
                         </TrackCard>
                     )

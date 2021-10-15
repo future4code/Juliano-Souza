@@ -3,7 +3,8 @@ import { createGlobalStyle } from 'styled-components';
 import styled from "styled-components"
 import Header from './components/Header/Header';
 import Playlists from './components/Playlists/Playlists';
-import SectionLeft from './components/SectionLeft/SectionLeft';
+// import SectionLeft from './components/SectionLeft/SectionLeft';
+import Background from './Images/LabefyBg.jpg'
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -23,16 +24,19 @@ const Body = styled.div`
   grid: 8vh 40vh 52vh / 25% 50% 25%;
   grid-template-areas: 
   'Header Header Header'
-  'SectionLeft Playlists Playlists'
-  'SectionLeft . .'
+  'Playlists Playlists Playlists'
+  '. . .'
   ;
+  justify-items: center;
+  background-image: url(${Background});
+  background-position: center;
+  background-size: cover;
+
   @media(max-width: 800px) {
-    grid: 8vh 110vh 52vh / 25% 50% 25%;
+    grid: 90vh/ 100%;
     grid-template-areas: 
-    'Header Header Header'
-    'Playlists Playlists Playlists'
-    'SectionLeft SectionLeft SectionLeft'
-  ;
+    'Playlists'
+    ;
   }
 `
 
@@ -43,8 +47,8 @@ function App() {
   return (
     <Body>
       <GlobalStyle/>
-      <Header/>
-      <SectionLeft/>
+      {/* <Header/> */}
+      {/* <SectionLeft/> */}
       <Playlists/>
     </Body>
   );

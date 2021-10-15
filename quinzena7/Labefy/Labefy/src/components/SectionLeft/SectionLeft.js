@@ -36,6 +36,7 @@ const CardMenuOptions = styled.div`
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
+    display: none;
     @media(max-width: 800px) {
         display: none;
     }
