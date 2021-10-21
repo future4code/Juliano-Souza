@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { themes } from '../../constants/colors'
 
 // Container
 export const Wrapper = styled.div`
@@ -17,18 +16,18 @@ export const Wrapper = styled.div`
 // Header
 export const Header = styled.div`
     grid-area: Header;
-    background-color: ${themes.darkMode.backgroundWrapper};
+    background-color: ${p => p.theme.backgroundWrapper};
     border-radius: 10px 10px 0 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 10px;
-    color: ${themes.darkMode.text};
+    color: ${p => p.theme.text};
 `
 export const MatchesBtnWrapper = styled.div`
     width: 85px;
     height: 50%;
-    background-color: ${themes.darkMode.button};
+    background-color: ${p => p.theme.button};
     display: flex;
     justify-content: center;
     align-items: center;
@@ -42,7 +41,7 @@ export const MatchesBtn = styled.button`
     height: 100%;
     border: none;
     background-color: transparent;
-    color: ${themes.darkMode.text};
+    color: ${p => p.theme.text};
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -57,29 +56,28 @@ export const Main = styled.div`
 export const CardWrapper = styled.div`
     width: 100%;
     height: 100%;
-    background: ${themes.darkMode.backgroundWrapper};
-    color: ${themes.darkMode.text};
+    background: ${p => p.theme.backgroundWrapper};
+    color: ${p => p.theme.text};
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     overflow-y: auto;
     ::-webkit-scrollbar {
-    background-color: ${themes.darkMode.text};
+    background-color: ${p => p.theme.text};
     width: 0.001px;
     }
 `
 export const ProfileCard = styled.div`
     width: 95%;
     min-height: 60px;
-    background-color: ${themes.darkMode.button};
+    background-color: ${p => p.theme.button};
     margin-bottom: 6px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     padding: 0 10px;
     border-radius: 8px;
-    transition: 200ms linear;
     &:hover {
         filter: brightness(0.85);
         cursor: pointer;
@@ -108,7 +106,7 @@ export const Name = styled.span`
 `
 export const Description = styled.span`
     font-size: 12px;
-    color: ${themes.darkMode.secondaryText};
+    color: ${p => p.theme.secondaryText};
     max-width: 20ch;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -118,7 +116,7 @@ export const Description = styled.span`
 // Footer
 export const Footer = styled.div`
     grid-area: Footer;
-    background-color: ${themes.darkMode.backgroundWrapper};
+    background-color: ${p => p.theme.backgroundWrapper};
     border-radius: 0 0 10px 10px;
     display: flex;
     align-items: center;
@@ -128,12 +126,12 @@ export const Footer = styled.div`
 export const Reload = styled.div`
     width: 50px;
     height: 50px;
-    background-color: ${themes.darkMode.background};
+    background-color: ${p => p.theme.background};
     border-radius: 50%;
     display: grid;
     place-items: center;
     font-size: 30px;
-    color: white;
+    color: ${p => p.theme.text};
     cursor: pointer;
     &:hover {
         filter: brightness(.95);

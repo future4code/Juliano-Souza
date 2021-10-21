@@ -1,6 +1,6 @@
 import background from '../assets/background.jpg';
-import { themes } from './colors'
 import { createGlobalStyle } from 'styled-components';
+
 
 export const GlobalStyle = createGlobalStyle`
 * {
@@ -15,8 +15,8 @@ body {
   display: grid;
   place-items: center;
   font-family: 'Montserrat', sans-serif;
-  background-color: ${themes.darkMode.background};
-  background-image: url(${background});
+  background-color: ${'#fff'};
+  /* background-image: url(${background}); */
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

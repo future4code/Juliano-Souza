@@ -1,9 +1,9 @@
 export const themeLight = {
     background: '#E5E5E5',
-    backgroundWrapper: '#FFFFFF',
+    backgroundWrapper: '#EEEEEE',
     text: '#121212',
-    secondaryText: '#cbcbcb',
-    button: '#cbcbcb',
+    secondaryText: '#121212',
+    button: '#D8E3E7',
     online: '#00FE5F',
-    offline: '#FE1A1A'
+    like: '#FE1A1A'
 }

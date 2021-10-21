@@ -5,5 +5,5 @@ export const themeDark = {
     secondaryText: '#cbcbcb',
     button: '#1E1E1E',
     online: '#00FE5F',
-    offline: '#FE1A1A'
+    like: '#FE1A1A'
 }
