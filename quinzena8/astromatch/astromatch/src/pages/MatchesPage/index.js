@@ -4,7 +4,7 @@ import { ProfileContext } from "../../contexts/ProfileContext";
 import { ThemeContext } from '../../contexts/ThemeContext'
 import { BsArrowLeft } from "react-icons/bs";
 import { AiOutlineReload } from "react-icons/ai"
-import { MdDarkMode } from "react-icons/md";
+import { MdDarkMode, MdWbSunny } from "react-icons/md";
 import { Wrapper, Header, MatchesBtnWrapper, MatchesBtn, Main, ProfileCard, Avatar, Name, Description, InfoWrapper, Footer, Reload, CardWrapper } from './style'
 
 export function MatchesPage() {
@@ -21,7 +21,7 @@ export function MatchesPage() {
         <div>
             <Wrapper>
                 <Header>
-                    <MdDarkMode  style={{fontSize: '22px', cursor: 'pointer'}} onClick={themeSwitcher}/>
+                {theme.id === 1 ? <MdDarkMode  style={{fontSize: '22px', cursor: 'pointer', color: theme.text}} onClick={themeSwitcher}/> : <MdWbSunny  style={{fontSize: '22px', cursor: 'pointer', color: theme.text}} onClick={themeSwitcher}/>}
                     <MatchesBtnWrapper>
                         <MatchesBtn>
                         <Link style={{textDecoration:'none', color: theme.text}}to='/'>Voltar</Link>
@@ -36,7 +36,9 @@ export function MatchesPage() {
                                 <ProfileCard key={i}>
                                     <Avatar avatar={profile.photo}></Avatar>
                                     <InfoWrapper>
-                                        <Name>{profile.name}</Name>
+                                        <div>
+                                            <Name>{profile.name}</Name>
+                                        </div>
                                         <Description>{profile.bio}</Description>
                                     </InfoWrapper>
                                 </ProfileCard>

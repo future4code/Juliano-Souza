@@ -1,4 +1,5 @@
-import background from '../assets/background.jpg';
+import darkBackground from '../assets/darkBackground.jpg';
+import lightBackground from '../assets/lightBackground.jpg';
 import { createGlobalStyle } from 'styled-components';
 
 
@@ -17,7 +18,7 @@ body {
   font-family: 'Montserrat', sans-serif;
   background: ${p => p.theme.background};
   transition: background 300ms ease-in-out;
-  /* background-image: url(${background}); */
+  background-image: url(${p => p.theme.id === 1 ? lightBackground : darkBackground});
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

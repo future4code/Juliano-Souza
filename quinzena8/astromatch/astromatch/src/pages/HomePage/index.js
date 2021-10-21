@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 import { Wrapper, Header, Main, Footer, MatchesBtnWrapper, MatchesBtn, CardWrapper, ProfileCard, ProfileInfo, Name, Age, ProfileDescription, Activity, Log, Reload, Dislike, Like } from './style'
 // import { Logo } from '../../components/Logo'
 import { AiOutlineReload, AiOutlineClose, AiFillHeart } from "react-icons/ai"
-import { MdDarkMode } from "react-icons/md";
+import { MdDarkMode, MdWbSunny } from "react-icons/md";
 
 export function HomePage() {
 
@@ -16,7 +16,7 @@ export function HomePage() {
       <div>
             <Wrapper>
               <Header>
-                <MdDarkMode  style={{fontSize: '22px', cursor: 'pointer', color: theme.text}} onClick={themeSwitcher}/>
+                {theme.id === 1 ? <MdDarkMode  style={{fontSize: '22px', cursor: 'pointer', color: theme.text}} onClick={themeSwitcher}/> : <MdWbSunny  style={{fontSize: '22px', cursor: 'pointer', color: theme.text}} onClick={themeSwitcher}/>}
                 <MatchesBtnWrapper>
                   <MatchesBtn>
                     <Link style={{textDecoration:'none', color: theme.text}}to='/matches'>Meus Matches</Link>

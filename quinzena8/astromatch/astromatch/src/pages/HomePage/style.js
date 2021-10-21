@@ -75,7 +75,7 @@ export const ProfileCard = styled.div`
 `
 export const ProfileInfo = styled.div`
     width: 100%;
-    height: 70px;
+    height: 85px;
     transition: background 300ms linar;
     background: linear-gradient(transparent 5%, ${p => p.theme.backgroundWrapper} 45%);
     display: flex;

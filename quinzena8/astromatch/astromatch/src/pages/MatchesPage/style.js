@@ -78,7 +78,7 @@ export const ProfileCard = styled.div`
     padding: 0 10px;
     border-radius: 8px;
     &:hover {
-        filter: brightness(0.85);
+        filter: brightness(0.90);
         cursor: pointer;
     }
     
@@ -123,7 +123,7 @@ export const Footer = styled.div`
 export const Reload = styled.div`
     width: 50px;
     height: 50px;
-    background-color: ${p => p.theme.background};
+    background-color: ${p => p.theme.button};
     border-radius: 50%;
     display: grid;
     place-items: center;
@@ -131,7 +131,7 @@ export const Reload = styled.div`
     color: ${p => p.theme.text};
     cursor: pointer;
     &:hover {
-        filter: brightness(.95);
+        filter: brightness(0.98);
     }
     &:active {
         transform: scale(0.95);
