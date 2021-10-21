@@ -1,5 +1,5 @@
 export const themeDark = {
-    background: '#292929',
+    background: '#171717',
     backgroundWrapper: '#121212',
     text: '#FFFFFF',
     secondaryText: '#cbcbcb',

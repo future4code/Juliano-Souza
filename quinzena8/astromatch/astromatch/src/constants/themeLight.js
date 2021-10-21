@@ -1,5 +1,5 @@
 export const themeLight = {
-    background: '#E5E5E5',
+    background: '#fffafa',
     backgroundWrapper: '#EEEEEE',
     text: '#121212',
     secondaryText: '#121212',

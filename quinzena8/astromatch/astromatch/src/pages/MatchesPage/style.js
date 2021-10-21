@@ -4,6 +4,8 @@ import styled from 'styled-components'
 export const Wrapper = styled.div`
     width: 290px;
     height: 80vh;
+    background-color: ${p => p.theme.backgroundWrapper};
+    border-radius: 10px;
     display: grid;
     grid: 10% 70% 20% / 1fr;
     grid-template-areas: 
@@ -16,8 +18,6 @@ export const Wrapper = styled.div`
 // Header
 export const Header = styled.div`
     grid-area: Header;
-    background-color: ${p => p.theme.backgroundWrapper};
-    border-radius: 10px 10px 0 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -56,7 +56,6 @@ export const Main = styled.div`
 export const CardWrapper = styled.div`
     width: 100%;
     height: 100%;
-    background: ${p => p.theme.backgroundWrapper};
     color: ${p => p.theme.text};
     display: flex;
     flex-direction: column;
@@ -116,8 +115,6 @@ export const Description = styled.span`
 // Footer
 export const Footer = styled.div`
     grid-area: Footer;
-    background-color: ${p => p.theme.backgroundWrapper};
-    border-radius: 0 0 10px 10px;
     display: flex;
     align-items: center;
     justify-content: center;
