@@ -15,7 +15,8 @@ body {
   display: grid;
   place-items: center;
   font-family: 'Montserrat', sans-serif;
-  background-color: ${'#fff'};
+  background-color: ${p => p.theme.background};
+  transition: 300ms ease-in-out;
   /* background-image: url(${background}); */
   background-position: center;
   background-size: cover;

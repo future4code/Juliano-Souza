@@ -3,11 +3,9 @@ import {ProfileContext} from '../../contexts/ProfileContext'
 import { ThemeContext } from '../../contexts/ThemeContext'
 import { Link } from "react-router-dom"
 import { Wrapper, Header, Main, Footer, MatchesBtnWrapper, MatchesBtn, CardWrapper, ProfileCard, ProfileInfo, Name, Age, ProfileDescription, Activity, Log, Reload, Dislike, Like } from './style'
-import { Logo } from '../../components/Logo'
+// import { Logo } from '../../components/Logo'
 import { AiOutlineReload, AiOutlineClose, AiFillHeart } from "react-icons/ai"
-// import { BsToggleOff, BsToggleOn } from "react-icons/bs"
 import { MdDarkMode } from "react-icons/md";
-import { ThemeProvider } from 'styled-components'
 
 export function HomePage() {
 
@@ -16,10 +14,8 @@ export function HomePage() {
 
     return (
       <div>
-          <ThemeProvider theme={theme}>
             <Wrapper>
               <Header>
-                {/* <Logo/> */}
                 <MdDarkMode  style={{fontSize: '22px', cursor: 'pointer', color: theme.text}} onClick={themeSwitcher}/>
                 <MatchesBtnWrapper>
                   <MatchesBtn>
@@ -54,7 +50,6 @@ export function HomePage() {
                 </Dislike>
               </Footer>
             </Wrapper>
-          </ThemeProvider>
       </div>
     );
   }
