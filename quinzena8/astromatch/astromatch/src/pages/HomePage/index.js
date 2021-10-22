@@ -12,8 +12,8 @@ export function HomePage() {
     const {profile, choosePerson, getProfile, handleClear} = useContext(ProfileContext)
     const {theme, themeSwitcher} = useContext(ThemeContext)
 
-    const [handleLike, setHandleLiked] = useState(profile)
-    
+    const [handleLike, setHandleLiked] = useState(false)
+
     return (
       <div>
             <Wrapper>
@@ -44,11 +44,13 @@ export function HomePage() {
                 <Reload>
                   <AiOutlineReload onClick={handleClear}/>
                 </Reload>
-                <Like onClick={() => choosePerson(profile.id)} handleLike={handleLike.available}>
-                  <AiFillHeart onClick={() => {
-                    setHandleLiked({...profile, available: true})
-                    setTimeout(() => {setHandleLiked({...profile, available: false})}, 500)
-                  }}/>
+                <Like onClick={() => {
+                  choosePerson(profile.id)
+                  setHandleLiked(true)
+                  setTimeout(() => {setHandleLiked(false)}, 400)
+                  }} 
+                  handleLike={handleLike}>
+                  <AiFillHeart/>
                 </Like>
                 <Dislike onClick={getProfile}>
                   <AiOutlineClose/>

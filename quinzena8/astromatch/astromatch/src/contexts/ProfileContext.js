@@ -10,10 +10,8 @@ export function ProfileContextProvider({children}) {
     const [matches, setMatches] = useState([])
 
     const getProfile = () => {
-        axios.get(`${URL_BASE}/person`).then(res => setProfile({...res.data.profile, available: false})).catch(rej => console.log(rej))
+        axios.get(`${URL_BASE}/person`).then(res => setProfile(res.data.profile)).catch(rej => console.log(rej))
     }
-
-    // console.log(profile)
 
     useEffect(() => {
         getProfile()
