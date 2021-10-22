@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import {ProfileContext} from '../../contexts/ProfileContext'
 import { ThemeContext } from '../../contexts/ThemeContext'
 import { Link } from "react-router-dom"
@@ -12,6 +12,8 @@ export function HomePage() {
     const {profile, choosePerson, getProfile, handleClear} = useContext(ProfileContext)
     const {theme, themeSwitcher} = useContext(ThemeContext)
 
+    const [handleLike, setHandleLiked] = useState(profile)
+    
     return (
       <div>
             <Wrapper>
@@ -42,8 +44,11 @@ export function HomePage() {
                 <Reload>
                   <AiOutlineReload onClick={handleClear}/>
                 </Reload>
-                <Like onClick={() => choosePerson(profile.id)}>
-                  <AiFillHeart/>
+                <Like onClick={() => choosePerson(profile.id)} handleLike={handleLike.available}>
+                  <AiFillHeart onClick={() => {
+                    setHandleLiked({...profile, available: true})
+                    setTimeout(() => {setHandleLiked({...profile, available: false})}, 500)
+                  }}/>
                 </Like>
                 <Dislike onClick={getProfile}>
                   <AiOutlineClose/>

@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { keyframes, css } from 'styled-components'
 import { generalColors } from '../../constants/colors'
 
  
@@ -142,10 +142,20 @@ export const Dislike = styled(Reload)`
     width: 50px;
     height: 50px;
 `
+const pulseTap = keyframes`
+    0% {
+        border: 10px solid #FE1A1A;
+    }
+
+    100% {
+        border: 0px solid #FE1A1A00;
+    }
+`
 export const Like = styled(Dislike)`
     width: 70px;
     height: 70px;
     color: ${generalColors.red};
     margin: 0 10px;
     font-size: 40px;
+    animation: ${p => p.handleLike ? css`${pulseTap} 800ms` : null};
 `
