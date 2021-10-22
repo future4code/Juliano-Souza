@@ -29,7 +29,7 @@ export const Header = styled.div`
 `
 export const MatchesBtnWrapper = styled.div`
     width: 100px;
-    height: 50%;
+    height: 55%;
     background-color: ${p => p.theme.button};
     display: flex;
     justify-content: center;

@@ -4,13 +4,13 @@ import { ProfileContext } from "../../contexts/ProfileContext";
 import { ThemeContext } from '../../contexts/ThemeContext'
 import { BsArrowLeft } from "react-icons/bs";
 import { AiOutlineReload } from "react-icons/ai"
-import { MdDarkMode, MdWbSunny } from "react-icons/md";
+import { Toggle } from '../../components/Toggle/index'
 import { Wrapper, Header, MatchesBtnWrapper, MatchesBtn, Main, ProfileCard, Avatar, Name, Description, InfoWrapper, Footer, Reload, CardWrapper } from './style'
 
 export function MatchesPage() {
 
     const {matches, getMatches, handleClear} = useContext(ProfileContext)
-    const {theme, themeSwitcher} = useContext(ThemeContext)
+    const {theme} = useContext(ThemeContext)
 
     useEffect(() => {
         getMatches()
@@ -21,7 +21,7 @@ export function MatchesPage() {
         <div>
             <Wrapper>
                 <Header>
-                {theme.id === 1 ? <MdDarkMode  style={{fontSize: '22px', cursor: 'pointer', color: theme.text}} onClick={themeSwitcher}/> : <MdWbSunny  style={{fontSize: '22px', cursor: 'pointer', color: theme.text}} onClick={themeSwitcher}/>}
+                    <Toggle/>
                     <MatchesBtnWrapper>
                         <MatchesBtn>
                         <Link style={{textDecoration:'none', color: theme.text}}to='/'>Voltar</Link>

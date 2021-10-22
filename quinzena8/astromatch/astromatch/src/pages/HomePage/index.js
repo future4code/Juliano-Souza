@@ -3,14 +3,13 @@ import {ProfileContext} from '../../contexts/ProfileContext'
 import { ThemeContext } from '../../contexts/ThemeContext'
 import { Link } from "react-router-dom"
 import { Wrapper, Header, Main, Footer, MatchesBtnWrapper, MatchesBtn, CardWrapper, ProfileCard, ProfileInfo, Name, Age, ProfileDescription, Activity, Log, Reload, Dislike, Like } from './style'
-// import { Logo } from '../../components/Logo'
 import { AiOutlineReload, AiOutlineClose, AiFillHeart } from "react-icons/ai"
-import { MdDarkMode, MdWbSunny } from "react-icons/md";
+import { Toggle } from '../../components/Toggle/index'
 
 export function HomePage() {
 
     const {profile, choosePerson, getProfile, handleClear} = useContext(ProfileContext)
-    const {theme, themeSwitcher} = useContext(ThemeContext)
+    const {theme} = useContext(ThemeContext)
 
     const [handleLike, setHandleLiked] = useState(false)
 
@@ -18,7 +17,7 @@ export function HomePage() {
       <div>
             <Wrapper>
               <Header>
-                {theme.id === 1 ? <MdDarkMode  style={{fontSize: '22px', cursor: 'pointer', color: theme.text}} onClick={themeSwitcher}/> : <MdWbSunny  style={{fontSize: '22px', cursor: 'pointer', color: theme.text}} onClick={themeSwitcher}/>}
+                <Toggle/>
                 <MatchesBtnWrapper>
                   <MatchesBtn>
                     <Link style={{textDecoration:'none', color: theme.text}}to='/matches'>Meus Matches</Link>
@@ -27,6 +26,7 @@ export function HomePage() {
               </Header>
               <Main>
                 <CardWrapper>
+                  {profile ? 
                   <ProfileCard profilePhoto={profile.photo}>
                     <ProfileInfo>
                       <div>
@@ -38,6 +38,7 @@ export function HomePage() {
                       <ProfileDescription>{profile.bio}</ProfileDescription>
                     </ProfileInfo>
                   </ProfileCard>
+                  : handleClear()}
                 </CardWrapper>
               </Main>
               <Footer>
@@ -45,7 +46,7 @@ export function HomePage() {
                   <AiOutlineReload onClick={handleClear}/>
                 </Reload>
                 <Like onClick={() => {
-                  choosePerson(profile.id)
+                  profile.id && choosePerson(profile.id)
                   setHandleLiked(true)
                   setTimeout(() => {setHandleLiked(false)}, 400)
                   }} 

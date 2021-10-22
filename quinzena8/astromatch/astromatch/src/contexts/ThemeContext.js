@@ -7,10 +7,10 @@ export const ThemeContext = createContext()
 
 export function ThemeContextProvider({children}) {
 
-    const [theme, setTheme] = useState(themeLight)
+    const [theme, setTheme] = useState(themeDark)
 
     const themeSwitcher = () => {
-        setTheme(theme === themeLight ? themeDark : themeLight)
+        setTheme(theme === themeDark ? themeLight : themeDark)
 
     }
 
