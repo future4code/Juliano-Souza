@@ -1,5 +1,6 @@
 import styled, { keyframes, css } from 'styled-components'
 import { generalColors } from '../../constants/colors'
+import { Link } from "react-router-dom"
 
  
 // Container
@@ -48,6 +49,10 @@ export const MatchesBtn = styled.button`
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+`
+export const LinkRouter = styled(Link)`
+    text-decoration: none;
+    color: ${p => p.theme.text};
 `
 
 // Main

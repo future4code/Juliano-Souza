@@ -1,15 +1,12 @@
 import { useContext, useState } from 'react'
 import {ProfileContext} from '../../contexts/ProfileContext'
-import { ThemeContext } from '../../contexts/ThemeContext'
-import { Link } from "react-router-dom"
-import { Wrapper, Header, Main, Footer, MatchesBtnWrapper, MatchesBtn, CardWrapper, ProfileCard, ProfileInfo, Name, Age, ProfileDescription, Activity, Log, Reload, Dislike, Like } from './style'
+import { Wrapper, Header, LinkRouter, Main, Footer, MatchesBtnWrapper, MatchesBtn, CardWrapper, ProfileCard, ProfileInfo, Name, Age, ProfileDescription, Activity, Log, Reload, Dislike, Like } from './style'
 import { AiOutlineReload, AiOutlineClose, AiFillHeart } from "react-icons/ai"
 import { Toggle } from '../../components/Toggle/index'
 
 export function HomePage() {
 
     const {profile, choosePerson, getProfile, handleClear} = useContext(ProfileContext)
-    const {theme} = useContext(ThemeContext)
 
     const [handleLike, setHandleLiked] = useState(false)
 
@@ -20,7 +17,7 @@ export function HomePage() {
                 <Toggle/>
                 <MatchesBtnWrapper>
                   <MatchesBtn>
-                    <Link style={{textDecoration:'none', color: theme.text}}to='/matches'>Meus Matches</Link>
+                    <LinkRouter to='/matches'>Meus Matches</LinkRouter>
                   </MatchesBtn>
                 </MatchesBtnWrapper>
               </Header>

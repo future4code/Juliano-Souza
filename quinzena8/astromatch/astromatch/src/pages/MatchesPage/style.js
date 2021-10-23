@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from "react-router-dom"
 
 // Container
 export const Wrapper = styled.div`
@@ -45,6 +46,10 @@ export const MatchesBtn = styled.button`
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+`
+export const LinkRouter = styled(Link)`
+    text-decoration: none;
+    color: ${p => p.theme.text};
 `
 
 // Main
