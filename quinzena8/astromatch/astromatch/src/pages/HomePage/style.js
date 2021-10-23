@@ -75,9 +75,9 @@ export const ProfileCard = styled.div`
 `
 export const ProfileInfo = styled.div`
     width: 100%;
-    height: 85px;
+    height: 65%;
     transition: background 300ms linar;
-    background: linear-gradient(transparent 5%, ${p => p.theme.backgroundWrapper} 45%);
+    background: ${p => p.theme.id === 1 ? `linear-gradient(transparent 65%, ${p.theme.backgroundWrapper} 85%)` : `linear-gradient(transparent 50%, ${p.theme.backgroundWrapper} 85%)`};
     display: flex;
     flex-flow: column;
     justify-content: flex-end;
