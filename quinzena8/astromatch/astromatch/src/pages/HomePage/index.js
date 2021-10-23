@@ -43,14 +43,14 @@ export function HomePage() {
                   <AiOutlineReload onClick={handleClear}/>
                 </Reload>
                 <Like onClick={() => {
-                  profile.id && choosePerson(profile.id)
+                  choosePerson(profile.id, true)
                   setHandleLiked(true)
                   setTimeout(() => {setHandleLiked(false)}, 400)
                   }} 
                   handleLike={handleLike}>
                   <AiFillHeart/>
                 </Like>
-                <Dislike onClick={getProfile}>
+                <Dislike onClick={() => {choosePerson(profile.id, false)}}>
                   <AiOutlineClose/>
                 </Dislike>
               </Footer>

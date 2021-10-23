@@ -17,10 +17,10 @@ export function ProfileContextProvider({children}) {
         getProfile()
     }, [])
 
-    const choosePerson = (id) => {
+    const choosePerson = (id, choice) => {
         const BODY = {
           id: id,
-            choice: true
+            choice: choice
         }
         axios.post(`${URL_BASE}/choose-person`, BODY).then(() => getProfile()).catch(() => window.alert('Error'))
     }

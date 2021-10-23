@@ -9,15 +9,9 @@ export function Toggle() {
 
     const { theme, themeSwitcher } = useContext(ThemeContext)
 
-    console.log(theme)
-
     return (
         <Switch>
-            {theme.id === 1 ? 
-            <Checkbox onClick={themeSwitcher} type="checkbox" checked></Checkbox>
-            :
-            <Checkbox onClick={themeSwitcher} type="checkbox" unchecked></Checkbox>
-            }
+            <Checkbox onClick={themeSwitcher} type="checkbox" defaultChecked={theme.id === 1 ? true : false}></Checkbox>
             <Slider></Slider>
         </Switch>
     )
