@@ -7,11 +7,17 @@ import { useContext } from 'react'
 
 export function Toggle() {
 
-    const { themeSwitcher } = useContext(ThemeContext)
+    const { theme, themeSwitcher } = useContext(ThemeContext)
+
+    console.log(theme)
 
     return (
         <Switch>
-            <Checkbox onClick={themeSwitcher} type="checkbox"></Checkbox>
+            {theme.id === 1 ? 
+            <Checkbox onClick={themeSwitcher} type="checkbox" checked></Checkbox>
+            :
+            <Checkbox onClick={themeSwitcher} type="checkbox" unchecked></Checkbox>
+            }
             <Slider></Slider>
         </Switch>
     )
