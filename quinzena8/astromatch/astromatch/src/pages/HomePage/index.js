@@ -6,7 +6,7 @@ import { Toggle } from '../../components/Toggle/index'
 
 export function HomePage() {
 
-    const {profile, choosePerson, getProfile, handleClear} = useContext(ProfileContext)
+    const {profile, choosePerson, handleClear} = useContext(ProfileContext)
 
     const [handleLike, setHandleLiked] = useState(false)
 
