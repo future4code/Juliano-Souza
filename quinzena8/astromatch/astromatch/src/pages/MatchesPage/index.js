@@ -52,9 +52,7 @@ export function MatchesPage() {
                     }
                 </Main>
                 <Footer>
-                    <Reload>
-                        <AiOutlineReload onClick={handleClear}/>
-                    </Reload>
+                    {Loading || <Reload><AiOutlineReload onClick={handleClear}/></Reload>}
                 </Footer>
             </Wrapper>
         </div>

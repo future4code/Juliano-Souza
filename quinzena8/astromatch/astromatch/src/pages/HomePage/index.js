@@ -44,7 +44,10 @@ export function HomePage() {
                   }
                 </CardWrapper>
               </Main>
-              {profile ?
+              {Loading ?
+              null
+              :
+              profile ?
                 <Footer>
                   <Reload>
                     <AiOutlineReload onClick={handleClear}/>
