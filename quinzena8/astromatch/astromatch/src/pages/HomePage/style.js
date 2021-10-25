@@ -124,6 +124,12 @@ export const AlertMessage = styled.p`
     width: 90%;
     color: ${p => p.theme.text};
 `
+export const AlertWrapper = styled.div`
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+`
 
 // Footer
 export const Footer = styled.div`

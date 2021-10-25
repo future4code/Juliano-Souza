@@ -59,6 +59,12 @@ export const ArrowLeft = styled(BsArrowLeft)`
     font-size: 18px;
     margin-left: 5px;
 `
+export const AlertWrapper = styled.div`
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+`
 
 // Main
 export const Main = styled.div`

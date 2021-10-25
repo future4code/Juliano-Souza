@@ -1,10 +1,11 @@
 import { useContext, useState } from 'react'
 import {ProfileContext} from '../../contexts/ProfileContext'
-import { Wrapper, Header, LinkRouter, Main, Footer, MatchesBtnWrapper, MatchesBtn, CardWrapper, ProfileCard, ProfileInfo, Name, Age, ProfileDescription, AlertMessage, Activity, Log, Reload, Dislike, Like } from './style'
+import { Wrapper, Header, LinkRouter, Main, Footer, MatchesBtnWrapper, MatchesBtn, CardWrapper, ProfileCard, ProfileInfo, Name, Age, ProfileDescription, AlertMessage, AlertWrapper, Activity, Log, Reload, Dislike, Like } from './style'
 import { AiOutlineReload, AiOutlineClose, AiFillHeart } from "react-icons/ai"
 import { Toggle } from '../../components/Toggle/index'
 import { Loader } from '../../components/Loader/index'
 import { Modal } from '../../components/Modal/index'
+import Caring from '../../assets/caring.png'
 
 export function HomePage() {
 
@@ -42,7 +43,10 @@ export function HomePage() {
                     </ProfileInfo>
                   </ProfileCard>
                   :
-                  <AlertMessage>Oops, os perfis <strong>acabaram</strong>! Por favor, clique no botão de reset.</AlertMessage>
+                  <AlertWrapper>
+                    <img style={{maxWidth: '180px'}}src={Caring} alt=''/>
+                    <AlertMessage>Oops, os perfis <strong>acabaram</strong>! Por favor, clique no botão de reset.</AlertMessage>
+                  </AlertWrapper>
                   }
                 </CardWrapper>
               </Main>
