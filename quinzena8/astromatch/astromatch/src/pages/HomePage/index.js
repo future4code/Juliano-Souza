@@ -1,12 +1,13 @@
 import { useContext, useState } from 'react'
 import {ProfileContext} from '../../contexts/ProfileContext'
-import { Wrapper, Header, LinkRouter, Main, Footer, MatchesBtnWrapper, MatchesBtn, CardWrapper, ProfileCard, ProfileInfo, Name, Age, ProfileDescription, Activity, Log, Reload, Dislike, Like } from './style'
+import { Wrapper, Header, LinkRouter, Main, Footer, MatchesBtnWrapper, MatchesBtn, CardWrapper, ProfileCard, ProfileInfo, Name, Age, ProfileDescription, AlertMessage, Activity, Log, Reload, Dislike, Like } from './style'
 import { AiOutlineReload, AiOutlineClose, AiFillHeart } from "react-icons/ai"
 import { Toggle } from '../../components/Toggle/index'
+import { Loader } from '../../components/Loader/index'
 
 export function HomePage() {
 
-    const {profile, choosePerson, handleClear} = useContext(ProfileContext)
+    const {profile, choosePerson, handleClear, Loading, setLoading} = useContext(ProfileContext)
 
     const [handleLike, setHandleLiked] = useState(false)
 
@@ -17,13 +18,16 @@ export function HomePage() {
                 <Toggle/>
                 <MatchesBtnWrapper>
                   <MatchesBtn>
-                    <LinkRouter to='/matches'>Meus Matches</LinkRouter>
+                    <LinkRouter to='/matches' onClick={() => {setLoading(!Loading)}}>Meus Matches</LinkRouter>
                   </MatchesBtn>
                 </MatchesBtnWrapper>
               </Header>
               <Main>
                 <CardWrapper>
-                  {profile ? 
+                  {Loading ? 
+                  <Loader/>
+                  : 
+                  profile ? 
                   <ProfileCard profilePhoto={profile.photo}>
                     <ProfileInfo>
                       <div>
@@ -35,7 +39,9 @@ export function HomePage() {
                       <ProfileDescription>{profile.bio}</ProfileDescription>
                     </ProfileInfo>
                   </ProfileCard>
-                  : handleClear()}
+                  :
+                  <AlertMessage>Oops, os perfis <strong>acabaram</strong>! Por favor, clique no botão de reset.</AlertMessage>
+                  }
                 </CardWrapper>
               </Main>
               <Footer>

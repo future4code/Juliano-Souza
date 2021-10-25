@@ -117,6 +117,12 @@ export const ProfileDescription = styled.p`
     color: ${p => p.theme.secondaryText};
 
 `
+export const AlertMessage = styled.p`
+    text-align: center;
+    font-size: 14px;
+    width: 90%;
+    color: ${p => p.theme.text};
+`
 
 // Footer
 export const Footer = styled.div`

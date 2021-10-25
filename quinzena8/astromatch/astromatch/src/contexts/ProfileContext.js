@@ -8,9 +8,18 @@ export function ProfileContextProvider({children}) {
 
     const [profile, setProfile] = useState({})
     const [matches, setMatches] = useState([])
+    const [Loading, setLoading] = useState(true)
 
     const getProfile = () => {
-        axios.get(`${URL_BASE}/person`).then(res => setProfile(res.data.profile)).catch(rej => console.log(rej))
+        axios.get(`${URL_BASE}/person`)
+        .then(res => {
+            setProfile(res.data.profile)
+            setLoading(false)
+        })
+        .catch(rej => {
+            console.log(rej)
+            setLoading(false)
+        })
     }
 
     useEffect(() => {
@@ -26,15 +35,40 @@ export function ProfileContextProvider({children}) {
     }
 
     const getMatches = () => {
-        axios.get(`${URL_BASE}/matches`).then(res => setMatches(res.data.matches)).catch(rej => console.log(rej))
+        axios.get(`${URL_BASE}/matches`)
+        .then(res => {
+            setMatches(res.data.matches)
+            setLoading(false)
+        })
+        .catch(rej => {
+            console.log(rej)
+            setLoading(false)
+        })
     }
 
-    const handleClear = () => {
-        axios.put(`${URL_BASE}/clear`).then(() => getProfile()).catch(rej => console.log(rej))
+    const handleClear = async () => {
+        setLoading(true)
+        try {
+            await axios.put(`${URL_BASE}/clear`)
+
+            if (!profile) {
+                getProfile()
+            }
+
+            if (matches) {
+                setMatches([])
+            }
+            
+            setLoading(false)
+
+        } catch(error) {
+            console.log(error.res)
+            setLoading(false)
+        }
     }
 
     return (
-        <ProfileContext.Provider value={{profile, matches, choosePerson, handleClear, getProfile, getMatches}}>
+        <ProfileContext.Provider value={{profile, matches, choosePerson, handleClear, getProfile, getMatches, Loading, setLoading}}>
             {children}
         </ProfileContext.Provider>
     )

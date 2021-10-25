@@ -116,6 +116,12 @@ export const Description = styled.span`
     text-overflow: ellipsis;
     white-space: nowrap;
 `
+export const AlertMessage = styled.p`
+    text-align: center;
+    font-size: 14px;
+    width: 90%;
+    color: ${p => p.theme.text};
+`
 
 // Footer
 export const Footer = styled.div`
