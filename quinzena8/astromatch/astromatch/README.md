@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+<h1>Astromatch 💞</h1> <img src='http://ForTheBadge.com/images/badges/built-with-love.svg'/>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h2>Projeto com o objetivo de fazer um clone do Tinder 👀</h2>
 
-## Available Scripts
+<h3>Tecnologias e Libs utilizadas:</h3>
+<div>
+  <img alt='HTML' src='https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white'/>
+  <img alt='CSS' src='https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white'/>
+  <img alt='Javascript' src='https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black'/>
+  <img alt='Styled-Components' src='https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white'/>
+  <img alt='React' src='https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB'/>
+</div>
+<h2>Acesse: 🔗 https://github.com/JuSfrei</h2>
 
-In the project directory, you can run:
+<h2>Tela Inicial 🏠</h2>
 
-### `yarn start`
+<p>Aqui você verá o perfil enviado pelo servidor</p>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<h3><strong>Botões superiores</strong></h3>
+<p> • <strong>Toggle</strong> - Dark/Light mode Switch </p>
+<p> • <strong>Meus Matches</strong> - Botão que te direciona até a tela dos seus matches </p>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<h3><strong>Botões inferiores</strong></h3>
 
-### `yarn test`
+<p> • <strong>Reset</strong> - Com esse botão você poderá limpar os matches e swipes</p>
+<p> • <strong>Curtir</strong> - Aqui você dara o like no perfil</p>
+<p> • <strong>Descartar</strong> - Com esse botão você descarta o perfil</p>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<img width="300" alt="HomePerson" src="https://user-images.githubusercontent.com/77923171/138764570-a3a846f4-f965-451f-bca5-9467f9a7c4e6.png">
 
-### `yarn build`
+<p>A API utilizada possui uma quantidade limitada de perfis, portanto, caso não haja mais nenhum perfil disponível, é exibido a seguinte tela</p>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<img width="300" alt="Home" src="https://user-images.githubusercontent.com/77923171/138765538-f93b6a3c-7757-4276-8433-3e593e7dac02.png">
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<h3>Tela de Matches 🔥</h3>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<p>No momento que você dá like na pessoa, a API "sorteia" se você deu match com aquela pessoa ou não. Se sim, ela adiciona nesta sessão</p>
 
-### `yarn eject`
+<img width="300" alt="MatchesList" src="https://user-images.githubusercontent.com/77923171/138765899-74cec56b-fa4f-4092-9192-a42895a17df6.png">
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<p>Caso não haja nenhum match, a tela a seguir é exibida</p>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<img width="300" alt="Matches" src="https://user-images.githubusercontent.com/77923171/138765998-e24ed4d5-bda6-4044-90c7-ca70340771a1.png">
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<h3>Feedback ao usuário e tratamento de erros 🐛</h3>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Caso o usuário dê match com algum perfil, a seguinte mensagem é exibida no topo da página.
 
-## Learn More
+<img width="350" alt="MatcheInfo" src="https://user-images.githubusercontent.com/77923171/138766370-b280f216-7f05-41af-a86c-8ddfaca21785.png">
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+E caso haja algum problema com as requisições ao servidor, a seguinte mensagem é exibida ao usuário.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<img width="350" alt="Error" src="https://user-images.githubusercontent.com/77923171/138766369-2062530f-9015-4846-8d64-813c878f7d3c.png">
