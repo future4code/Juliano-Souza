@@ -1,10 +1,11 @@
 import styled from 'styled-components'
+import { BsArrowLeft } from "react-icons/bs";
 import { Link } from "react-router-dom"
 
 // Container
 export const Wrapper = styled.div`
     width: 290px;
-    height: 80vh;
+    height: 460px;
     background-color: ${p => p.theme.backgroundWrapper};
     border-radius: 10px;
     display: grid;
@@ -38,7 +39,7 @@ export const MatchesBtn = styled.button`
     font: 500 10px 'Montserrat', sans-serif;
     text-transform: uppercase;
     cursor: pointer;
-    width: inherit;
+    width: 100%;
     height: 100%;
     border: none;
     background-color: transparent;
@@ -50,6 +51,13 @@ export const MatchesBtn = styled.button`
 export const LinkRouter = styled(Link)`
     text-decoration: none;
     color: ${p => p.theme.text};
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`
+export const ArrowLeft = styled(BsArrowLeft)`
+    font-size: 18px;
+    margin-left: 5px;
 `
 
 // Main

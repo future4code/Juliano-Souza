@@ -27,11 +27,17 @@ export function ProfileContextProvider({children}) {
     }, [])
 
     const choosePerson = (id, choice) => {
+        setLoading(true)
         const BODY = {
           id: id,
             choice: choice
         }
-        axios.post(`${URL_BASE}/choose-person`, BODY).then(() => getProfile()).catch(() => window.alert('Error'))
+        axios.post(`${URL_BASE}/choose-person`, BODY)
+        .then(() => {
+            getProfile()
+            setLoading(true)
+        })
+        .catch(() => window.alert('Error'))
     }
 
     const getMatches = () => {
@@ -57,6 +63,10 @@ export function ProfileContextProvider({children}) {
 
             if (matches) {
                 setMatches([])
+            }
+
+            if (profile) {
+                setLoading(false)
             }
             
         } catch(error) {

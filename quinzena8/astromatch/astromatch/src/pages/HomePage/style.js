@@ -6,7 +6,7 @@ import { Link } from "react-router-dom"
 // Container
 export const Wrapper = styled.div`
     width: 290px;
-    height: 80vh;
+    height: 460px;
     background: ${p => p.theme.backgroundWrapper};
     border-radius: 10px;
     display: grid;
@@ -169,5 +169,5 @@ export const Like = styled(Dislike)`
     color: ${generalColors.red};
     margin: 0 10px;
     font-size: 40px;
-    animation: ${p => p.handleLike ? css`${pulseTap} 800ms` : null};
+    animation: ${p => p.handleLike ? css`${pulseTap} 500ms` : null};
 `
