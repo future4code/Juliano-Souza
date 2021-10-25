@@ -44,22 +44,30 @@ export function HomePage() {
                   }
                 </CardWrapper>
               </Main>
+              {profile ?
+                <Footer>
+                  <Reload>
+                    <AiOutlineReload onClick={handleClear}/>
+                  </Reload>
+                  <Like onClick={() => {
+                    choosePerson(profile.id, true)
+                    setHandleLiked(true)
+                    setTimeout(() => {setHandleLiked(false)}, 400)
+                    }} 
+                    handleLike={handleLike}>
+                    <AiFillHeart/>
+                  </Like>
+                  <Dislike onClick={() => choosePerson(profile.id, false)}>
+                    <AiOutlineClose/>
+                  </Dislike>
+                </Footer>
+              :
               <Footer>
                 <Reload>
                   <AiOutlineReload onClick={handleClear}/>
                 </Reload>
-                <Like onClick={() => {
-                  choosePerson(profile.id, true)
-                  setHandleLiked(true)
-                  setTimeout(() => {setHandleLiked(false)}, 400)
-                  }} 
-                  handleLike={handleLike}>
-                  <AiFillHeart/>
-                </Like>
-                <Dislike onClick={() => {choosePerson(profile.id, false)}}>
-                  <AiOutlineClose/>
-                </Dislike>
               </Footer>
+              }
             </Wrapper>
       </div>
     );

@@ -10,8 +10,6 @@ export function MatchesPage() {
 
     const {matches, getMatches, handleClear, Loading} = useContext(ProfileContext)
 
-    console.log(matches)
-
     useEffect(() => {
         getMatches()
         // eslint-disable-next-line react-hooks/exhaustive-deps
