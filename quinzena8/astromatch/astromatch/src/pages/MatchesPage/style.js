@@ -131,7 +131,8 @@ export const Footer = styled.div`
     justify-content: center;
 
 `
-export const Reload = styled.div`
+export const Reload = styled.button`
+    border: none;
     width: 50px;
     height: 50px;
     background-color: ${p => p.theme.button};

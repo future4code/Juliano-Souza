@@ -59,10 +59,8 @@ export function ProfileContextProvider({children}) {
                 setMatches([])
             }
             
-            setLoading(false)
-
         } catch(error) {
-            console.log(error.res)
+            console.log(error)
             setLoading(false)
         }
     }
