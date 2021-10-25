@@ -8,7 +8,7 @@ import { Loader } from '../../components/Loader/index'
 
 export function MatchesPage() {
 
-    const {matches, getMatches, handleClear, Loading} = useContext(ProfileContext)
+    const {matches, getMatches, handleClear, loading} = useContext(ProfileContext)
 
     useEffect(() => {
         getMatches()
@@ -28,7 +28,7 @@ export function MatchesPage() {
                     </MatchesBtnWrapper>
                 </Header>
                 <Main>
-                    {Loading ? 
+                    {loading ? 
                     <Loader/>
                     :
                     matches.length ? 
@@ -51,9 +51,10 @@ export function MatchesPage() {
                     <AlertMessage>Ainda não há matches, continue <strong>curtindo</strong> novos perfis</AlertMessage>
                     }
                 </Main>
+                {matches.length > 0 && 
                 <Footer>
-                    {Loading || <Reload><AiOutlineReload onClick={handleClear}/></Reload>}
-                </Footer>
+                    {loading || <Reload><AiOutlineReload onClick={handleClear}/></Reload>}
+                </Footer>}
             </Wrapper>
         </div>
     )

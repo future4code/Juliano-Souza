@@ -7,7 +7,7 @@ import { Loader } from '../../components/Loader/index'
 
 export function HomePage() {
 
-    const {profile, choosePerson, handleClear, Loading, setLoading} = useContext(ProfileContext)
+    const {profile, choosePerson, handleClear, loading, setLoading} = useContext(ProfileContext)
 
     const [handleLike, setHandleLiked] = useState(false)
 
@@ -18,13 +18,13 @@ export function HomePage() {
                 <Toggle/>
                 <MatchesBtnWrapper>
                   <MatchesBtn>
-                    <LinkRouter to='/matches' onClick={() => {setLoading(!Loading)}}>Meus Matches</LinkRouter>
+                    <LinkRouter to='/matches' onClick={() => {setLoading(!loading)}}>Meus Matches</LinkRouter>
                   </MatchesBtn>
                 </MatchesBtnWrapper>
               </Header>
               <Main>
                 <CardWrapper>
-                  {Loading ? 
+                  {loading ? 
                   <Loader/>
                   : 
                   profile ? 
@@ -44,7 +44,7 @@ export function HomePage() {
                   }
                 </CardWrapper>
               </Main>
-              {Loading ?
+              {loading ?
               null
               :
               profile ?

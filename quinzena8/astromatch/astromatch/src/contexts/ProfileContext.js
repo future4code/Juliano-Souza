@@ -8,7 +8,7 @@ export function ProfileContextProvider({children}) {
 
     const [profile, setProfile] = useState({})
     const [matches, setMatches] = useState([])
-    const [Loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(true)
 
     const getProfile = () => {
         axios.get(`${URL_BASE}/person`)
@@ -68,7 +68,7 @@ export function ProfileContextProvider({children}) {
     }
 
     return (
-        <ProfileContext.Provider value={{profile, matches, choosePerson, handleClear, getProfile, getMatches, Loading, setLoading}}>
+        <ProfileContext.Provider value={{profile, matches, choosePerson, handleClear, getProfile, getMatches, loading, setLoading}}>
             {children}
         </ProfileContext.Provider>
     )
