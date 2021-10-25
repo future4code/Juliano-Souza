@@ -11,6 +11,7 @@ export const Wrapper = styled.div`
     border-radius: 10px;
     display: grid;
     grid: 10% 70% 20% / 1fr;
+    position: relative;
     grid-template-areas: 
     'Header'
     'Main'

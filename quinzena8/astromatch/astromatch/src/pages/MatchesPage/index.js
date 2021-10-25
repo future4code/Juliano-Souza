@@ -4,6 +4,7 @@ import { AiOutlineReload } from "react-icons/ai"
 import { Toggle } from '../../components/Toggle/index'
 import { Wrapper, Header, LinkRouter, MatchesBtnWrapper, MatchesBtn, Main, ProfileCard, Avatar, Name, Description, ArrowLeft, AlertMessage, InfoWrapper, Footer, Reload, CardWrapper } from './style'
 import { Loader } from '../../components/Loader/index'
+import { Modal } from '../../components/Modal/index'
 
 export function MatchesPage() {
 
@@ -17,6 +18,7 @@ export function MatchesPage() {
     return (
         <div>
             <Wrapper>
+                <Modal/>
                 <Header>
                     <Toggle/>
                     <MatchesBtnWrapper>

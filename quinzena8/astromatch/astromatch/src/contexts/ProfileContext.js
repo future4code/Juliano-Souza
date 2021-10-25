@@ -9,6 +9,7 @@ export function ProfileContextProvider({children}) {
     const [profile, setProfile] = useState({})
     const [matches, setMatches] = useState([])
     const [loading, setLoading] = useState(true)
+    const [modalAlert, setModalAlert] = useState(0)
 
     const getProfile = () => {
         axios.get(`${URL_BASE}/person`)
@@ -16,8 +17,11 @@ export function ProfileContextProvider({children}) {
             setProfile(res.data.profile)
             setLoading(false)
         })
-        .catch(rej => {
-            console.log(rej)
+        .catch(() => {
+            setModalAlert(1)
+            setTimeout(() => {
+                setModalAlert(0)
+            }, 2500)
             setLoading(false)
         })
     }
@@ -33,11 +37,23 @@ export function ProfileContextProvider({children}) {
             choice: choice
         }
         axios.post(`${URL_BASE}/choose-person`, BODY)
-        .then(() => {
+        .then((res) => {
             getProfile()
+            if (res.data.isMatch) {
+                setModalAlert(2)
+            }
             setLoading(true)
+            setTimeout(() => {
+                setModalAlert(0)
+            }, 2500)
         })
-        .catch(() => window.alert('Error'))
+        .catch(() => {
+            setModalAlert(1)
+            setTimeout(() => {
+                setModalAlert(0)
+            }, 2500)
+            setLoading(false)
+        })
     }
 
     const getMatches = () => {
@@ -46,8 +62,11 @@ export function ProfileContextProvider({children}) {
             setMatches(res.data.matches)
             setLoading(false)
         })
-        .catch(rej => {
-            console.log(rej)
+        .catch(()=> {
+            setModalAlert(1)
+            setTimeout(() => {
+                setModalAlert(0)
+            }, 2500)
             setLoading(false)
         })
     }
@@ -70,13 +89,16 @@ export function ProfileContextProvider({children}) {
             }
             
         } catch(error) {
-            console.log(error)
+            setModalAlert(1)
+            setTimeout(() => {
+                setModalAlert(0)
+            }, 2500)
             setLoading(false)
         }
     }
 
     return (
-        <ProfileContext.Provider value={{profile, matches, choosePerson, handleClear, getProfile, getMatches, loading, setLoading}}>
+        <ProfileContext.Provider value={{profile, matches, choosePerson, handleClear, getProfile, getMatches, loading, setLoading, modalAlert}}>
             {children}
         </ProfileContext.Provider>
     )
