@@ -28,7 +28,7 @@ const handleOpacityAnimation = keyframes`
 `
 export const Wrapper = styled.div`
     height: inherit;
-    background-color: ${p => p.toast === 1 ? '#FE363690' : '#80FF8090'};
+    background-color: ${p => p.toast === 1 ? '#FE363690' : p.toast === 2 ? '#20C4FA90' : '#80FF8090'};
     padding: 2.5px, 5px;
     display: grid;
     place-items: center;

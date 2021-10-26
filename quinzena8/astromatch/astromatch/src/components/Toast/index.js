@@ -17,7 +17,12 @@ export function Toast() {
                 <Wrapper toast={toast}>
                     <Message>Uhull, Você tem um novo match</Message>
                 </Wrapper>
-            : null}
+            : 
+            toast === 3 ?
+                <Wrapper toast={toast}>
+                    <Message>Matches e Swipes resetados!</Message>
+                </Wrapper>
+            :null}
         </Container>
     )
 }

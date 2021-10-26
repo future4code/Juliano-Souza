@@ -11,6 +11,32 @@ export function ProfileContextProvider({children}) {
     const [loading, setLoading] = useState(true)
     const [toast, setToast] = useState(0)
 
+    const handleToast = (res) => {
+        // console.log(res)
+        if (res) {
+            setToast(2)
+            setTimeout(() => {
+                setToast(0)
+            }, 2500)
+        }
+
+        if (res === 1) {
+            setToast(1)
+            setTimeout(() => {
+                setToast(0)
+                setLoading(false)
+            }, 2500)
+        }
+
+        if (res === 3) {
+            setToast(3)
+            setTimeout(() => {
+                setToast(0)
+                setLoading(false)
+            }, 2500)
+        }
+    }
+
     const getProfile = () => {
         axios.get(`${URL_BASE}/person`)
         .then(res => {
@@ -18,11 +44,7 @@ export function ProfileContextProvider({children}) {
             setLoading(false)
         })
         .catch(() => {
-            setToast(1)
-            setTimeout(() => {
-                setToast(0)
-            }, 2500)
-            setLoading(false)
+            handleToast(1)
         })
     }
 
@@ -39,20 +61,10 @@ export function ProfileContextProvider({children}) {
         axios.post(`${URL_BASE}/choose-person`, BODY)
         .then((res) => {
             getProfile()
-            if (res.data.isMatch) {
-                setToast(2)
-            }
-            setLoading(true)
-            setTimeout(() => {
-                setToast(0)
-            }, 2500)
+            handleToast(res.data.isMatch)
         })
         .catch(() => {
-            setToast(1)
-            setTimeout(() => {
-                setToast(0)
-            }, 2500)
-            setLoading(false)
+            handleToast(1)
         })
     }
 
@@ -63,11 +75,7 @@ export function ProfileContextProvider({children}) {
             setLoading(false)
         })
         .catch(() => {
-            setToast(1)
-            setTimeout(() => {
-                setToast(0)
-            }, 2500)
-            setLoading(false)
+            handleToast(1)
         })
     }
 
@@ -75,6 +83,8 @@ export function ProfileContextProvider({children}) {
         setLoading(true)
         try {
             await axios.put(`${URL_BASE}/clear`)
+
+            handleToast(3)
 
             if (!profile) {
                 getProfile()
@@ -89,11 +99,7 @@ export function ProfileContextProvider({children}) {
             }
             
         } catch(error) {
-            setToast(1)
-            setTimeout(() => {
-                setToast(0)
-            }, 2500)
-            setLoading(false)
+            handleToast(1)
         }
     }
 
