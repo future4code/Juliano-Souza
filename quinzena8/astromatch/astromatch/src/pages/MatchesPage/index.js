@@ -5,7 +5,7 @@ import { Toggle } from '../../components/Toggle/index'
 import { Wrapper, Header, LinkRouter, MatchesBtnWrapper, MatchesBtn, Main, ProfileCard, Avatar, Name, Description, ArrowLeft, AlertMessage, InfoWrapper, Footer, Reload, CardWrapper, AlertWrapper } from './style'
 import { AlertImage } from '../HomePage/style'
 import { Loader } from '../../components/Loader/index'
-import { Modal } from '../../components/Modal/index'
+import { Toast } from '../../components/Toast/index'
 import arrow from '../../assets/arrow-and-bow.png'
 
 export function MatchesPage() {
@@ -20,7 +20,7 @@ export function MatchesPage() {
     return (
         <div>
             <Wrapper>
-                <Modal/>
+                <Toast/>
                 <Header>
                     <Toggle/>
                     <MatchesBtnWrapper>

@@ -9,7 +9,7 @@ export function ProfileContextProvider({children}) {
     const [profile, setProfile] = useState({})
     const [matches, setMatches] = useState([])
     const [loading, setLoading] = useState(true)
-    const [modalAlert, setModalAlert] = useState(0)
+    const [toast, setToast] = useState(0)
 
     const getProfile = () => {
         axios.get(`${URL_BASE}/person`)
@@ -18,9 +18,9 @@ export function ProfileContextProvider({children}) {
             setLoading(false)
         })
         .catch(() => {
-            setModalAlert(1)
+            setToast(1)
             setTimeout(() => {
-                setModalAlert(0)
+                setToast(0)
             }, 2500)
             setLoading(false)
         })
@@ -40,17 +40,17 @@ export function ProfileContextProvider({children}) {
         .then((res) => {
             getProfile()
             if (res.data.isMatch) {
-                setModalAlert(2)
+                setToast(2)
             }
             setLoading(true)
             setTimeout(() => {
-                setModalAlert(0)
+                setToast(0)
             }, 2500)
         })
         .catch(() => {
-            setModalAlert(1)
+            setToast(1)
             setTimeout(() => {
-                setModalAlert(0)
+                setToast(0)
             }, 2500)
             setLoading(false)
         })
@@ -63,9 +63,9 @@ export function ProfileContextProvider({children}) {
             setLoading(false)
         })
         .catch(() => {
-            setModalAlert(1)
+            setToast(1)
             setTimeout(() => {
-                setModalAlert(0)
+                setToast(0)
             }, 2500)
             setLoading(false)
         })
@@ -89,16 +89,16 @@ export function ProfileContextProvider({children}) {
             }
             
         } catch(error) {
-            setModalAlert(1)
+            setToast(1)
             setTimeout(() => {
-                setModalAlert(0)
+                setToast(0)
             }, 2500)
             setLoading(false)
         }
     }
 
     return (
-        <ProfileContext.Provider value={{profile, matches, choosePerson, handleClear, getProfile, getMatches, loading, setLoading, modalAlert}}>
+        <ProfileContext.Provider value={{profile, matches, choosePerson, handleClear, getProfile, getMatches, loading, setLoading, toast}}>
             {children}
         </ProfileContext.Provider>
     )

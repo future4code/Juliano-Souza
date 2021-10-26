@@ -4,7 +4,7 @@ import { Wrapper, Header, LinkRouter, Main, Footer, MatchesBtnWrapper, MatchesBt
 import { AiOutlineReload, AiOutlineClose, AiFillHeart } from "react-icons/ai"
 import { Toggle } from '../../components/Toggle/index'
 import { Loader } from '../../components/Loader/index'
-import { Modal } from '../../components/Modal/index'
+import { Toast } from '../../components/Toast/index'
 import Caring from '../../assets/caring.png'
 
 export function HomePage() {
@@ -16,7 +16,7 @@ export function HomePage() {
     return (
       <div>
             <Wrapper>
-              <Modal/>
+              <Toast/>
               <Header>
                 <Toggle/>
                 <MatchesBtnWrapper>

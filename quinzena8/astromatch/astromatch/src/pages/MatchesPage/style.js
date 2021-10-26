@@ -28,7 +28,7 @@ export const Header = styled.div`
 `
 export const MatchesBtnWrapper = styled.div`
     width: 85px;
-    height: 50%;
+    height: 55%;
     background-color: ${p => p.theme.button};
     display: flex;
     justify-content: center;
@@ -81,6 +81,7 @@ export const CardWrapper = styled.div`
     justify-content: flex-start;
     align-items: center;
     overflow-y: auto;
+    scrollbar-width: none;
     ::-webkit-scrollbar {
     background-color: ${p => p.theme.text};
     width: 0.001px;
