@@ -83,7 +83,7 @@ export const ProfileInfo = styled.div`
     width: 100%;
     height: 65%;
     transition: background 300ms linar;
-    background: ${p => p.theme.id === 1 ? `linear-gradient(transparent 65%, ${p.theme.backgroundWrapper} 85%)` : `linear-gradient(transparent 50%, ${p.theme.backgroundWrapper} 85%)`};
+    background: ${p => p.theme.id === 1 ? `linear-gradient(transparent 65%, ${p.theme.backgroundWrapper} 78%)` : `linear-gradient(transparent 30%, ${p.theme.backgroundWrapper} 80%)`};
     display: flex;
     flex-flow: column;
     justify-content: flex-end;
@@ -129,6 +129,9 @@ export const AlertWrapper = styled.div`
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
+`
+export const AlertImage = styled.img`
+    max-width: 180px;
 `
 
 // Footer

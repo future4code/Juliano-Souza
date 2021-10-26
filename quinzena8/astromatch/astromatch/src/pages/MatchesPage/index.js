@@ -3,6 +3,7 @@ import { ProfileContext } from "../../contexts/ProfileContext";
 import { AiOutlineReload } from "react-icons/ai"
 import { Toggle } from '../../components/Toggle/index'
 import { Wrapper, Header, LinkRouter, MatchesBtnWrapper, MatchesBtn, Main, ProfileCard, Avatar, Name, Description, ArrowLeft, AlertMessage, InfoWrapper, Footer, Reload, CardWrapper, AlertWrapper } from './style'
+import { AlertImage } from '../HomePage/style'
 import { Loader } from '../../components/Loader/index'
 import { Modal } from '../../components/Modal/index'
 import arrow from '../../assets/arrow-and-bow.png'
@@ -50,7 +51,7 @@ export function MatchesPage() {
                     </CardWrapper>
                     :
                     <AlertWrapper>
-                        <img style={{maxWidth: '180px'}}src={arrow} alt={''}/>
+                        <AlertImage src={arrow} alt={'Alert Image'}/>
                         <AlertMessage>Ainda não há matches, continue <strong>curtindo</strong> novos perfis</AlertMessage>
                     </AlertWrapper>
                     }

@@ -62,7 +62,7 @@ export function ProfileContextProvider({children}) {
             setMatches(res.data.matches)
             setLoading(false)
         })
-        .catch(()=> {
+        .catch(() => {
             setModalAlert(1)
             setTimeout(() => {
                 setModalAlert(0)

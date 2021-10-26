@@ -34,7 +34,7 @@
 
 <h3>Tela de Matches 🔥</h3>
 
-<p>No momento que você dá like na pessoa, a API "sorteia" se você deu match com aquela pessoa ou não. Se sim, ela adiciona nesta sessão</p>
+<p>No momento que você dá like na pessoa, a API "sorteia" se aquele perfil tambpém curtiu você. Se sim, o match é adicionado na sessão de matches</p>
 
 <img width="300" alt="MatchesList" src="https://user-images.githubusercontent.com/77923171/138765899-74cec56b-fa4f-4092-9192-a42895a17df6.png">
 
