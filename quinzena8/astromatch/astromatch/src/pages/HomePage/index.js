@@ -1,17 +1,18 @@
-import { useContext, useState } from 'react'
-import {ProfileContext} from '../../contexts/ProfileContext'
-import { Wrapper, Header, LinkRouter, Main, Footer, MatchesBtnWrapper, MatchesBtn, CardWrapper, ProfileCard, ProfileInfo, Name, Age, ProfileDescription, AlertMessage, AlertImage, AlertWrapper, Activity, Log, Reload, Dislike, Like } from './style'
-import { AiOutlineReload, AiOutlineClose, AiFillHeart } from "react-icons/ai"
-import { Toggle } from '../../components/Toggle/index'
-import { Loader } from '../../components/Loader/index'
-import { Toast } from '../../components/Toast/index'
-import Caring from '../../assets/caring.png'
+import { useContext } from 'react'
+import { ProfileContext } from '../../contexts/ProfileContext'
+import { Wrapper, Header, LinkRouter, Main, MatchesBtnWrapper, MatchesBtn, CardWrapper } from './style'
+import { Toggle } from '../../components/Global/Toggle/index'
+import { Loader } from '../../components/Global/Loader/index'
+import { Toast } from '../../components/Global/Toast/index'
+import { ProfileCard } from '../../components/HomeComponents/ProfileCard/index'
+import { BadRequest } from '../../components/Global/BadRequest'
+import { NoProfile } from '../../components/NoProfile'
+import { FooterAllButtons } from '../../components/FooterAllButtons'
+import { FooterReloadButton } from '../../components/FooterReloadButton'
 
 export function HomePage() {
 
-    const {profile, choosePerson, handleClear, loading, setLoading} = useContext(ProfileContext)
-
-    const [handleLike, setHandleLiked] = useState(false)
+    const {profile, loading, setLoading, errorLog, handleClearError} = useContext(ProfileContext)
 
     return (
       <div>
@@ -20,8 +21,8 @@ export function HomePage() {
               <Header>
                 <Toggle/>
                 <MatchesBtnWrapper>
-                  <MatchesBtn>
-                    <LinkRouter to='/matches' onClick={() => {setLoading(!loading)}}>Meus Matches</LinkRouter>
+                  <MatchesBtn onClick={handleClearError}>
+                    <LinkRouter to='/matches' onClick={() => setLoading(!loading)}>Meus Matches</LinkRouter>
                   </MatchesBtn>
                 </MatchesBtnWrapper>
               </Header>
@@ -30,52 +31,22 @@ export function HomePage() {
                   {loading ? 
                   <Loader/>
                   : 
-                  profile ? 
-                  <ProfileCard profilePhoto={profile.photo}>
-                    <ProfileInfo>
-                      <div>
-                        <Name>{profile.name}</Name>
-                        <Age>{profile.age}</Age>
-                        {profile.name && <Activity profileAge={profile.age}></Activity>}
-                        {profile.name && <Log>{profile.age % 2 === 0 ? 'Online' : 'Offline'}</Log>}
-                      </div>
-                      <ProfileDescription>{profile.bio}</ProfileDescription>
-                    </ProfileInfo>
-                  </ProfileCard>
+                  profile && errorLog === 0 ? 
+                  <ProfileCard/>
+                  : errorLog === 1 || errorLog === 2 ?
+                  <BadRequest/>
                   :
-                  <AlertWrapper>
-                    <AlertImage src={Caring} alt='Alert Image'/>
-                    <AlertMessage>Oops, os perfis <strong>acabaram</strong>! Por favor, clique no botão de reset.</AlertMessage>
-                  </AlertWrapper>
+                  <NoProfile/>
                   }
                 </CardWrapper>
               </Main>
               {loading ?
               null
               :
-              profile ?
-                <Footer>
-                  <Reload>
-                    <AiOutlineReload onClick={handleClear}/>
-                  </Reload>
-                  <Like onClick={() => {
-                    choosePerson(profile.id, true)
-                    setHandleLiked(true)
-                    setTimeout(() => {setHandleLiked(false)}, 400)
-                    }} 
-                    handleLike={handleLike}>
-                    <AiFillHeart/>
-                  </Like>
-                  <Dislike onClick={() => choosePerson(profile.id, false)}>
-                    <AiOutlineClose/>
-                  </Dislike>
-                </Footer>
+              profile && errorLog === 0 ?
+                <FooterAllButtons/>
               :
-              <Footer>
-                <Reload>
-                  <AiOutlineReload onClick={handleClear}/>
-                </Reload>
-              </Footer>
+                <FooterReloadButton/>
               }
             </Wrapper>
       </div>

@@ -10,9 +10,10 @@ export function ProfileContextProvider({children}) {
     const [matches, setMatches] = useState([])
     const [loading, setLoading] = useState(true)
     const [toast, setToast] = useState(0)
+    const [errorLog, setErrorLog] = useState(0)
 
     const handleToast = (res) => {
-        // console.log(res)
+
         if (res) {
             setToast(2)
             setTimeout(() => {
@@ -45,11 +46,13 @@ export function ProfileContextProvider({children}) {
         })
         .catch(() => {
             handleToast(1)
+            setErrorLog(2)
         })
     }
 
     useEffect(() => {
         getProfile()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const choosePerson = (id, choice) => {
@@ -76,6 +79,7 @@ export function ProfileContextProvider({children}) {
         })
         .catch(() => {
             handleToast(1)
+            setErrorLog(1)
         })
     }
 
@@ -84,12 +88,16 @@ export function ProfileContextProvider({children}) {
         try {
             await axios.put(`${URL_BASE}/clear`)
 
-            handleToast(3)
-
-            if (!profile) {
-                getProfile()
+            if (errorLog !== 2) {
+                handleToast(3)
             }
 
+            if (errorLog === 1) {
+                setErrorLog(0)
+            }
+
+            getProfile()
+            
             if (matches) {
                 setMatches([])
             }
@@ -100,11 +108,18 @@ export function ProfileContextProvider({children}) {
             
         } catch(error) {
             handleToast(1)
+            setErrorLog(1)
+        }
+    }
+
+    const handleClearError = () => {
+        if (errorLog === 1) {
+            setErrorLog(0)
         }
     }
 
     return (
-        <ProfileContext.Provider value={{profile, matches, choosePerson, handleClear, getProfile, getMatches, loading, setLoading, toast}}>
+        <ProfileContext.Provider value={{profile, matches, choosePerson, handleClear, getProfile, getMatches, loading, setLoading, toast, errorLog, handleClearError}}>
             {children}
         </ProfileContext.Provider>
     )

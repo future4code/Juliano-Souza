@@ -1,6 +1,6 @@
 import React from 'react'
 import { Switch, Checkbox, Slider } from './style'
-import { ThemeContext } from '../../contexts/ThemeContext'
+import { ThemeContext } from '../../../contexts/ThemeContext'
 import { useContext } from 'react'
 
 

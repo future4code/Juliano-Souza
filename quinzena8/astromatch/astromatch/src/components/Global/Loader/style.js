@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components'
-import { generalColors } from '../../constants/colors'
+import { generalColors } from '../../../constants/colors'
 
 const is_rotating = keyframes`
     to {

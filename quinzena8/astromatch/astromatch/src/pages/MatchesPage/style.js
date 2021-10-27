@@ -106,7 +106,6 @@ export const ProfileCard = styled.div`
 export const Avatar = styled.div`
     background-image: ${props => props.avatar && `url(${props.avatar})`};
     background-size: cover;
-    background-repeat: no-repeat;
     background-position: center top;
     width: 45px;
     height: 45px;

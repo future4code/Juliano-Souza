@@ -1,16 +1,17 @@
 import { useEffect, useContext } from "react"
 import { ProfileContext } from "../../contexts/ProfileContext";
 import { AiOutlineReload } from "react-icons/ai"
-import { Toggle } from '../../components/Toggle/index'
-import { Wrapper, Header, LinkRouter, MatchesBtnWrapper, MatchesBtn, Main, ProfileCard, Avatar, Name, Description, ArrowLeft, AlertMessage, InfoWrapper, Footer, Reload, CardWrapper, AlertWrapper } from './style'
-import { AlertImage } from '../HomePage/style'
-import { Loader } from '../../components/Loader/index'
-import { Toast } from '../../components/Toast/index'
-import arrow from '../../assets/arrow-and-bow.png'
+import { Toggle } from '../../components/Global/Toggle/index'
+import { Wrapper, Header, LinkRouter, MatchesBtnWrapper, MatchesBtn, Main, ArrowLeft, Footer, Reload } from './style'
+import { Loader } from '../../components/Global/Loader/index'
+import { Toast } from '../../components/Global/Toast/index'
+import { ProfileCard } from "../../components/MatchesComponents/ProfileCard";
+import { BadRequest } from '../../components/Global/BadRequest/index'
+import { NoMatchAlert } from "../../components/MatchesComponents/NoMatchAlert";
 
 export function MatchesPage() {
 
-    const {matches, getMatches, handleClear, loading} = useContext(ProfileContext)
+    const {matches, getMatches, handleClear, loading, errorLog, handleClearError} = useContext(ProfileContext)
 
     useEffect(() => {
         getMatches()
@@ -23,7 +24,7 @@ export function MatchesPage() {
                 <Toast/>
                 <Header>
                     <Toggle/>
-                    <MatchesBtnWrapper>
+                    <MatchesBtnWrapper onClick={handleClearError}>
                         <MatchesBtn>
                         <LinkRouter to='/'>Voltar<ArrowLeft/></LinkRouter>
                         </MatchesBtn>
@@ -33,33 +34,20 @@ export function MatchesPage() {
                     {loading ? 
                     <Loader/>
                     :
-                    matches.length ? 
-                    <CardWrapper>
-                        {matches.map((profile, i) => {
-                            return (
-                                <ProfileCard key={i}>
-                                    <Avatar avatar={profile.photo}></Avatar>
-                                    <InfoWrapper>
-                                        <div>
-                                            <Name>{profile.name}</Name>
-                                        </div>
-                                        <Description>{profile.bio}</Description>
-                                    </InfoWrapper>
-                                </ProfileCard>
-                            )
-                        })}
-                    </CardWrapper>
+                    matches.length && errorLog === 0 ? 
+                    <ProfileCard/>
                     :
-                    <AlertWrapper>
-                        <AlertImage src={arrow} alt={'Alert Image'}/>
-                        <AlertMessage>Ainda não há matches, continue <strong>curtindo</strong> novos perfis</AlertMessage>
-                    </AlertWrapper>
+                    errorLog === 1 ? 
+                    <BadRequest/>
+                    :
+                    <NoMatchAlert/>
                     }
                 </Main>
                 {matches.length > 0 && 
                 <Footer>
                     {loading || <Reload><AiOutlineReload onClick={handleClear}/></Reload>}
-                </Footer>}
+                </Footer>
+                }
             </Wrapper>
         </div>
     )
