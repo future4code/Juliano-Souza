@@ -1,4 +1,4 @@
-import Caring from '../../assets/caring.png'
+import Caring from '../../../assets/caring.png'
 import { AlertWrapper, AlertImage, AlertMessage } from './style'
 
 export function NoProfile() {

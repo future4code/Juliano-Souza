@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { generalColors } from '../../constants/colors'
+import { generalColors } from '../../../constants/colors'
 
 export const Footer = styled.div`
     grid-area: Footer;

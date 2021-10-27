@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react'
-import {ProfileContext} from '../../contexts/ProfileContext'
+import { ProfileContext } from '../../../contexts/ProfileContext'
 import { Footer, Reload, Like, Dislike } from './style'
 import { AiOutlineReload, AiOutlineClose, AiFillHeart } from "react-icons/ai"
 

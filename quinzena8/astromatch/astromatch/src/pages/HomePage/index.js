@@ -6,9 +6,9 @@ import { Loader } from '../../components/Global/Loader/index'
 import { Toast } from '../../components/Global/Toast/index'
 import { ProfileCard } from '../../components/HomeComponents/ProfileCard/index'
 import { BadRequest } from '../../components/Global/BadRequest'
-import { NoProfile } from '../../components/NoProfile'
-import { FooterAllButtons } from '../../components/FooterAllButtons'
-import { FooterReloadButton } from '../../components/FooterReloadButton'
+import { NoProfile } from '../../components/HomeComponents/NoProfile/index'
+import { FooterAllButtons } from '../../components/HomeComponents/FooterAllButtons/index'
+import { FooterReloadButton } from '../../components/HomeComponents/FooterReloadButton/index'
 
 export function HomePage() {
 
