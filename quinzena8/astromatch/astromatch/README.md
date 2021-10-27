@@ -46,8 +46,14 @@
 
 Caso o usuário dê match com algum perfil, a seguinte mensagem é exibida no topo da página.
 
-<img width="350" alt="MatcheInfo" src="https://user-images.githubusercontent.com/77923171/138766370-b280f216-7f05-41af-a86c-8ddfaca21785.png">
+<img width="350" alt="NewMatch" src="https://user-images.githubusercontent.com/77923171/139083959-f84da4ce-2e0e-4080-adfc-c1145cdc89b0.png">
 
-E caso haja algum problema com as requisições ao servidor, a seguinte mensagem é exibida ao usuário.
+Ao realizar o reset de perfis, é exibido a seguinte mensagem
+
+<img width="350" alt="Reset" src="https://user-images.githubusercontent.com/77923171/139083962-c9488eed-c174-4a5f-8968-ef0402fae68f.png">
+
+E caso haja algum problema com as requisições ao servidor, a seguinte mensagem é exibida ao usuário e também é renderizado uma tela de erro.
 
 <img width="350" alt="Error" src="https://user-images.githubusercontent.com/77923171/138766369-2062530f-9015-4846-8d64-813c878f7d3c.png">
+
+<img width="300" alt="404Error" src="https://user-images.githubusercontent.com/77923171/139083951-6d3fc042-3c1c-4447-bc1c-a14dcd8c420c.png">
