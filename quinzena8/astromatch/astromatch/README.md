@@ -10,7 +10,7 @@
   <img alt='Styled-Components' src='https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white'/>
   <img alt='React' src='https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB'/>
 </div>
-<h2>Acesse: 🔗 https://github.com/JuSfrei</h2>
+<h2>Acesse: 🔗 https://encouraging-peace.surge.sh/</h2>
 
 <h2>Tela Inicial 🏠</h2>
 
