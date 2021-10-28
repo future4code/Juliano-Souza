@@ -52,8 +52,10 @@ export const LinkRouter = styled(Link)`
     text-decoration: none;
     color: ${p => p.theme.text};
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    width: inherit;
+    height: inherit;
 `
 export const ArrowLeft = styled(BsArrowLeft)`
     font-size: 18px;

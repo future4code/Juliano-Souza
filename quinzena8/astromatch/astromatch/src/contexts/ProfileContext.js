@@ -14,7 +14,7 @@ export function ProfileContextProvider({children}) {
 
     const handleToast = (res) => {
 
-        if (res) {
+        if (res && toast !== 2) {
             setToast(2)
             setTimeout(() => {
                 setToast(0)
@@ -96,7 +96,9 @@ export function ProfileContextProvider({children}) {
                 setErrorLog(0)
             }
 
-            getProfile()
+            if (!profile) {
+                getProfile()
+            }
             
             if (matches) {
                 setMatches([])
@@ -112,14 +114,18 @@ export function ProfileContextProvider({children}) {
         }
     }
 
-    const handleClearError = () => {
+    // Other Functions
+
+    const clearErrorLogAndToast = () => {
         if (errorLog === 1) {
             setErrorLog(0)
         }
+        
+        setToast(0)
     }
 
     return (
-        <ProfileContext.Provider value={{profile, matches, choosePerson, handleClear, getProfile, getMatches, loading, setLoading, toast, errorLog, handleClearError}}>
+        <ProfileContext.Provider value={{profile, matches, choosePerson, handleClear, getProfile, getMatches, loading, setLoading, toast, setToast, errorLog, clearErrorLogAndToast}}>
             {children}
         </ProfileContext.Provider>
     )

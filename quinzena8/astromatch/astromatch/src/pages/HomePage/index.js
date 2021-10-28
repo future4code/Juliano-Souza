@@ -12,43 +12,43 @@ import { FooterReloadButton } from '../../components/HomeComponents/FooterReload
 
 export function HomePage() {
 
-    const {profile, loading, setLoading, errorLog, handleClearError} = useContext(ProfileContext)
+    const { profile, loading, setLoading, errorLog, clearErrorLogAndToast } = useContext(ProfileContext)
 
     return (
       <div>
-            <Wrapper>
-              <Toast/>
-              <Header>
-                <Toggle/>
-                <MatchesBtnWrapper>
-                  <MatchesBtn onClick={handleClearError}>
-                    <LinkRouter to='/matches' onClick={() => setLoading(!loading)}>Meus Matches</LinkRouter>
-                  </MatchesBtn>
-                </MatchesBtnWrapper>
-              </Header>
-              <Main>
-                <CardWrapper>
-                  {loading ? 
-                  <Loader/>
-                  : 
-                  profile && errorLog === 0 ? 
-                  <ProfileCard/>
-                  : errorLog === 1 || errorLog === 2 ?
-                  <BadRequest/>
-                  :
-                  <NoProfile/>
-                  }
-                </CardWrapper>
-              </Main>
-              {loading ?
-              null
-              :
-              profile && errorLog === 0 ?
-                <FooterAllButtons/>
-              :
-                <FooterReloadButton/>
-              }
-            </Wrapper>
+          <Wrapper>
+            <Toast/>
+            <Header>
+              <Toggle/>
+              <MatchesBtnWrapper onClick={clearErrorLogAndToast}>
+                <MatchesBtn>
+                  <LinkRouter to='/matches' onClick={() => setLoading(!loading)}>Meus Matches</LinkRouter>
+                </MatchesBtn>
+              </MatchesBtnWrapper>
+            </Header>
+            <Main>
+              <CardWrapper>
+                {loading ? 
+                <Loader/>
+                : 
+                profile && errorLog === 0 ? 
+                <ProfileCard/>
+                : errorLog === 1 || errorLog === 2 ?
+                <BadRequest/>
+                :
+                <NoProfile/>
+                }
+              </CardWrapper>
+            </Main>
+            {loading ?
+            null
+            :
+            profile && errorLog === 0 ?
+              <FooterAllButtons/>
+            :
+              <FooterReloadButton/>
+            }
+          </Wrapper>
       </div>
     );
   }

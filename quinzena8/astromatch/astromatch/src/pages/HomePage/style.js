@@ -53,6 +53,10 @@ export const MatchesBtn = styled.button`
 export const LinkRouter = styled(Link)`
     text-decoration: none;
     color: ${p => p.theme.text};
+    display: grid;
+    place-items: center;
+    width: inherit;
+    height: inherit;
 `
 
 // Main

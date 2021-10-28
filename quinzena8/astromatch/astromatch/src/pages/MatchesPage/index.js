@@ -11,7 +11,7 @@ import { NoMatchAlert } from "../../components/MatchesComponents/NoMatchAlert";
 
 export function MatchesPage() {
 
-    const {matches, getMatches, handleClear, loading, errorLog, handleClearError} = useContext(ProfileContext)
+    const {matches, getMatches, handleClear, loading, errorLog, clearErrorLogAndToast} = useContext(ProfileContext)
 
     useEffect(() => {
         getMatches()
@@ -24,7 +24,7 @@ export function MatchesPage() {
                 <Toast/>
                 <Header>
                     <Toggle/>
-                    <MatchesBtnWrapper onClick={handleClearError}>
+                    <MatchesBtnWrapper onClick={clearErrorLogAndToast}>
                         <MatchesBtn>
                         <LinkRouter to='/'>Voltar<ArrowLeft/></LinkRouter>
                         </MatchesBtn>
