@@ -24,7 +24,9 @@ export function ProfileContextProvider({children}) {
         if (res === 1) {
             setToast(1)
             setTimeout(() => {
-                setToast(0)
+                if (toast === 1) {
+                    setToast(0)
+                }
                 setLoading(false)
             }, 2500)
         }
@@ -32,7 +34,9 @@ export function ProfileContextProvider({children}) {
         if (res === 3) {
             setToast(3)
             setTimeout(() => {
-                setToast(0)
+                if (toast === 3) {
+                    setToast(0)
+                }
                 setLoading(false)
             }, 2500)
         }
@@ -120,7 +124,7 @@ export function ProfileContextProvider({children}) {
         if (errorLog === 1) {
             setErrorLog(0)
         }
-        
+
         setToast(0)
     }
 
