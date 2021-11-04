@@ -9,13 +9,13 @@ import { Button } from '../../components/Button'
 export function Home() {
     return (
         <Container>
-            <Header buttonText='Login' route='./login'/>
+            <Header buttonText='Login' route='/login'/>
             <Main>
                 <Presentation>
                     <Title>O Futuro Chegou</Title>
                     <Description>Os oito planetas do sistema solar estão abertos a novos habitantes.</Description>
                     <Description>Que tal descobrir uma nova vida e fazer um voo seguro e confortável para o planeta dos seus sonhos.</Description>
-                    <Button text='Escolher um planeta' size='200px' margin='20px 0 0 0'/>
+                    <Button text='Escolher um planeta' size='200px' margin='20px 0 0 0' route='/trip-information'/>
                 </Presentation>
                 <TitleDecorationBox>
                     <TitleDecoration>LabeX</TitleDecoration>

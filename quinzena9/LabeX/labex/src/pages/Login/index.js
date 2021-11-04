@@ -22,7 +22,7 @@ export function Login() {
                         <Input type='password' placeholder='Digite sua senha'></Input>
                         <ForgotPassword>Esqueceu a senha?</ForgotPassword>
                     </InputBox>
-                    <Button text='Fazer Login' size='100%' type='submit'/>
+                    <Button text='Fazer Login' size='100%' type='submit' />
                     <LoginGoogleButton>Entrar com o Google <Icon src={GoogleIcon} alt='Google Logo'/></LoginGoogleButton>
                 </AuthWrapper>
             </Section>

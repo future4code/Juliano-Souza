@@ -11,7 +11,7 @@ export const Container = styled.div`
     align-items: center;
     padding: 0 80px;
 `
-export const Login = styled.a`
+export const Login = styled.div`
     font-size: 14px;
     height: 60%;
     display: flex;

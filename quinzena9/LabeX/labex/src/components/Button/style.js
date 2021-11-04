@@ -1,5 +1,8 @@
 import styled from "styled-components";
 
+// Lib
+import { Link } from 'react-router-dom'
+
 export const ButtonType = styled.button`
     width: ${p => p.size};
     padding: 12.5px ;
@@ -15,4 +18,9 @@ export const ButtonType = styled.button`
         color: #FFF;
         box-shadow: 0 0 0 0.5px white;
     }
+`
+export const LinkRouter = styled(Link)`
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
 `
