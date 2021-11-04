@@ -1,14 +1,11 @@
 // Styles
-import { Container, Logo, Login } from './style'
+import { Container, Login, LinkRouter } from './style'
 
-// Assets
-// import LogoImage from '../../assets/Images/Labex.png'
 
-export function Header({buttonText}) {
+export function Header({buttonText, route}) {
     return (
         <Container>
-            {/* <Logo src={LogoImage}/> */}
-            <Login>{buttonText}</Login>
+            <Login><LinkRouter to={route}>{buttonText}</LinkRouter></Login>
         </Container>
     )
 }

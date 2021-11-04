@@ -35,21 +35,6 @@ export const Title = styled.h1`
 export const Description = styled.p`
     color: #B5B5B5;
 `
-export const Button = styled.button`
-    margin-top: 20px;
-    padding: 10px 25px;
-    background-color: #FFFFFF;
-    border: none;
-    font-weight: 500;
-    font-family: 'Montserrat', sans-serif;
-    cursor: pointer;
-    transition: 200ms ease-in-out;
-    &:hover {
-        background-color: transparent;
-        color: #FFF;
-        box-shadow: 0 0 0 0.5px white;
-    }
-`
 export const TitleDecorationBox = styled.span`
     width: 50%;
     overflow: hidden;

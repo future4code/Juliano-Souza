@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Container = styled.div`
     grid-area: Header;
@@ -10,14 +11,9 @@ export const Container = styled.div`
     align-items: center;
     padding: 0 80px;
 `
-export const Logo = styled.img`
-    height: 50px;
-    cursor: pointer;
-`
 export const Login = styled.a`
     font-size: 14px;
     height: 60%;
-    padding: 0 20px;
     display: flex;
     align-items: center;
     transition: 200ms ease-in-out;
@@ -29,4 +25,12 @@ export const Login = styled.a`
         color: #FFFFFF;
         border-color: #FFFFFF;
     }
+`
+export const LinkRouter = styled(Link)`
+    text-decoration: none;
+    color: #FFFFFF;
+    height: 100%;
+    padding: 0 20px;
+    display: grid;
+    place-items: center;
 `
