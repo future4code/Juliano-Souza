@@ -3,6 +3,7 @@ import { BrowserRouter, Route } from 'react-router-dom'
 
 // Components
 import { Home } from "./pages/Home";
+import { Login } from "./pages/Login";
 
 function App() {
   return (
@@ -10,8 +11,9 @@ function App() {
       <GlobalStyle/>
       {/* <BrowserRouter>
           <Route path='/' exact component={Home}/>
-      </BrowserRouter> */}
-      <Home/>
+      // </BrowserRouter> */}
+      {/* <Home/> */}
+      <Login/>
     </div>
   );
 }
