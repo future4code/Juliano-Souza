@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     padding: 20px;
-    width: 250px;
+    min-width: 250px;
     height: 100%;
     border: 2px solid #6A6A6A;
     background-color: #272727;
@@ -10,7 +10,12 @@ export const Container = styled.div`
     flex-flow: column;
     overflow: hidden;
     border-radius: 12px;
-    
+    transition: transform 300ms ease-in-out;
+    transform: scale(0.97);
+    &:hover {
+        transform: scale(1);
+        cursor: pointer;
+    }
 `
 export const Title = styled.h3`
     font-size: 28px;

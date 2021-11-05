@@ -1,5 +1,9 @@
 import styled from 'styled-components'
 
+// Lib
+import { FaArrowLeft } from "react-icons/fa";
+
+
 export const Container = styled.div`
     width: 100%;
     height: 100vh;
@@ -79,9 +83,42 @@ export const InfoParagraphTwo = styled.p`
 `
 export const PlanetsAvailable = styled.div`
     grid-area: PlanetsAvailable;
-    padding: 0 12.5%;
+    padding: 0 10%;
 `
 export const PlanetCardsView = styled.div`
-    height: 100%;
+    max-width: 98vw;
     height: 80%;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    scroll-behavior: smooth;
+    justify-content: flex-start;
+    overflow-x: hidden;
+`
+// Icon
+
+export const InfoBox = styled.div`
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+`
+export const ArrowBox = styled.div`
+    display: flex;
+    justify-content: space-between;
+    width: 100px;
+`
+export const LeftArrow = styled(FaArrowLeft)`
+    font-size: 34px;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 200ms ease-in-out;
+    &:hover {
+        opacity: 1;
+    }
+
+`
+export const RightArrow = styled(LeftArrow)`
+    font-size: 34px;
+    transform: rotate(180deg);
 `

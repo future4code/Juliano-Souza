@@ -1,11 +1,8 @@
 // React
-import { useContext } from 'react'
+import { useRef } from 'react'
 
 // Styles
-import { Container, Apresentation, TextWrapper, ImageWrapper, Title, TransformTitle, AboutTrip, ContentOne, ContentTwo, InfoTitle, InfoParagraph, PlanetsAvailable, Paragraph, InfoParagraphTwo, PlanetCardsView } from './style'
-
-// Assets
-import  Mercury from '../../assets/Images/planets/mercury.png'
+import { Container, Apresentation, TextWrapper, ImageWrapper, Title, TransformTitle, AboutTrip, ContentOne, ContentTwo, InfoTitle, InfoParagraph, PlanetsAvailable, InfoParagraphTwo, PlanetCardsView, InfoBox, ArrowBox, LeftArrow, RightArrow } from './style'
 
 // Components
 import { Header } from '../../components/Header'
@@ -13,20 +10,24 @@ import { Footer } from '../../components/Footer'
 import { CardPlanet } from '../../components/CardPlanet'
 import { Astronaut } from '../../assets/animation/Astronaut'
 
-// Context
-import { PublicContext } from '../../contexts/PublicContext'
-
 export function TripInformation() {
 
-    const { trips } = useContext(PublicContext)
-    
+    const carousel = useRef(null)
+
+    const carouselRightClick = () => {
+        carousel.current.scrollLeft += carousel.current.offsetWidth
+    }
+
+    const carouselLeftClick = () => {
+        carousel.current.scrollLeft -= carousel.current.offsetWidth
+    }
+
     return (
         <Container>
             <Header buttonText='Home' route='/'/>
             <Apresentation>
                 <TextWrapper>
                     <Title><TransformTitle>LabeX</TransformTitle></Title>
-                    <Paragraph>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</Paragraph>
                 </TextWrapper>
                 <ImageWrapper>
                     <Astronaut/>
@@ -43,9 +44,15 @@ export function TripInformation() {
                 </ContentTwo>
             </AboutTrip>
             <PlanetsAvailable>
-                <InfoTitle>Planetas disponíveis</InfoTitle>
-                <PlanetCardsView>
-                    <CardPlanet planetImage={Mercury}/>
+                <InfoBox>
+                    <InfoTitle>Viagens disponíveis</InfoTitle>
+                    <ArrowBox>
+                        <LeftArrow onClick={carouselLeftClick}/>
+                        <RightArrow onClick={carouselRightClick}/>
+                    </ArrowBox>
+                </InfoBox>
+                <PlanetCardsView ref={carousel}>
+                    <CardPlanet/>
                 </PlanetCardsView>
             </PlanetsAvailable>
             <Footer/>

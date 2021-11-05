@@ -1,17 +1,47 @@
-import { Container, Title, CaracteristicsWrapper, Caracteristic, Price, Value, Image } from './style'
+// React
+import { useContext } from 'react'
 
-export function CardPlanet({ planetImage }) {
+// Styles
+import { Container, Title, CaracteristicsWrapper, Caracteristic, Price, Value, Image } from './style'
+import Mercury from '../../assets/Images/planets/mercury.png'
+import Venus from '../../assets/Images/planets/venus.png'
+import Mars from '../../assets/Images/planets/mars.png'
+import Jupiter from '../../assets/Images/planets/jupiter.png'
+import Saturn from '../../assets/Images/planets/saturn.png'
+import Uranus from '../../assets/Images/planets/uranus.png'
+import Neptune from '../../assets/Images/planets/neptune.png'
+
+// Context
+import { PublicContext } from '../../contexts/PublicContext'
+
+
+const tripPrice = ['221.990', '199.900', '312.690', '429.500']
+const planetImage = [Mercury, Venus, Mars, Jupiter, Saturn, Uranus, Neptune]
+
+export function CardPlanet() {
+
+    const { trips } = useContext(PublicContext)
+
     return (
-        <Container>
-            <Title>Mercúrio</Title>
-            <CaracteristicsWrapper>
-                <Caracteristic>Verão Eterno</Caracteristic>
-                <Caracteristic>Sol Brilhante</Caracteristic>
-                <Caracteristic>2 Cidades</Caracteristic>
-                <Caracteristic>180.000 Habitantes</Caracteristic>
-            </CaracteristicsWrapper>
-            <Price>Por <Value>R$212.000</Value></Price>
-            <Image src={planetImage} alt=''/>
-        </Container>
+        <>
+            {trips?.map((value, i) => {
+
+                const { id, name, description, planet, durationInDays, date } = value
+
+                return (
+                    <Container key={id}>
+                        <Title>{planet}</Title>
+                        <CaracteristicsWrapper>
+                            <Caracteristic>{name}</Caracteristic>
+                            <Caracteristic>{description}</Caracteristic>
+                            <Caracteristic>Duração: {durationInDays} dias</Caracteristic>
+                            <Caracteristic>Data: {date}</Caracteristic>
+                        </CaracteristicsWrapper>
+                        <Price>Por <Value>{tripPrice[i]}</Value></Price>
+                        <Image src={planetImage[i]} alt=''/>
+                    </Container>
+                )
+            })}
+        </>
     )
 }
