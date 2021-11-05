@@ -126,11 +126,11 @@ export const InfoParagraphTwo = styled.p`
 `
 export const PlanetsAvailable = styled.div`
     grid-area: PlanetsAvailable;
-    padding: 0 10%;
+    margin: 0 auto;
 `
 export const PlanetCardsView = styled.div`
     max-width: 95vw;
-    height: 80%;
+    height: 70%;
     display: flex;
     flex-direction: row;
     scroll-behavior: smooth;
