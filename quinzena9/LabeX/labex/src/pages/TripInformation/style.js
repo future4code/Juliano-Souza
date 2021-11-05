@@ -25,13 +25,12 @@ export const Apresentation = styled.div`
     align-items: center;
 `
 export const TextWrapper = styled.div`
-    padding-left: 15%;
     width: 50%;
     height: 100%;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
-    align-items: flex-start;
+    align-items: flex-end;
     @media (max-width: 805px) {
         width: 100%;
         padding-left: 0;
@@ -39,15 +38,19 @@ export const TextWrapper = styled.div`
     }
 `
 export const Title = styled.h1`
+    margin-right: -10%;
     font-size: 140px;
     @media (max-width: 805px) {
         font-size: 120px;
+        margin-right: 0;
     }
 `
 export const TransformTitle = styled.span`
     letter-spacing: -14px;
 `
 export const ImageWrapper = styled.div`
+    display: flex;
+    align-items: flex-start;
     width: 50%;
     height: 100%;
     @media (max-width: 805px) {

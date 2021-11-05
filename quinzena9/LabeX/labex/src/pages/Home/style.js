@@ -1,5 +1,8 @@
 import styled from "styled-components";
 
+// Assets
+import Blob from '../../assets/Images/blob.svg'
+
 export const Container = styled.div`
     width: 100%;
     height: 100vh;
@@ -41,6 +44,10 @@ export const TitleDecorationBox = styled.span`
     height: 100%;
     display: grid;
     align-items: center;
+    background-image: url(${Blob});
+    background-size: 120%;
+    background-position: center;
+    background-repeat: no-repeat;
 `
 export const TitleDecoration = styled.span`
     font-size: clamp(64px, 24vw + 0.1rem, 250px);

@@ -1,5 +1,8 @@
 import styled from "styled-components";
 
+// Assets
+import Blob from '../../assets/Images/blob-grey.svg'
+
 export const Container = styled.div`
     width: 100%;
     height: 100vh;
@@ -15,6 +18,9 @@ export const Section = styled.div`
     grid-area: Section;
     display: grid;
     place-items: center;
+    background-image: url(${Blob});
+    background-position: center;
+    background-size: 75%;
 `
 export const AuthWrapper = styled.div`
     width: 400px;
@@ -25,13 +31,15 @@ export const AuthWrapper = styled.div`
     flex-flow: column nowrap;
     justify-content: center;
     align-items: flex-start;
+    background-color: #272727;
+    border-radius: 12px;
 `
 export const SignInText = styled.h3`
     font-size: 35px;
 `
 export const WelcomeBackText = styled.p`
     font-size: 16px;
-    color: #B5B5B5;
+    color: #a0a0a0;
 `
 export const InputBox = styled.div`
     margin: 20px 0;
@@ -45,15 +53,19 @@ export const InputBox = styled.div`
 export const Input = styled.input`
     width: 100%;
     padding: 0 10px;
-    height: 40px;
+    height: 46px;
     margin-bottom: 5px;
     border: none;
     font-family: 'Montserrat', sans-serif;
     outline: none;
     font-size: 14px;
     font-weight: 500;
+    border-radius: 8px;
     background-color: #2c2c2c;
     color: #FFFFFF;
+    &:focus {
+        border: 1.25px solid #464646;
+    }
 `
 export const ForgotPassword = styled.p`
     font-size: 12px;
@@ -81,6 +93,7 @@ export const LoginGoogleButton = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 8px;
     transition: background-color 250ms ease-in-out;
     &:hover {
         background-color: #2c2c2c;

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 export const ButtonType = styled.button`
     width: ${p => p.size};
-    padding: 12.5px ;
+    padding: 15px ;
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     background-color: #FFFFFF;
@@ -13,6 +13,7 @@ export const ButtonType = styled.button`
     cursor: pointer;
     margin: ${p => p.margin};
     transition: 200ms ease-in-out;
+    border-radius: 8px;
     &:hover {
         background-color: transparent;
         color: #FFF;

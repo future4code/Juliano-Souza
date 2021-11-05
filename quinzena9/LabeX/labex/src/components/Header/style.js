@@ -9,7 +9,7 @@ export const Container = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 80px;
+    padding: 0 8%;
 `
 export const Login = styled.div`
     font-size: 14px;
