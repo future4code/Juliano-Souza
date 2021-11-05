@@ -11,6 +11,16 @@ export const GlobalStyle = createGlobalStyle`
         width: 100%;
         background-color: #1C1C1C;
         font-family: 'Montserrat', sans-serif;
-        color: #FFFFFF
+        color: #FFFFFF;
+        ::-webkit-scrollbar-track {
+            background-color: #272727;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: grey;
+            border-radius: 25px;
+        }
     }
 `

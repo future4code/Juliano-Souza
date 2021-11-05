@@ -1,5 +1,9 @@
 import styled from 'styled-components'
 
+
+// Assets
+import Blob from '../../assets/Images/blob.svg'
+
 // Lib
 import { FaArrowLeft } from "react-icons/fa";
 
@@ -16,6 +20,16 @@ export const Container = styled.div`
         'PlanetsAvailable'
         'Footer'
     ;
+    @media (max-width: 805px) {
+        grid: 8vh 30vh 60vh 60vh 5vh / 1fr;
+        grid-template-areas: 
+            'Header'
+            'Apresentation'
+            'AboutTrip'
+            'PlanetsAvailable'
+            'Footer'
+        ;
+    }
 `
 export const Apresentation = styled.div`
     grid-area: Apresentation;
@@ -35,6 +49,11 @@ export const TextWrapper = styled.div`
         width: 100%;
         padding-left: 0;
         align-items: center;
+        background-image: url(${Blob});
+        background-size: 70%;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100%;
     }
 `
 export const Title = styled.h1`
@@ -126,6 +145,7 @@ export const InfoBox = styled.div`
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
+    margin: 15px 0;
 `
 export const ArrowBox = styled.div`
     display: flex;

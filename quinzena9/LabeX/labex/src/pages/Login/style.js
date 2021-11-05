@@ -33,6 +33,9 @@ export const AuthWrapper = styled.div`
     align-items: flex-start;
     background-color: #272727;
     border-radius: 12px;
+    @media (max-width: 415px) {
+        width: 320px;
+    }
 `
 export const SignInText = styled.h3`
     font-size: 35px;

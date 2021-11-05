@@ -9,6 +9,9 @@ export const FooterContainer = styled.div`
     justify-content: space-between;
     padding: 0 80px;
     align-items: center;
+    @media (max-width: 460px) {
+        padding: 0 20px;
+    }
 `
 export const Paragraph = styled.p`
     font-size: 12px;

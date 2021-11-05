@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 export const ButtonType = styled.button`
     width: ${p => p.size};
-    padding: 15px ;
+    height: 46px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     background-color: #FFFFFF;
@@ -21,7 +21,10 @@ export const ButtonType = styled.button`
     }
 `
 export const LinkRouter = styled(Link)`
+    display: block;
     text-decoration: none;
     color: inherit;
     height: 100%;
+    display: grid;
+    place-items: center;
 `
