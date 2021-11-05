@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { BsArrowRight } from "react-icons/bs";
 
 export const Container = styled.div`
     width: 100%;
@@ -22,8 +21,8 @@ export const Apresentation = styled.div`
     align-items: center;
 `
 export const TextWrapper = styled.div`
+    padding-left: 15%;
     width: 50%;
-    padding-left: 10%;
     height: 100%;
     display: flex;
     flex-flow: column nowrap;
@@ -38,62 +37,18 @@ export const TransformTitle = styled.span`
 `
 export const Paragraph = styled.p`
     font-size: 16px;
-    width: 110%;
+    width: 100%;
 `
 export const ImageWrapper = styled.div`
     width: 50%;
-    background-image: url(${p => p.backgroundImage});
-    background-position: center left;
-    background-repeat: no-repeat;
-    background-size: auto;
     height: 100%;
-    /* background-color: darkseagreen; */
 `
-export const Details = styled.div`
-    height: 100%;
-    width: 100%;
-    padding: 0 0 0 150px;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: flex-start;
-`
-export const TitleDetails = styled.span`
-    margin-left: -22px;
-    border-left: 2px solid white;
-    padding: 0 0 0 20px;
-    margin-bottom: 10px;
-    font-size: 34px;
-    font-weight: 700;
-    letter-spacing: -1px;
-`
-export const SubtitleDetails = styled.span`
-    font-weight: 500;
-    margin: 2px 0;
-`
-export const RedirectBox = styled.div`
-    margin-top: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-`
-export const ArrowIcon = styled(BsArrowRight)`
-    font-size: 24px;
-    margin-right: 10px;
-`
-export const RedirectParagraph = styled.p`
-    font-size: 14px;
-`
-
-
-
 export const AboutTrip = styled.div`
     grid-area: AboutTrip;
-    /* background-color: darkturquoise; */
     position: relative;
 `
 export const ContentOne = styled.div`
-    padding-left: 50px;
+    padding-left: 10%;
     width: 50%;
     height: 50%;
     display: flex;
@@ -116,12 +71,15 @@ export const InfoTitle = styled.h3`
 `
 export const InfoParagraph = styled.p`
     font-size: 14px;
-    width: 80%;
+    width: 100%;
 `
-
+export const InfoParagraphTwo = styled.p`
+    font-size: 14px;
+    width: 85%;
+`
 export const PlanetsAvailable = styled.div`
     grid-area: PlanetsAvailable;
-    padding: 0 40px;
+    padding: 0 12.5%;
 `
 export const PlanetCardsView = styled.div`
     height: 100%;
