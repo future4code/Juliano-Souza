@@ -1,3 +1,6 @@
+// React
+import { useContext } from 'react'
+
 // Styles
 import { Container, Apresentation, TextWrapper, ImageWrapper, Title, TransformTitle, AboutTrip, ContentOne, ContentTwo, InfoTitle, InfoParagraph, PlanetsAvailable, Paragraph, InfoParagraphTwo, PlanetCardsView } from './style'
 
@@ -10,7 +13,13 @@ import { Footer } from '../../components/Footer'
 import { CardPlanet } from '../../components/CardPlanet'
 import { Astronaut } from '../../assets/animation/Astronaut'
 
+// Context
+import { PublicContext } from '../../contexts/PublicContext'
+
 export function TripInformation() {
+
+    const { trips } = useContext(PublicContext)
+    
     return (
         <Container>
             <Header buttonText='Home' route='/'/>
