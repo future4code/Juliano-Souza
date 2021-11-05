@@ -15,7 +15,7 @@ import Neptune from '../../assets/Images/planets/neptune.png'
 import { PublicContext } from '../../contexts/PublicContext'
 
 
-const tripPrice = ['221.990', '199.900', '312.690', '429.500']
+const tripPrice = ['221.990', '199.900', '312.690', '429.500', '329.500', '689.990', '550.100']
 const planetImage = [Mercury, Venus, Mars, Jupiter, Saturn, Uranus, Neptune]
 
 export function CardPlanet() {
@@ -37,8 +37,8 @@ export function CardPlanet() {
                             <Caracteristic>Duração: {durationInDays} dias</Caracteristic>
                             <Caracteristic>Data: {date}</Caracteristic>
                         </CaracteristicsWrapper>
-                        <Price>Por <Value>{tripPrice[i]}</Value></Price>
-                        <Image src={planetImage[i]} alt=''/>
+                        <Price>Por R$ <Value>{tripPrice[(i % trips.length / 1.5).toFixed(0)]}</Value></Price>
+                        <Image src={planetImage[(i % trips.length / 1.5).toFixed(0)]} alt={planet}/>
                     </Container>
                 )
             })}

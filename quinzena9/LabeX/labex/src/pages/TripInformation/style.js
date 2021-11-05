@@ -151,6 +151,9 @@ export const ArrowBox = styled.div`
     display: flex;
     justify-content: space-between;
     width: 100px;
+    @media (max-width: 550px) {
+        width: 80px;
+    }
 `
 export const LeftArrow = styled(FaArrowLeft)`
     font-size: 34px;
