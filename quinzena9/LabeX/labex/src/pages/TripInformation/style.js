@@ -8,7 +8,7 @@ export const Container = styled.div`
     width: 100%;
     height: 100vh;
     display: grid;
-    grid: 8vh 60vh 60vh 60vh 5vh / 1fr;
+    grid: 8vh 40vh 60vh 60vh 5vh / 1fr;
     grid-template-areas: 
         'Header'
         'Apresentation'
@@ -32,20 +32,28 @@ export const TextWrapper = styled.div`
     flex-flow: column nowrap;
     justify-content: center;
     align-items: flex-start;
+    @media (max-width: 805px) {
+        width: 100%;
+        padding-left: 0;
+        align-items: center;
+    }
 `
 export const Title = styled.h1`
     font-size: 140px;
+    @media (max-width: 805px) {
+        font-size: 120px;
+    }
 `
 export const TransformTitle = styled.span`
     letter-spacing: -14px;
 `
-export const Paragraph = styled.p`
-    font-size: 16px;
-    width: 100%;
-`
 export const ImageWrapper = styled.div`
     width: 50%;
     height: 100%;
+    @media (max-width: 805px) {
+        display: none;
+
+    }
 `
 export const AboutTrip = styled.div`
     grid-area: AboutTrip;
@@ -72,28 +80,41 @@ export const ContentTwo = styled.div`
 export const InfoTitle = styled.h3`
     font-size: 32px;
     margin-bottom: 15px;
+    @media (max-width: 805px) {
+        font-size: 24px;
+    }
 `
 export const InfoParagraph = styled.p`
     font-size: 14px;
     width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
 `
 export const InfoParagraphTwo = styled.p`
     font-size: 14px;
     width: 85%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
 `
 export const PlanetsAvailable = styled.div`
     grid-area: PlanetsAvailable;
     padding: 0 10%;
 `
 export const PlanetCardsView = styled.div`
-    max-width: 98vw;
+    max-width: 95vw;
     height: 80%;
     display: flex;
     flex-direction: row;
-    gap: 8px;
     scroll-behavior: smooth;
     justify-content: flex-start;
     overflow-x: hidden;
+    gap: 4px;
 `
 // Icon
 

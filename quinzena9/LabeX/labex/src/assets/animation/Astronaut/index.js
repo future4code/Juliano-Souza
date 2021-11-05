@@ -16,8 +16,8 @@ export function Astronaut() {
         <div>
             <Lottie 
                 options={defaultOptions}
-                height={400}
-                width={400}
+                height={380}
+                width={380}
             />
         </div>
     )

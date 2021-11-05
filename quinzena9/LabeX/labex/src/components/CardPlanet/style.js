@@ -4,7 +4,6 @@ export const Container = styled.div`
     padding: 20px;
     min-width: 250px;
     height: 100%;
-    border: 2px solid #6A6A6A;
     background-color: #272727;
     display: flex;
     flex-flow: column;
@@ -38,5 +37,5 @@ export const Value = styled.span`
     font-weight: 600;
 `
 export const Image = styled.img`
-    max-width: 440px;
+    max-width: 300px;
 `
