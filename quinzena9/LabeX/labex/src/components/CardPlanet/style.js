@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Container = styled.div`
     padding: 20px;
@@ -38,4 +39,9 @@ export const Value = styled.span`
 `
 export const Image = styled.img`
     max-width: 300px;
+`
+export const LinkRouter = styled(Link)`
+    color: inherit;
+    text-decoration: none;
+    min-width: 250px;
 `

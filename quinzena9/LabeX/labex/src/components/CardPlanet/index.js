@@ -2,7 +2,7 @@
 import { useContext } from 'react'
 
 // Styles
-import { Container, Title, CaracteristicsWrapper, Caracteristic, Price, Value, Image } from './style'
+import { Container, Title, CaracteristicsWrapper, Caracteristic, Price, Value, Image, LinkRouter } from './style'
 import Mercury from '../../assets/Images/planets/mercury.png'
 import Venus from '../../assets/Images/planets/venus.png'
 import Mars from '../../assets/Images/planets/mars.png'
@@ -29,17 +29,19 @@ export function CardPlanet() {
                 const { id, name, description, planet, durationInDays, date } = value
 
                 return (
-                    <Container key={id}>
-                        <Title>{planet}</Title>
-                        <CaracteristicsWrapper>
-                            <Caracteristic>{name}</Caracteristic>
-                            <Caracteristic>{description}</Caracteristic>
-                            <Caracteristic>Duração: {durationInDays} dias</Caracteristic>
-                            <Caracteristic>Data: {date}</Caracteristic>
-                        </CaracteristicsWrapper>
-                        <Price>Por R$ <Value>{tripPrice[(i % trips.length / 1.5).toFixed(0)]}</Value></Price>
-                        <Image src={planetImage[(i % trips.length / 1.5).toFixed(0)]} alt={planet}/>
-                    </Container>
+                    <LinkRouter to='/trips/application' key={id}>
+                        <Container>
+                            <Title>{planet}</Title>
+                            <CaracteristicsWrapper>
+                                <Caracteristic>{name}</Caracteristic>
+                                <Caracteristic>{description}</Caracteristic>
+                                <Caracteristic>Duração: {durationInDays} dias</Caracteristic>
+                                <Caracteristic>Data: {date}</Caracteristic>
+                            </CaracteristicsWrapper>
+                            <Price>Por R$ <Value>{tripPrice[(i % trips.length / 1.5).toFixed(0)]}</Value></Price>
+                            <Image src={planetImage[(i % trips.length / 1.5).toFixed(0)]} alt={planet}/>
+                        </Container>
+                    </LinkRouter>
                 )
             })}
         </>

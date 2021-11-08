@@ -9,8 +9,8 @@ export const GlobalStyle = createGlobalStyle`
 
     body {
         width: 100%;
-        background-color: #1C1C1C;
-        font-family: 'Montserrat', sans-serif;
+        background-color: #1C1C1C !important;
+        font-family: 'Montserrat', sans-serif !important;
         color: #FFFFFF;
         ::-webkit-scrollbar-track {
             background-color: #272727;

@@ -1,5 +1,6 @@
 import Lottie from 'react-lottie'
 import AstronautAnimation from './astronaut.json'
+import { Container } from './style'
 
 export function Astronaut() {
 
@@ -13,12 +14,12 @@ export function Astronaut() {
       };
 
     return (
-        <div>
+        <Container>
             <Lottie 
                 options={defaultOptions}
                 height={380}
                 width={380}
             />
-        </div>
+        </Container>
     )
 }

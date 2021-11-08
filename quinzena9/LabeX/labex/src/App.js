@@ -6,6 +6,7 @@ import { PublicContextProvider } from "./contexts/PublicContext";
 import { Home } from "./pages/Home";
 import { Login } from "./pages/Login"
 import { TripInformation } from "./pages/TripInformation";
+import { ApplicationForm } from './pages/ApplicationForm'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path='/' exact element={<Home/>}/>
             <Route path='/login' element={<Login/>}/>
             <Route path='/trips/list' element={<TripInformation/>}/>
+            <Route path='/trips/application' element={<ApplicationForm/>}/>
           </Routes>
         </PublicContextProvider>
       </Router>

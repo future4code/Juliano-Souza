@@ -11,12 +11,13 @@ export const ButtonType = styled.button`
     background-color: #FFFFFF;
     border: none;
     cursor: pointer;
+    color: #000 !important;
     margin: ${p => p.margin};
     transition: 200ms ease-in-out;
     border-radius: 8px;
     &:hover {
         background-color: transparent;
-        color: #FFF;
+        color: #FFF !important;
         box-shadow: 0 0 0 0.5px white;
     }
 `
