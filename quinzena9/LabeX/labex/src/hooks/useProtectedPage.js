@@ -11,9 +11,7 @@ export function useProtectedPage() {
 
         if (!token) {
             navigate(`/login`);
-        } else {
-            navigate(`/admin`);
-        }
+        } 
 
     }, [navigate, token])
     

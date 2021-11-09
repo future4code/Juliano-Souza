@@ -1,5 +1,4 @@
-// React
-import { useContext } from 'react'
+import { useRequestData } from '../../hooks/useRequestData'
 
 // Styles
 import { Container, Title, CaracteristicsWrapper, Caracteristic, Price, Value, Image, LinkRouter } from './style'
@@ -11,16 +10,15 @@ import Saturn from '../../assets/Images/planets/saturn.png'
 import Uranus from '../../assets/Images/planets/uranus.png'
 import Neptune from '../../assets/Images/planets/neptune.png'
 
-// Context
-import { PublicContext } from '../../contexts/PublicContext'
-
+import { BASE_URL } from '../../constants/urls'
 
 const tripPrice = ['221.990', '199.900', '312.690', '429.500', '329.500', '689.990', '550.100']
 const planetImage = [Mercury, Venus, Mars, Jupiter, Saturn, Uranus, Neptune]
 
 export function CardPlanet() {
 
-    const { trips } = useContext(PublicContext)
+
+    const trips = useRequestData(BASE_URL, 'get', '/trips')
 
     return (
         <>

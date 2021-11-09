@@ -23,6 +23,7 @@ export const Title = styled.h3`
 `
 export const CaracteristicsWrapper = styled.ul`
     list-style-type: none;
+    position: relative;
 `
 export const Caracteristic = styled.li`
     font-size: 15px;

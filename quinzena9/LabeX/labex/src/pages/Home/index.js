@@ -1,3 +1,5 @@
+import { useContext } from 'react'
+
 // Styles
 import { Container, Main, Presentation, Title, Description, TitleDecorationBox, TitleDecoration } from './style'
 
@@ -5,11 +7,15 @@ import { Container, Main, Presentation, Title, Description, TitleDecorationBox, 
 import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
 import { Button } from '../../components/Button'
+import { AdminContext } from '../../contexts/AdminContext'
 
 export function Home() {
+
+    const { token } = useContext(AdminContext)
+
     return (
         <Container>
-            <Header buttonText='Login' route='/login'/>
+            <Header buttonText={token ? 'Admin' : 'Login'} route='/login'/>
             <Main>
                 <Presentation>
                     <Title>O Futuro Chegou</Title>

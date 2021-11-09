@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { BASE_URL } from '../constants/urls'
 
+
 // Aplicar para Viagem
 
 export const applyToTrip = (e, params, formValues, setFormValues) => {
@@ -52,4 +53,37 @@ export const login = (e, loginValues, setLoginValues) => {
         })
     }).catch(() => alert('Oops, algo errado.'))
 
+}
+
+// Create Trip
+
+export const createTrip = (e, newTripValues, token, setNewTripValues) => {
+    e.preventDefault()
+
+    const { name, planet, date, description, durationInDays } = newTripValues
+
+    const AUTH = {headers: {
+        auth: token
+    }}
+
+    const body = {
+        name,
+        planet,
+        date,
+        description,
+        durationInDays
+    }
+
+    axios.post(`${BASE_URL}/trips`, body, AUTH)
+    .then(() => {
+        alert('Trip Criada')
+        setNewTripValues({
+            name: '',
+            planet: '',
+            date: '',
+            description: '',
+            durationInDays: ''
+        })
+    })
+    .catch(() => alert('Erro'))
 }
