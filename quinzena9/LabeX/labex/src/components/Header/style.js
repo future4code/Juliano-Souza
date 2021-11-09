@@ -23,7 +23,7 @@ export const Login = styled.div`
     &:hover {
         cursor: pointer;
         color: #FFFFFF;
-        border-color: #FFFFFF;
+        border-color: #3236FD;
     }
 `
 export const LinkRouter = styled(Link)`

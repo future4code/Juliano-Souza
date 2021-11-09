@@ -18,7 +18,7 @@ function App() {
             <Route path='/' exact element={<Home/>}/>
             <Route path='/login' element={<Login/>}/>
             <Route path='/trips/list' element={<TripInformation/>}/>
-            <Route path='/trips/application' element={<ApplicationForm/>}/>
+            <Route path='/trips/application/:id' element={<ApplicationForm/>}/>
           </Routes>
         </PublicContextProvider>
       </Router>

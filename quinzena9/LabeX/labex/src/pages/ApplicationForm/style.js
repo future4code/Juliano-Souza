@@ -32,7 +32,7 @@ export const FormWrapper = styled.div`
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     background-color: #272727;
     border-radius: 12px;
     @media (max-width: 415px) {
@@ -46,7 +46,7 @@ export const Title = styled.h3`
 export const InputBox = styled.div`
     margin: 20px 0;
     width: 100%;
-    height: 320px;
+    height: 340px;
     display: flex;
     flex-flow: column;
     justify-content: center;
@@ -69,4 +69,11 @@ export const Input = styled.input`
     &:focus {
         border: 1.25px solid #464646;
     }
+`
+
+export const Label = styled.label`
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 4px;
+
 `

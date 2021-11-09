@@ -20,7 +20,7 @@ const planetImage = [Mercury, Venus, Mars, Jupiter, Saturn, Uranus, Neptune]
 
 export function CardPlanet() {
 
-    const { trips } = useContext(PublicContext)
+    const { trips, setTripId } = useContext(PublicContext)
 
     return (
         <>
@@ -29,7 +29,7 @@ export function CardPlanet() {
                 const { id, name, description, planet, durationInDays, date } = value
 
                 return (
-                    <LinkRouter to='/trips/application' key={id}>
+                    <LinkRouter to='/trips/application' key={id} onClick={() => setTripId(id)}>
                         <Container>
                             <Title>{planet}</Title>
                             <CaracteristicsWrapper>

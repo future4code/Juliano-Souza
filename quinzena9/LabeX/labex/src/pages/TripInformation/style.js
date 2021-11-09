@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 // Assets
 import Blob from '../../assets/Images/blob.svg'
+import Blob2 from '../../assets/Images/blob-trip.svg'
 
 // Lib
 import { FaArrowLeft } from "react-icons/fa";
@@ -37,6 +38,11 @@ export const Apresentation = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: url(${Blob2});
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
 `
 export const TextWrapper = styled.div`
     width: 50%;

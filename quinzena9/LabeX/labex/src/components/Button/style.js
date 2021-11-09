@@ -16,9 +16,8 @@ export const ButtonType = styled.button`
     transition: 200ms ease-in-out;
     border-radius: 8px;
     &:hover {
-        background-color: transparent;
+        background-color: #3236FD;
         color: #FFF !important;
-        box-shadow: 0 0 0 0.5px white;
     }
 `
 export const LinkRouter = styled(Link)`
