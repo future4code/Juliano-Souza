@@ -1,5 +1,4 @@
-import { useContext } from 'react'
-import { PublicContext } from '../../contexts/PublicContext'
+import { useParams } from 'react-router'
 
 // Styles 
 import { Container, Section, FormWrapper, Title, InputBox, Input, Label } from './style'
@@ -8,15 +7,11 @@ import { Container, Section, FormWrapper, Title, InputBox, Input, Label } from '
 import { Footer } from '../../components/Footer'
 import { Header } from '../../components/Header'
 import { Button } from '../../components/Button'
-import { useTripData } from '../../hooks/useTripData';
 import { Select } from '../../components/Select'
-import { cookieStorageManager } from '@chakra-ui/color-mode'
 
 export function ApplicationForm() {
 
-    const { tripId } = useContext(PublicContext)
-
-    const tripData = useTripData(tripId)
+    let params = useParams()
 
     return (
         <Container>
@@ -36,7 +31,7 @@ export function ApplicationForm() {
                         <Label>País</Label>
                         <Select/>
                         <Label>Viagem</Label>
-                        <Input value={tripData && tripData[0].name} readonly disabled></Input>
+                        <Input value={params.trip_name} readonly disabled></Input>
                     </InputBox>
                     <Button text='Concluir' size='100%' type='submit' />
                 </FormWrapper>
