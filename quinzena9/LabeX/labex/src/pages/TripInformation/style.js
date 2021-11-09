@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 // Assets
@@ -145,11 +145,11 @@ export const PlanetCardsView = styled.div`
     overflow-x: hidden;
     gap: 4px;
 `
-// export const LinkRouter = styled(Link)`
-//     color: inherit;
-//     text-decoration: none;
-//     min-width: 250px;
-// `
+export const LinkRouter = styled(Link)`
+    color: inherit;
+    text-decoration: none;
+    min-width: 250px;
+`
 
 // Icon
 

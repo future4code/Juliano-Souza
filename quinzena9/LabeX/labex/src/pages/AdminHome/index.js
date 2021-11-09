@@ -1,8 +1,10 @@
 import { useProtectedPage } from "../../hooks/useProtectedPage"
+import { BASE_URL } from '../../constants/urls'
+import { useRequestData } from '../../hooks/useRequestData'
 import { useRef } from 'react'
 
 // Styles
-import { Container, Section, AdminWrapper, PlanetCardsView, InfoBox, InfoTitle, ArrowBox, LeftArrow, RightArrow, TripInfoBox } from './style'
+import { Container, Section, AdminWrapper, PlanetCardsView, InfoBox, InfoTitle, ArrowBox, LeftArrow, RightArrow, TripInfoBox, LinkRouter } from './style'
 
 // Components
 import { Header } from '../../components/Header'
@@ -24,6 +26,8 @@ export function AdminHome() {
 
     useProtectedPage()
 
+    const trips = useRequestData(BASE_URL, 'get', '/trips')
+
     return (
         <Container>
             <Header buttonText='Home' route='/'/>
@@ -40,7 +44,13 @@ export function AdminHome() {
                         </ArrowBox>
                     </InfoBox>
                     <PlanetCardsView ref={carousel}>
-                        <CardPlanet/>
+                        {trips && trips.map(trip => {
+                            return (
+                                <LinkRouter to={`/admin/trip_details/${trip.id}`} key={trip.id}>
+                                    <CardPlanet trip={trip}/>
+                                </LinkRouter>
+                            )
+                        })}
                     </PlanetCardsView>
                 </AdminWrapper>
             </Section>

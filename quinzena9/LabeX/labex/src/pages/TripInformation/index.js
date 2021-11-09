@@ -1,8 +1,11 @@
+import { BASE_URL } from '../../constants/urls'
+import { useRequestData } from '../../hooks/useRequestData'
+
 // React
 import { useRef } from 'react'
 
 // Styles
-import { Container, Apresentation, TextWrapper, ImageWrapper, Title, TransformTitle, AboutTrip, ContentOne, ContentTwo, InfoTitle, InfoParagraph, PlanetsAvailable, InfoParagraphTwo, PlanetCardsView, InfoBox, ArrowBox, LeftArrow, RightArrow } from './style'
+import { Container, Apresentation, TextWrapper, ImageWrapper, Title, TransformTitle, AboutTrip, ContentOne, ContentTwo, InfoTitle, InfoParagraph, PlanetsAvailable, InfoParagraphTwo, PlanetCardsView, InfoBox, ArrowBox, LeftArrow, RightArrow, LinkRouter } from './style'
 
 // Components
 import { Header } from '../../components/Header'
@@ -21,6 +24,8 @@ export function TripInformation() {
     const carouselLeftClick = () => {
         carousel.current.scrollLeft -= carousel.current.offsetWidth
     }
+
+    const trips = useRequestData(BASE_URL, 'get', '/trips')
 
     return (
         <Container>
@@ -52,7 +57,13 @@ export function TripInformation() {
                     </ArrowBox>
                 </InfoBox>
                 <PlanetCardsView ref={carousel}>
-                    <CardPlanet/>
+                    {trips && trips.map(trip => {
+                        return (
+                            <LinkRouter to={`/trips/application/${trip.id}/${trip.name}`} key={trip.id}>
+                                <CardPlanet trip={trip}/>
+                            </LinkRouter>
+                        )
+                    })}
                 </PlanetCardsView>
             </PlanetsAvailable>
             <Footer/>

@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import blob from '../../assets/Images/blob-grey.svg'
 import { FaArrowLeft } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 
 export const Container = styled.div`
@@ -90,4 +91,9 @@ export const TripInfoBox = styled.div`
     justify-content: space-between;
     padding-right: 15px;
     padding-left: 5px;
+`
+export const LinkRouter = styled(Link)`
+    color: inherit;
+    text-decoration: none;
+    min-width: 250px;
 `

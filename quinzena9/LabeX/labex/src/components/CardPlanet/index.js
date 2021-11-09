@@ -1,48 +1,35 @@
-
-import { useRequestData } from '../../hooks/useRequestData'
-
 // Styles
-import { Container, Title, CaracteristicsWrapper, Caracteristic, Price, Value, Image, LinkRouter } from './style'
-import Mercury from '../../assets/Images/planets/mercury.png'
-import Venus from '../../assets/Images/planets/venus.png'
-import Mars from '../../assets/Images/planets/mars.png'
-import Jupiter from '../../assets/Images/planets/jupiter.png'
-import Saturn from '../../assets/Images/planets/saturn.png'
-import Uranus from '../../assets/Images/planets/uranus.png'
-import Neptune from '../../assets/Images/planets/neptune.png'
+import { Container, Title, CaracteristicsWrapper, Caracteristic, Price, Value, Image } from './style'
+// import Mercury from '../../assets/Images/planets/mercury.png'
+// import Venus from '../../assets/Images/planets/venus.png'
+// import Mars from '../../assets/Images/planets/mars.png'
+// import Jupiter from '../../assets/Images/planets/jupiter.png'
+// import Saturn from '../../assets/Images/planets/saturn.png'
+// import Uranus from '../../assets/Images/planets/uranus.png'
+// import Neptune from '../../assets/Images/planets/neptune.png'
 
-import { BASE_URL } from '../../constants/urls'
+// const tripPrice = ['221.990', '199.900', '312.690', '429.500', '329.500', '689.990', '550.100']
+// const planetImage = [Mercury, Venus, Mars, Jupiter, Saturn, Uranus, Neptune]
 
-const tripPrice = ['221.990', '199.900', '312.690', '429.500', '329.500', '689.990', '550.100']
-const planetImage = [Mercury, Venus, Mars, Jupiter, Saturn, Uranus, Neptune]
+export function CardPlanet({ trip }) {
 
-export function CardPlanet() {
+    // console.log(trip)
 
-
-    const trips = useRequestData(BASE_URL, 'get', '/trips')
+    const { name, planet, description, date, durationInDays } = trip
 
     return (
         <>
-            {trips?.map((value, i) => {
-
-                const { id, name, description, planet, durationInDays, date } = value
-
-                return (
-                    <LinkRouter to={`/trips/application/${id}/${name}`} key={id}>
-                        <Container>
-                            <Title>{planet}</Title>
-                            <CaracteristicsWrapper>
-                                <Caracteristic>{name}</Caracteristic>
-                                <Caracteristic>{description}</Caracteristic>
-                                <Caracteristic>Duração: {durationInDays} dias</Caracteristic>
-                                <Caracteristic>Data: {date}</Caracteristic>
-                            </CaracteristicsWrapper>
-                            <Price>Por R$ <Value>{tripPrice[(i % trips.length / 1.5).toFixed(0)]}</Value></Price>
-                            <Image src={planetImage[(i % trips.length / 1.5).toFixed(0)]} alt={planet}/>
-                        </Container>
-                    </LinkRouter>
-                )
-            })}
+            <Container>
+                    <Title>{planet}</Title>
+                    <CaracteristicsWrapper>
+                        <Caracteristic>{name}</Caracteristic>
+                        <Caracteristic>{description}</Caracteristic>
+                        <Caracteristic>Duração: {durationInDays} dias</Caracteristic>
+                        <Caracteristic>Data: {date}</Caracteristic>
+                    </CaracteristicsWrapper>
+                    <Price>Por R$ <Value>{''}</Value></Price>
+                    <Image src={''} alt={planet}/>
+            </Container>
         </>
     )
 }
