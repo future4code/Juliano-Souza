@@ -14,7 +14,7 @@ export const Container = styled.div`
         'Footer'
     ;
 `
-export const Section = styled.form`
+export const Section = styled.div`
     grid-area: Section;
     display: flex;
     justify-content: center;
@@ -23,8 +23,7 @@ export const Section = styled.form`
     background-position: center;
     background-size: 75%;
 `
-
-export const FormWrapper = styled.div`
+export const FormWrapper = styled.form`
     width: 400px;
     height: 80vh;
     border: 1.25px solid #464646;
@@ -51,7 +50,6 @@ export const InputBox = styled.div`
     flex-flow: column;
     justify-content: center;
     align-items: flex-start;
-    /* background-color: red; */
 `
 export const Input = styled.input`
     width: 100%;
@@ -70,7 +68,6 @@ export const Input = styled.input`
         border: 1.25px solid #464646;
     }
 `
-
 export const Label = styled.label`
     font-size: 12px;
     font-weight: 500;
