@@ -1,6 +1,8 @@
 import axios from 'axios'
 import { BASE_URL } from '../constants/urls'
 
+// Aplicar para Viagem
+
 export const applyToTrip = (e, params, formValues, setFormValues) => {
     e.preventDefault()
     
@@ -26,4 +28,26 @@ export const applyToTrip = (e, params, formValues, setFormValues) => {
         })
     })
     .catch(() => alert('Error') )
+}
+
+// Login
+
+export const login = (e, loginValues, setLoginValues) => {
+    e.preventDefault()
+
+    const { email, password } = loginValues
+
+    const body = {
+        email,
+        password
+    }
+
+    axios.post(`${BASE_URL}/login`, body).then(res => {
+        localStorage.setItem('Token', res.data.token)
+        setLoginValues({
+            email: '',
+            password: ''
+        })
+    }).catch(() => alert('Oops, algo errado.'))
+
 }

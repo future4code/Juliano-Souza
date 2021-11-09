@@ -16,8 +16,13 @@ export function PublicContextProvider({children}) {
         country: '',
     })
 
+    const [loginValues, setLoginValues] = useState({
+        email: '',
+        password: ''
+    })
+
     return (
-        <PublicContext.Provider value={{trips, formValues, setFormValues}}>
+        <PublicContext.Provider value={{trips, formValues, setFormValues, loginValues, setLoginValues}}>
             {children}
         </PublicContext.Provider>
     )

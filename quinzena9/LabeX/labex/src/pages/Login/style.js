@@ -22,7 +22,7 @@ export const Section = styled.div`
     background-position: center;
     background-size: 75%;
 `
-export const AuthWrapper = styled.div`
+export const AuthWrapper = styled.form`
     width: 400px;
     height: 70vh;
     border: 1.25px solid #464646;
