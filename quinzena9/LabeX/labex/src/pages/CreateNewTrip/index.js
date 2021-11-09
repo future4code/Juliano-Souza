@@ -62,7 +62,6 @@ export function CreateNewTrip() {
                     </InputBox>
                     <Button text='Criar Viagem' size='100%' type='submit' />
                 </FormWrapper>
-
             </Section>
             <Footer/>
         </Container>

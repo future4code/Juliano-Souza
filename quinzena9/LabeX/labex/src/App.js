@@ -10,6 +10,7 @@ import { TripInformation } from "./pages/TripInformation";
 import { ApplicationForm } from './pages/ApplicationForm'
 import { AdminHome } from "./pages/AdminHome";
 import { CreateNewTrip } from "./pages/CreateNewTrip";
+import { TripDetails } from "./pages/TripDetails";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
               <Route path='/trips/application/:id/:trip_name' element={<ApplicationForm/>}/>
               <Route path='/admin' element={<AdminHome/>}/>
               <Route path='/admin/create_new_trip' element={<CreateNewTrip/>}/>
+              <Route path='/admin/trip_details/:id' element={<TripDetails/>}/>
             </Routes>
           </PublicContextProvider>
         </AdminContextProvider>

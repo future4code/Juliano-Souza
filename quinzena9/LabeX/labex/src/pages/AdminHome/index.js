@@ -2,7 +2,7 @@ import { useProtectedPage } from "../../hooks/useProtectedPage"
 import { useRef } from 'react'
 
 // Styles
-import { Container, Section, AdminWrapper, PlanetCardsView, InfoBox, InfoTitle, ArrowBox, LeftArrow, RightArrow } from './style'
+import { Container, Section, AdminWrapper, PlanetCardsView, InfoBox, InfoTitle, ArrowBox, LeftArrow, RightArrow, TripInfoBox } from './style'
 
 // Components
 import { Header } from '../../components/Header'
@@ -30,8 +30,10 @@ export function AdminHome() {
             <Section>
                 <AdminWrapper>
                     <InfoBox>
-                        <InfoTitle>Viagens Cadastradas</InfoTitle>
-                        <Button text='Criar nova viagem' size='150px' route='/admin/create_new_trip' />
+                        <TripInfoBox>
+                            <InfoTitle>Viagens Cadastradas</InfoTitle>
+                            <Button text='Criar nova viagem' size='150px' route='/admin/create_new_trip' />
+                        </TripInfoBox>
                         <ArrowBox>
                             <LeftArrow onClick={carouselLeftClick}/>
                             <RightArrow onClick={carouselRightClick}/>

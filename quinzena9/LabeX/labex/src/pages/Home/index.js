@@ -15,7 +15,7 @@ export function Home() {
 
     return (
         <Container>
-            <Header buttonText={token ? 'Admin' : 'Login'} route='/login'/>
+            <Header buttonText={token ? 'Admin' : 'Login'} route={ token ? '/admin' : '/login'}/>
             <Main>
                 <Presentation>
                     <Title>O Futuro Chegou</Title>

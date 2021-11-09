@@ -25,15 +25,15 @@ export const Section = styled.div`
 export const AdminWrapper = styled.div`
     padding: 20px;
     width: 80%;
-    height: 90%;
+    height: 80%;
     background-color: #2C2C2C;
     border-radius: 12px;
     display: flex;
     flex-flow: column nowrap;
-    justify-content: center;
+    justify-content: space-evenly;
 `
 export const PlanetCardsView = styled.div`
-    max-width: 95vw;
+    max-width: 90vw;
     height: 70%;
     display: flex;
     flex-direction: row;
@@ -41,10 +41,10 @@ export const PlanetCardsView = styled.div`
     justify-content: flex-start;
     overflow-x: hidden;
     gap: 4px;
+
 `
 export const InfoTitle = styled.h3`
     font-size: 32px;
-    margin-bottom: 15px;
     @media (max-width: 805px) {
         font-size: 24px;
     }
@@ -52,7 +52,7 @@ export const InfoTitle = styled.h3`
 export const InfoBox = styled.div`
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     margin: 15px 0;
 `
@@ -61,7 +61,7 @@ export const ArrowBox = styled.div`
     justify-content: space-between;
     width: 100px;
     @media (max-width: 550px) {
-        width: 80px;
+        width: 60px;
     }
 `
 export const LeftArrow = styled(FaArrowLeft)`
@@ -72,9 +72,22 @@ export const LeftArrow = styled(FaArrowLeft)`
     &:hover {
         opacity: 1;
     }
-
+    @media (max-width: 550px) {
+        font-size: 24px;
+    }
 `
 export const RightArrow = styled(LeftArrow)`
     font-size: 34px;
     transform: rotate(180deg);
+    @media (max-width: 550px) {
+        font-size: 24px;
+    }
+`
+export const TripInfoBox = styled.div`
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: space-between;
+    padding-right: 15px;
+    padding-left: 5px;
 `
