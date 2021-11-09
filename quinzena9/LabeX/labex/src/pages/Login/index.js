@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import { PublicContext } from '../../contexts/PublicContext'
 import { login } from '../../services/requests'
+import { useProtectedPage } from '../../hooks/useProtectedPage'
 
 // Styles
 import { Container, Section, AuthWrapper, SignInText, WelcomeBackText, InputBox, Input, ForgotPassword, LoginGoogleButton, Icon } from './style'
@@ -16,6 +17,8 @@ import { Header } from '../../components/Header'
 export function Login() {
 
     const { loginValues, setLoginValues } = useContext(PublicContext)
+
+    useProtectedPage()
 
     return (
         <Container>
