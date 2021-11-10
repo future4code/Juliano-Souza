@@ -11,6 +11,7 @@ import { ApplicationForm } from './pages/ApplicationForm'
 import { AdminHome } from "./pages/AdminHome";
 import { CreateNewTrip } from "./pages/CreateNewTrip";
 import { TripDetails } from "./pages/TripDetails";
+import { ApprovedCandidates } from "./pages/ApprovedCandidates";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
               <Route path='/admin' element={<AdminHome/>}/>
               <Route path='/admin/create_new_trip' element={<CreateNewTrip/>}/>
               <Route path='/admin/trip_details/:id' element={<TripDetails/>}/>
+              <Route path='/admin/trip_details/:id/approved' element={<ApprovedCandidates/>}/>
             </Routes>
           </PublicContextProvider>
         </AdminContextProvider>

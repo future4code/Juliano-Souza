@@ -14,8 +14,7 @@ import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
 import { Button } from '../../components/Button'
 
-
-export function TripDetails() {
+export function ApprovedCandidates() {
 
     useProtectedPage()
 
@@ -25,7 +24,7 @@ export function TripDetails() {
 
     const tripDetail = useRequestData(`${BASE_URL}`, 'get', `/trip/${params.id}`, '', `${token}`)
 
-    const { candidates } = tripDetail
+    const { approved } = tripDetail
 
     return (
         <Container>
@@ -35,16 +34,16 @@ export function TripDetails() {
                     <TripData>
                         <CandidatesWrapper>
                             <TitleAndButtonBox>
-                                <Title>Candidatos</Title>
+                                <Title>Aprovados</Title>
                                 <ButtonsBox>
                                     <Button size='150px' text='Deletar Viagem' margin='0 10px 0 0'/>
-                                    <Button size='150px' text='Aprovados' route={`/admin/trip_details/${params.id}/approved`}/>
+                                    <Button size='150px' text='Candidatos' route={`/admin/trip_details/${params.id}`}/>
                                 </ButtonsBox>
                             </TitleAndButtonBox>
                             <Candidates>
-                                {candidates?.map(candidate => {
+                                {approved?.map(approvedCandidate => {
 
-                                    let { id, name, age, profession, country, applicationText } = candidate
+                                    let { id, name, age, profession, country, applicationText } = approvedCandidate
 
                                     return (
                                         <ProfileWrapper key={id}>
@@ -54,10 +53,6 @@ export function TripDetails() {
                                                 <Profession>{profession}</Profession>
                                                 <Country>{country}</Country>
                                             </PrimaryInfo>
-                                            <Icons>
-                                                <CheckIcon/>
-                                                <CloseIcon/>
-                                            </Icons>
                                             <ApplicationText>{applicationText}</ApplicationText>
                                         </ProfileWrapper>
                                     )
