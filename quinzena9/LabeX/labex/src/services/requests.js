@@ -4,7 +4,7 @@ import { BASE_URL } from '../constants/urls'
 
 // Aplicar para Viagem
 
-export const applyToTrip = (e, params, formValues, setFormValues) => {
+export const applyToTrip = (e, tripId, formValues, setFormValues) => {
     e.preventDefault()
     
     const { name, age, applicationText, profession, country } = formValues
@@ -17,7 +17,7 @@ export const applyToTrip = (e, params, formValues, setFormValues) => {
         country
     }
 
-    axios.post(`${BASE_URL}/trips/${params.id}/apply`, body)
+    axios.post(`${BASE_URL}/trips/${tripId}/apply`, body)
     .then(() => {
         alert('Sucess')
         setFormValues({

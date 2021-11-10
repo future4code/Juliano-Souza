@@ -2,6 +2,9 @@ import { useParams } from 'react-router'
 import { useContext } from 'react'
 import { PublicContext } from '../../contexts/PublicContext'
 import { applyToTrip } from '../../services/requests'
+import { getCountryURL } from '../../constants/urls'
+import { useRequestData } from "../../hooks/useRequestData";
+import { BASE_URL } from '../../constants/urls'
 
 // Styles 
 import { Container, Section, FormWrapper, Title, InputBox, Input, Label } from './style'
@@ -12,17 +15,25 @@ import { Header } from '../../components/Header'
 import { Button } from '../../components/Button'
 import { Select } from '../../components/Select'
 
+
 export function ApplicationForm() {
 
-    let params = useParams()
+    // Hooks
 
-    const { formValues, setFormValues } = useContext(PublicContext)
+    const countries = useRequestData(getCountryURL, 'get')
+
+    const trips = useRequestData(BASE_URL, 'get', '/trips')
+
+    // Context
+
+    const { formValues, setFormValues, tripId } = useContext(PublicContext)
+
 
     return (
         <Container>
             <Header buttonText='Voltar' route='/trips/list'/>
             <Section>
-                <FormWrapper onSubmit={(e) => applyToTrip(e, params, formValues, setFormValues)}>
+                <FormWrapper onSubmit={(e) => applyToTrip(e, tripId, formValues, setFormValues)}>
                     <Title>Finalize seu Cadastro</Title>
                     <InputBox>
                         <Label>Nome</Label>
@@ -34,9 +45,20 @@ export function ApplicationForm() {
                         <Label>Sua profissão</Label>
                         <Input type='text' value={formValues.profession} onChange={(e) => setFormValues({...formValues, profession: e.target.value})} placeholder='Digite sua profissão' required></Input>
                         <Label>País</Label>
-                        <Select/>
+                        <Select 
+                            state={formValues}
+                            stateKey={'country'}
+                            stateFunc={setFormValues}
+                            placeholderText={'Escolha seu País'}
+                            arrItems={countries}
+                            reqKeyName={'nome'}
+                        />
                         <Label>Viagem</Label>
-                        <Input value={params.trip_name} readonly disabled></Input>
+                        <Select 
+                            placeholderText={'Escolha a viagem'}
+                            arrItems={trips}
+                            reqKeyName={'name'}
+                        />
                     </InputBox>
                     <Button text='Concluir' size='100%' type='submit' />
                 </FormWrapper>

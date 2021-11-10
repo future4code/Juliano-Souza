@@ -33,7 +33,7 @@ export const Dropdown = styled.ul`
 export const DropItemSelected = styled.span`
     padding-left: 10px;
     font-size: 14px;
-    color: ${p => p.countryName ? '#FFFFFF' : '#757575'};
+    color: ${p => p.itemName ? '#FFFFFF' : '#757575'};
     font-weight: 500;
 `
 export const DropItem = styled.ul`
