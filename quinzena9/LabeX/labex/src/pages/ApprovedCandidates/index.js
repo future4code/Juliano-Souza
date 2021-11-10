@@ -36,7 +36,6 @@ export function ApprovedCandidates() {
                             <TitleAndButtonBox>
                                 <Title>Aprovados</Title>
                                 <ButtonsBox>
-                                    <Button size='150px' text='Deletar Viagem' margin='0 10px 0 0'/>
                                     <Button size='150px' text='Candidatos' route={`/admin/trip_details/${params.id}`}/>
                                 </ButtonsBox>
                             </TitleAndButtonBox>

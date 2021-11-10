@@ -36,7 +36,7 @@ export function AdminHome() {
                     <InfoBox>
                         <TripInfoBox>
                             <InfoTitle>Viagens Cadastradas</InfoTitle>
-                            <Button text='Criar nova viagem' size='150px' route='/admin/create_new_trip' />
+                            <Button text='Nova viagem' size='150px' route='/admin/create_new_trip' />
                         </TripInfoBox>
                         <ArrowBox>
                             <LeftArrow onClick={carouselLeftClick}/>

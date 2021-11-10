@@ -8,6 +8,9 @@ import { useContext } from 'react'
 import { AdminContext } from '../../contexts/AdminContext'
 import { useRequestData } from '../../hooks/useRequestData'
 import { useProtectedPage } from "../../hooks/useProtectedPage"
+import { deleteTrip } from '../../services/requests'
+import { decideCandidate } from '../../services/requests'
+import { useNavigate } from 'react-router'
 
 // Components
 import { Header } from '../../components/Header'
@@ -20,6 +23,7 @@ export function TripDetails() {
     useProtectedPage()
 
     let params = useParams()
+    let navigate = useNavigate()
 
     const { token } = useContext(AdminContext)
 
@@ -37,7 +41,9 @@ export function TripDetails() {
                             <TitleAndButtonBox>
                                 <Title>Candidatos</Title>
                                 <ButtonsBox>
-                                    <Button size='150px' text='Deletar Viagem' margin='0 10px 0 0'/>
+                                    <div onClick={() => deleteTrip(params.id, token, navigate)}>
+                                        <Button size='150px' text='Deletar Viagem' margin='0 10px 0 0' />
+                                    </div>
                                     <Button size='150px' text='Aprovados' route={`/admin/trip_details/${params.id}/approved`}/>
                                 </ButtonsBox>
                             </TitleAndButtonBox>
@@ -55,8 +61,8 @@ export function TripDetails() {
                                                 <Country>{country}</Country>
                                             </PrimaryInfo>
                                             <Icons>
-                                                <CheckIcon/>
-                                                <CloseIcon/>
+                                                <CheckIcon onClick={() => decideCandidate(params.id, id, token, 'true')}/>
+                                                <CloseIcon onClick={() => decideCandidate(params.id, id, token, 'false')}/>
                                             </Icons>
                                             <ApplicationText>{applicationText}</ApplicationText>
                                         </ProfileWrapper>

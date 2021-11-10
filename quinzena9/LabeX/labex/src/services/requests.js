@@ -87,3 +87,36 @@ export const createTrip = (e, newTripValues, token, setNewTripValues) => {
     })
     .catch(() => alert('Erro'))
 }
+
+// Delete Trip 
+
+export const deleteTrip = (id, token, navigate) => {
+
+    const AUTH = {headers: {
+        auth: token
+    }}
+
+    axios.delete(`${BASE_URL}/trips/${id}`, AUTH)
+    .then(() => {
+        navigate(`/admin`)
+    })
+    .catch(() => console.log('Error'))
+
+}
+
+// Decide candidate
+
+export const decideCandidate = (tripId, candidateId, token, approve) => {
+
+    const AUTH = {headers: {
+        auth: token
+    }}
+
+    const body = {
+        approve: approve
+    }
+
+    axios.put(`${BASE_URL}/trips/${tripId}/candidates/${candidateId}/decide`, body, AUTH)
+    .then(() => {}).catch('Error')
+
+}

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const Container = styled.div`
     padding: 20px;
-    min-width: 250px;
+    width: 250px;
     height: 100%;
     background-color: #272727;
     display: flex;

@@ -134,6 +134,7 @@ export const InfoParagraphTwo = styled.p`
 export const PlanetsAvailable = styled.div`
     grid-area: PlanetsAvailable;
     margin: 0 auto;
+    width: 95%;
 `
 export const PlanetCardsView = styled.div`
     max-width: 95vw;

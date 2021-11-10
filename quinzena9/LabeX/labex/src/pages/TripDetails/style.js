@@ -60,7 +60,7 @@ export const ButtonsBox = styled.div`
 `
 export const Candidates = styled.div`
     width: 100%;
-    height: 85%;
+    height: 450px;
     padding: 10px;
     overflow-y: auto;
     ::-webkit-scrollbar-track {

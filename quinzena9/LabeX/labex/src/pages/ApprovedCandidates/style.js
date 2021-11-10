@@ -60,7 +60,7 @@ export const ButtonsBox = styled.div`
 `
 export const Candidates = styled.div`
     width: 100%;
-    height: 85%;
+    height: 450px;
     padding: 10px;
     overflow-y: auto;
     ::-webkit-scrollbar-track {
@@ -75,7 +75,6 @@ export const Candidates = styled.div`
     }
 `
 export const Approved = styled.div`
-    /* background-color: green; */
     width: 40%;
     height: 100%;
 `
@@ -93,7 +92,6 @@ export const ProfileWrapper = styled.div`
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
-    position: relative;
     &:hover {
         filter: brightness(1.5);
         cursor: pointer;

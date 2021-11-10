@@ -31,7 +31,7 @@ export const AdminWrapper = styled.div`
     border-radius: 12px;
     display: flex;
     flex-flow: column nowrap;
-    justify-content: space-evenly;
+    justify-content: space-between;
 `
 export const PlanetCardsView = styled.div`
     max-width: 90vw;
@@ -45,7 +45,7 @@ export const PlanetCardsView = styled.div`
 
 `
 export const InfoTitle = styled.h3`
-    font-size: 32px;
+    font-size: 35px;
     @media (max-width: 805px) {
         font-size: 24px;
     }
@@ -55,7 +55,6 @@ export const InfoBox = styled.div`
     flex-flow: row nowrap;
     justify-content: flex-start;
     align-items: center;
-    margin: 15px 0;
 `
 export const ArrowBox = styled.div`
     display: flex;
