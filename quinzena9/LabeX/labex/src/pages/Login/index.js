@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import { PublicContext } from '../../contexts/PublicContext'
 import { login } from '../../services/requests'
 import { useProtectedPage } from '../../hooks/useProtectedPage'
+import { useNavigate } from 'react-router'
 
 // Styles
 import { Container, Section, AuthWrapper, SignInText, WelcomeBackText, InputBox, Input, ForgotPassword, LoginGoogleButton, Icon } from './style'
@@ -16,6 +17,8 @@ import { Header } from '../../components/Header'
 
 export function Login() {
 
+    let navigate = useNavigate()
+
     const { loginValues, setLoginValues } = useContext(PublicContext)
 
     useProtectedPage()
@@ -24,7 +27,7 @@ export function Login() {
         <Container>
             <Header buttonText='Voltar' route='/'/>
             <Section>
-                <AuthWrapper onSubmit={(e) => login(e, loginValues, setLoginValues)}>
+                <AuthWrapper onSubmit={(e) => login(e, loginValues, setLoginValues, navigate)}>
                     <SignInText>Faça seu Login</SignInText>
                     <WelcomeBackText>Bem vindo de volta</WelcomeBackText>
                     <InputBox>

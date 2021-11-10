@@ -33,7 +33,7 @@ export const applyToTrip = (e, tripId, formValues, setFormValues) => {
 
 // Login
 
-export const login = (e, loginValues, setLoginValues) => {
+export const login = (e, loginValues, setLoginValues, navigate) => {
     
     e.preventDefault()
 
@@ -49,8 +49,8 @@ export const login = (e, loginValues, setLoginValues) => {
         setLoginValues({
             email: '',
             password: ''
-            
         })
+        navigate('/admin')
     }).catch(() => alert('Oops, algo errado.'))
 
 }

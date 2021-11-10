@@ -127,27 +127,3 @@ export const ApplicationText = styled.p`
     font-size: 14px;
     color: #FFFFFF95;
 `
-
-// Icons
-export const Icons = styled.div`
-    width: 85px;
-    display: flex;
-    justify-content: space-between;
-    height: 40px;
-    right: 0;
-    position: absolute;
-`
-export const CheckIcon = styled(IoIosCheckmark)`
-    font-size: 40px;
-    filter: brightness(0.8);
-    &:hover {
-        color: green;
-    }
-`
-export const CloseIcon = styled(IoIosClose)`
-    filter: brightness(0.8);
-    font-size: 40px;
-    &:hover {
-        color: red;
-    }
-`

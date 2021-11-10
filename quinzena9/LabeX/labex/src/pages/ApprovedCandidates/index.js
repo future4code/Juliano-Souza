@@ -1,5 +1,5 @@
 // Styles
-import { Container, Section, DetailsWrapper, TripData, CandidatesWrapper, Candidates, TitleAndButtonBox, ButtonsBox, PrimaryInfo, Title, ProfileWrapper, Name, Age, Profession, Country, ApplicationText, Icons, CheckIcon, CloseIcon } from './style'
+import { Container, Section, DetailsWrapper, TripData, CandidatesWrapper, Candidates, TitleAndButtonBox, ButtonsBox, PrimaryInfo, Title, ProfileWrapper, Name, Age, Profession, Country, ApplicationText } from './style'
 
 
 import { useParams } from 'react-router'

@@ -1,4 +1,3 @@
-import { useParams } from 'react-router'
 import { useContext } from 'react'
 import { PublicContext } from '../../contexts/PublicContext'
 import { applyToTrip } from '../../services/requests'
