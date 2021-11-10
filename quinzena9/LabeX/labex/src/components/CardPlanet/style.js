@@ -10,11 +10,12 @@ export const Container = styled.div`
     flex-flow: column;
     overflow: hidden;
     border-radius: 12px;
-    transition: transform 300ms ease-in-out;
+    transition: 300ms ease-in-out;
     transform: scale(0.97);
     &:hover {
         transform: scale(1);
         cursor: pointer;
+        filter: brightness(1.5);
     }
 `
 export const Title = styled.h3`
