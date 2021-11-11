@@ -152,7 +152,6 @@ export const LinkRouter = styled(Link)`
     text-decoration: none;
     min-width: 250px;
 `
-
 // Icon
 
 export const InfoBox = styled.div`

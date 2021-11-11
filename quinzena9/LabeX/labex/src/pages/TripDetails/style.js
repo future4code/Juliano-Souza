@@ -183,3 +183,14 @@ export const ButtonAdminSection = styled.div`
 export const DeleteButton = styled.div`
     margin-right: 20px;
 `
+
+export const NoItensMessage = styled.span`
+    /* background-color: red; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    padding-bottom: 60px;
+`

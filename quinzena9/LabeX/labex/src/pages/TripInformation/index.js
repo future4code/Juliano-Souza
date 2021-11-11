@@ -2,7 +2,7 @@ import { BASE_URL } from '../../constants/urls'
 import { useRequestData } from '../../hooks/useRequestData'
 
 // React
-import { useRef } from 'react'
+import { useRef, useContext } from 'react'
 
 // Styles
 import { Container, Apresentation, TextWrapper, ImageWrapper, Title, TransformTitle, AboutTrip, ContentOne, ContentTwo, InfoTitle, InfoParagraph, PlanetsAvailable, InfoParagraphTwo, PlanetCardsView, InfoBox, ArrowLeftBox, LeftArrow, RightArrow, LinkRouter, ArrowRigthBox } from './style'
@@ -12,6 +12,10 @@ import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
 import { CardPlanet } from '../../components/CardPlanet'
 import { Astronaut } from '../../assets/animation/Astronaut'
+import { Loader } from '../../components/Loader'
+
+// Context
+import { AdminContext } from '../../contexts/AdminContext'
 
 export function TripInformation() {
 
@@ -26,6 +30,8 @@ export function TripInformation() {
     }
 
     const trips = useRequestData(BASE_URL, 'get', '/trips')
+
+    const { loading } = useContext(AdminContext)
 
     return (
         <Container>
@@ -53,15 +59,19 @@ export function TripInformation() {
                     <InfoTitle>Viagens disponíveis</InfoTitle>
                 </InfoBox>
                 <ArrowLeftBox onClick={carouselLeftClick}><LeftArrow/></ArrowLeftBox>
-                <PlanetCardsView ref={carousel}>
-                    {trips && trips.map(trip => {
-                        return (
-                            <LinkRouter to={`/trips/application/${trip.id}/${trip.name}`} key={trip.id}>
-                                <CardPlanet trip={trip}/>
-                            </LinkRouter>
-                        )
-                    })}
-                </PlanetCardsView>
+                {loading ?
+                    <Loader/>
+                :
+                    <PlanetCardsView ref={carousel}>
+                        {trips && trips.map(trip => {
+                            return (
+                                <LinkRouter to={`/trips/application/${trip.id}/${trip.name}`} key={trip.id}>
+                                    <CardPlanet trip={trip}/>
+                                </LinkRouter>
+                            )
+                        })}
+                    </PlanetCardsView>
+                    }
                 <ArrowRigthBox onClick={carouselRightClick}><RightArrow/></ArrowRigthBox>
             </PlanetsAvailable>
             <Footer/>
