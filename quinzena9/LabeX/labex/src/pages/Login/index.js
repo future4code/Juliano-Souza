@@ -31,8 +31,8 @@ export function Login() {
                     <SignInText>Faça seu Login</SignInText>
                     <WelcomeBackText>Bem vindo de volta</WelcomeBackText>
                     <InputBox>
-                        <Input type='text' value={loginValues.email} onChange={(e) => setLoginValues({...loginValues, email: e.target.value})} placeholder='Digite seu e-mail'></Input>
-                        <Input type='password' value={loginValues.password} onChange={(e) => setLoginValues({...loginValues, password: e.target.value})} placeholder='Digite sua senha'></Input>
+                        <Input type='email' value={loginValues.email} onChange={(e) => setLoginValues({...loginValues, email: e.target.value})} placeholder='Digite seu e-mail' required></Input>
+                        <Input type='password' value={loginValues.password} onChange={(e) => setLoginValues({...loginValues, password: e.target.value})} placeholder='Digite sua senha' required></Input>
                         <ForgotPassword>Esqueceu a senha?</ForgotPassword>
                     </InputBox>
                     <Button text='Fazer Login' size='100%' type='submit' />

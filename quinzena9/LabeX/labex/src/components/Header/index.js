@@ -14,7 +14,6 @@ export function Header({buttonText, route}) {
     const logOut = () => {
         localStorage.removeItem('Token')
         navigate('/')
-    
     }
 
     return (

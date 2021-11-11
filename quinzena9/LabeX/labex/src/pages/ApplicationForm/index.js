@@ -36,9 +36,9 @@ export function ApplicationForm() {
                     <Title>Finalize seu Cadastro</Title>
                     <InputBox>
                         <Label>Nome</Label>
-                        <Input type='text' value={formValues.name} onChange={(e) => setFormValues({...formValues, name: e.target.value})} placeholder='Digite seu nome' required></Input>
+                        <Input pattern='^[a-zA-Z\s]*$' title='Insira um nome válido' type='text' value={formValues.name} onChange={(e) => setFormValues({...formValues, name: e.target.value})} placeholder='Digite seu nome' required></Input>
                         <Label>Idade</Label>
-                        <Input type='text' value={formValues.age} onChange={(e) => setFormValues({...formValues, age: e.target.value})} placeholder='Digite sua idade' required></Input>
+                        <Input pattern='^0?(1[89]|[2-9]\d)' title='A idade deve ser maior que 18' type='text' value={formValues.age} onChange={(e) => setFormValues({...formValues, age: e.target.value})} placeholder='Digite sua idade' required></Input>
                         <Label>Por quê está se cadastrando?</Label>
                         <Input type='text' value={formValues.applicationText} onChange={(e) => setFormValues({...formValues, applicationText: e.target.value})} placeholder='Por quê está se cadastrando?' required></Input>
                         <Label>Sua profissão</Label>
