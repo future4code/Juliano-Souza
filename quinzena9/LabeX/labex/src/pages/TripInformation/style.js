@@ -135,9 +135,10 @@ export const PlanetsAvailable = styled.div`
     grid-area: PlanetsAvailable;
     margin: 0 auto;
     width: 95%;
+    position: relative;
 `
 export const PlanetCardsView = styled.div`
-    max-width: 95vw;
+    max-width: 94vw;
     height: 70%;
     display: flex;
     flex-direction: row;
@@ -161,25 +162,42 @@ export const InfoBox = styled.div`
     align-items: center;
     margin: 15px 0;
 `
-export const ArrowBox = styled.div`
+export const ArrowLeftBox = styled.div`
     display: flex;
-    justify-content: space-between;
-    width: 100px;
-    @media (max-width: 550px) {
-        width: 80px;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 80%;
+    position: absolute;
+    top: 15%;
+    right: -2.5vw;
+    z-index: 1;
+    cursor: pointer;
+    &:hover {
+        background: linear-gradient(0deg, transparent 0%, #000000 50%, transparent 100%);
     }
 `
 export const LeftArrow = styled(FaArrowLeft)`
     font-size: 34px;
-    cursor: pointer;
-    opacity: 0.8;
     transition: opacity 200ms ease-in-out;
-    &:hover {
-        opacity: 1;
-    }
 
 `
 export const RightArrow = styled(LeftArrow)`
     font-size: 34px;
     transform: rotate(180deg);
+`
+export const ArrowRigthBox = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 80%;
+    position: absolute;
+    top: 15%;
+    left: -3vw;
+    z-index: 1;
+    cursor: pointer;
+    &:hover {
+        background: linear-gradient(0deg, transparent 0%, #000000 50%, transparent 100%);
+    }
 `

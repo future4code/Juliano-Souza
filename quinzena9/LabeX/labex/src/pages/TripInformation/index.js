@@ -5,7 +5,7 @@ import { useRequestData } from '../../hooks/useRequestData'
 import { useRef } from 'react'
 
 // Styles
-import { Container, Apresentation, TextWrapper, ImageWrapper, Title, TransformTitle, AboutTrip, ContentOne, ContentTwo, InfoTitle, InfoParagraph, PlanetsAvailable, InfoParagraphTwo, PlanetCardsView, InfoBox, ArrowBox, LeftArrow, RightArrow, LinkRouter } from './style'
+import { Container, Apresentation, TextWrapper, ImageWrapper, Title, TransformTitle, AboutTrip, ContentOne, ContentTwo, InfoTitle, InfoParagraph, PlanetsAvailable, InfoParagraphTwo, PlanetCardsView, InfoBox, ArrowLeftBox, LeftArrow, RightArrow, LinkRouter, ArrowRigthBox } from './style'
 
 // Components
 import { Header } from '../../components/Header'
@@ -51,11 +51,8 @@ export function TripInformation() {
             <PlanetsAvailable>
                 <InfoBox>
                     <InfoTitle>Viagens disponíveis</InfoTitle>
-                    <ArrowBox>
-                        <LeftArrow onClick={carouselLeftClick}/>
-                        <RightArrow onClick={carouselRightClick}/>
-                    </ArrowBox>
                 </InfoBox>
+                <ArrowLeftBox onClick={carouselLeftClick}><LeftArrow/></ArrowLeftBox>
                 <PlanetCardsView ref={carousel}>
                     {trips && trips.map(trip => {
                         return (
@@ -65,6 +62,7 @@ export function TripInformation() {
                         )
                     })}
                 </PlanetCardsView>
+                <ArrowRigthBox onClick={carouselRightClick}><RightArrow/></ArrowRigthBox>
             </PlanetsAvailable>
             <Footer/>
         </Container>

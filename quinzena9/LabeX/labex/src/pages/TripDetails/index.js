@@ -39,7 +39,7 @@ export function TripDetails() {
                     <TitleAndButtonBox>
                         <Title>Candidatos</Title>
                         <ButtonsBox>
-                            <div onClick={() => deleteTrip(params.id, token, navigate)}>
+                            <div onClick={() => deleteTrip(params.id, navigate)}>
                                 <Button size='150px' text='Deletar Viagem' margin='0 10px 0 0' />
                             </div>
                             <Button size='150px' text='Aprovados' route={`/admin/trip_details/${params.id}/approved`}/>
@@ -59,8 +59,8 @@ export function TripDetails() {
                                         <Country>{country}</Country>
                                     </PrimaryInfo>
                                     <Icons>
-                                        <CheckIcon onClick={() => decideCandidate(params.id, id, token, 'true')}/>
-                                        <CloseIcon onClick={() => decideCandidate(params.id, id, token, 'false')}/>
+                                        <CheckIcon onClick={() => decideCandidate(params.id, id, {approve: true})}/>
+                                        <CloseIcon onClick={() => decideCandidate(params.id, id, {approve: false})}/>
                                     </Icons>
                                     <ApplicationText>{applicationText}</ApplicationText>
                                 </ProfileWrapper>

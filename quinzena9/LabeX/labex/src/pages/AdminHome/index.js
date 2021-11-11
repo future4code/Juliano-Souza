@@ -4,7 +4,7 @@ import { useRequestData } from '../../hooks/useRequestData'
 import { useRef } from 'react'
 
 // Styles
-import { Container, Section, AdminWrapper, PlanetCardsView, InfoBox, InfoTitle, ArrowBox, LeftArrow, RightArrow, TripInfoBox, LinkRouter, ButtonContainer } from './style'
+import { Container, Section, AdminWrapper, PlanetCardsView, InfoTitle, LeftArrow, RightArrow, TripInfoBox, LinkRouter, ButtonContainer, ArrowLeftBox, ArrowRigthBox } from './style'
 
 // Components
 import { Header } from '../../components/Header'
@@ -33,16 +33,11 @@ export function AdminHome() {
             <Header buttonText='Home' route='/'/>
             <Section>
                 <AdminWrapper>
-                    <InfoBox>
-                        <TripInfoBox>
-                            <InfoTitle>Viagens Cadastradas</InfoTitle>
-                            <ButtonContainer><Button text='Nova viagem' size='150px' route='/admin/create_new_trip'/></ButtonContainer>
-                        </TripInfoBox>
-                        <ArrowBox>
-                            <LeftArrow onClick={carouselLeftClick}/>
-                            <RightArrow onClick={carouselRightClick}/>
-                        </ArrowBox>
-                    </InfoBox>
+                    <TripInfoBox>
+                        <InfoTitle>Viagens Cadastradas</InfoTitle>
+                        <ButtonContainer><Button text='Nova viagem' size='150px' route='/admin/create_new_trip'/></ButtonContainer>
+                    </TripInfoBox>
+                    <ArrowLeftBox onClick={carouselLeftClick}><LeftArrow/></ArrowLeftBox>
                     <PlanetCardsView ref={carousel}>
                         {trips && trips.map(trip => {
                             return (
@@ -51,7 +46,9 @@ export function AdminHome() {
                                 </LinkRouter>
                             )
                         })}
+                        
                     </PlanetCardsView>
+                    <ArrowRigthBox onClick={carouselRightClick}><RightArrow/></ArrowRigthBox>
                 </AdminWrapper>
             </Section>
             <Footer/>

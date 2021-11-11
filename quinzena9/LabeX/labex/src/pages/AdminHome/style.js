@@ -32,6 +32,7 @@ export const AdminWrapper = styled.div`
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
+    position: relative;
 `
 export const PlanetCardsView = styled.div`
     max-width: 90vw;
@@ -51,16 +52,6 @@ export const InfoTitle = styled.h3`
     }
     @media (max-width: 550px) {
         font-size: 22px;
-    }
-`
-export const InfoBox = styled.div`
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: flex-start;
-    align-items: center;
-    @media (max-width: 550px) {
-        flex-flow: column;
-        align-items: center;
     }
 `
 export const ArrowBox = styled.div`
@@ -93,11 +84,11 @@ export const RightArrow = styled(LeftArrow)`
 export const TripInfoBox = styled.div`
     display: flex;
     align-items: center;
-    flex-grow: 1;
     justify-content: space-between;
     padding-right: 15px;
     padding-left: 5px;
     width: 100%;
+    margin-top: -8px;
     @media (max-width: 550px) {
         display: flex;
         flex-flow: column;
@@ -112,4 +103,35 @@ export const LinkRouter = styled(Link)`
 `
 export const ButtonContainer = styled.div`
     margin-top: 15px;
+    height: 100%;
+`
+export const ArrowRigthBox = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 65%;
+    position: absolute;
+    top: 30%;
+    left: 0;
+    z-index: 1;
+    cursor: pointer;
+    &:hover {
+        background: linear-gradient(0deg, transparent 0%, #00000070 50%, transparent 100%);
+    }
+`
+export const ArrowLeftBox = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 65%;
+    position: absolute;
+    top: 30%;
+    right: 0;
+    z-index: 1;
+    cursor: pointer;
+    &:hover {
+        background: linear-gradient(0deg, transparent 0%, #00000070 50%, transparent 100%);
+    }
 `

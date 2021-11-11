@@ -4,7 +4,7 @@ import { Container, Title, CaracteristicsWrapper, Caracteristic, Price, Value, I
 // import Venus from '../../assets/Images/planets/venus.png'
 // import Mars from '../../assets/Images/planets/mars.png'
 // import Jupiter from '../../assets/Images/planets/jupiter.png'
-// import Saturn from '../../assets/Images/planets/saturn.png'
+import Saturn from '../../assets/Images/planets/saturn.png'
 // import Uranus from '../../assets/Images/planets/uranus.png'
 // import Neptune from '../../assets/Images/planets/neptune.png'
 
@@ -12,8 +12,6 @@ import { Container, Title, CaracteristicsWrapper, Caracteristic, Price, Value, I
 // const planetImage = [Mercury, Venus, Mars, Jupiter, Saturn, Uranus, Neptune]
 
 export function CardPlanet({ trip }) {
-
-    // console.log(trip)
 
     const { name, planet, description, date, durationInDays } = trip
 
@@ -27,8 +25,8 @@ export function CardPlanet({ trip }) {
                         <Caracteristic>Duração: {durationInDays} dias</Caracteristic>
                         <Caracteristic>Data: {date}</Caracteristic>
                     </CaracteristicsWrapper>
-                    {/* <Price>Por R$ <Value>{''}</Value></Price>
-                    <Image src={''} alt={planet}/> */}
+                    {/* <Price>Por R$ <Value>{''}</Value></Price> */}
+                    <Image src={Saturn} alt={planet}/>
             </Container>
         </>
     )

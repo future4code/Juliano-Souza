@@ -1,6 +1,5 @@
 import axios from "axios";
-import { useState } from 'react'
-import { useEffect } from "react";
+import { useState, useEffect } from 'react'
 
 export function useRequestData(BASE_URL, method, endpoint, body, token) {
 

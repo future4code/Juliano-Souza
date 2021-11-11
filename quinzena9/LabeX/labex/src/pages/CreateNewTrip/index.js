@@ -21,7 +21,7 @@ export function CreateNewTrip() {
         <Container>
             <Header buttonText='Voltar' route='/admin'/>
             <Section>
-                <FormWrapper onSubmit={(e) => createTrip(e, newTripValues, token, setNewTripValues)}>
+                <FormWrapper onSubmit={(e) => createTrip(e, newTripValues, setNewTripValues)}>
                     <Title>Nova Viagem</Title>
                     <InputBox>
                         <Label>Nome</Label>

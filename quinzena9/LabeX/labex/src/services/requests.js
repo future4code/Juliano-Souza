@@ -1,23 +1,16 @@
 import axios from 'axios'
 import { BASE_URL } from '../constants/urls'
 
+// Get Token 
+const token = localStorage.getItem('Token')
+const auth = { headers: { auth: token } }
 
 // Aplicar para Viagem
 
 export const applyToTrip = (e, tripId, formValues, setFormValues) => {
     e.preventDefault()
-    
-    const { name, age, applicationText, profession, country } = formValues
 
-    const body = {
-        name,
-        age,
-        applicationText,
-        profession,
-        country
-    }
-
-    axios.post(`${BASE_URL}/trips/${tripId}/apply`, body)
+    axios.post(`${BASE_URL}/trips/${tripId}/apply`, formValues)
     .then(() => {
         alert('Sucess')
         setFormValues({
@@ -33,18 +26,10 @@ export const applyToTrip = (e, tripId, formValues, setFormValues) => {
 
 // Login
 
-export const login = (e, loginValues, setLoginValues, navigate) => {
-    
+export const login = (e, loginValues, setLoginValues, navigate) => { 
     e.preventDefault()
 
-    const { email, password } = loginValues
-
-    const body = {
-        email,
-        password
-    }
-
-    axios.post(`${BASE_URL}/login`, body).then(res => {
+    axios.post(`${BASE_URL}/login`, loginValues).then(res => {
         localStorage.setItem('Token', res.data.token)
         setLoginValues({
             email: '',
@@ -57,24 +42,10 @@ export const login = (e, loginValues, setLoginValues, navigate) => {
 
 // Create Trip
 
-export const createTrip = (e, newTripValues, token, setNewTripValues) => {
+export const createTrip = (e, newTripValues, setNewTripValues) => {
     e.preventDefault()
 
-    const { name, planet, date, description, durationInDays } = newTripValues
-
-    const AUTH = {headers: {
-        auth: token
-    }}
-
-    const body = {
-        name,
-        planet,
-        date,
-        description,
-        durationInDays
-    }
-
-    axios.post(`${BASE_URL}/trips`, body, AUTH)
+    axios.post(`${BASE_URL}/trips`, newTripValues, auth)
     .then(() => {
         alert('Trip Criada')
         setNewTripValues({
@@ -90,13 +61,9 @@ export const createTrip = (e, newTripValues, token, setNewTripValues) => {
 
 // Delete Trip 
 
-export const deleteTrip = (id, token, navigate) => {
+export const deleteTrip = (id, navigate) => {
 
-    const AUTH = {headers: {
-        auth: token
-    }}
-
-    axios.delete(`${BASE_URL}/trips/${id}`, AUTH)
+    axios.delete(`${BASE_URL}/trips/${id}`, auth)
     .then(() => {
         navigate(`/admin`)
     })
@@ -106,17 +73,9 @@ export const deleteTrip = (id, token, navigate) => {
 
 // Decide candidate
 
-export const decideCandidate = (tripId, candidateId, token, approve) => {
+export const decideCandidate = (tripId, candidateId, userResponse) => {
 
-    const AUTH = {headers: {
-        auth: token
-    }}
-
-    const body = {
-        approve: approve
-    }
-
-    axios.put(`${BASE_URL}/trips/${tripId}/candidates/${candidateId}/decide`, body, AUTH)
+    axios.put(`${BASE_URL}/trips/${tripId}/candidates/${candidateId}/decide`, userResponse, auth)
     .then(() => {}).catch('Error')
 
 }
