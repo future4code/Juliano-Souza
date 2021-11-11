@@ -21,7 +21,7 @@ export const applyToTrip = (e, tripId, formValues, setFormValues) => {
             country: '',
         })
     })
-    .catch(() => alert('Error') )
+    .catch(() => alert('Error'))
 }
 
 // Login

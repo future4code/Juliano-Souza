@@ -1,5 +1,8 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { RiMenuFill } from "react-icons/ri";
 
+// Assets
 import blob from '../../assets/Images/blob-grey.svg'
 
 export const Container = styled.div`
@@ -111,4 +114,25 @@ export const ApplicationText = styled.p`
     padding-top: 4px;
     font-size: 14px;
     color: #FFFFFF95;
+`
+export const LinkRouter = styled(Link)`
+    color: inherit;
+    text-decoration: none;
+`
+
+// Icon
+
+export const MenuIcon = styled(RiMenuFill)`
+    font-size: 35px;
+    cursor: pointer;
+    display: none;
+    @media (max-width: 650px) {
+        display: block;
+    }
+`
+export const ButtonBox = styled.div`
+    @media (max-width: 650px) {
+        display: none;
+    }
+    
 `

@@ -4,13 +4,13 @@ import { useRequestData } from '../../hooks/useRequestData'
 import { useRef } from 'react'
 
 // Styles
-import { Container, Section, AdminWrapper, PlanetCardsView, InfoTitle, LeftArrow, RightArrow, TripInfoBox, LinkRouter, ButtonContainer, ArrowLeftBox, ArrowRigthBox } from './style'
+import { Container, Section, AdminWrapper, PlanetCardsView, InfoTitle, LeftArrow, RightArrow, TripInfoBox, LinkRouter, ArrowLeftBox, ArrowRigthBox, RouteLink, MenuIcon, ButtonBox } from './style'
 
 // Components
 import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
 import { CardPlanet } from "../../components/CardPlanet"
-import { Button } from '../../components/Button'
+import { FunctionsButton } from "../../components/FunctionsButton"
 
 export function AdminHome() {
 
@@ -34,8 +34,13 @@ export function AdminHome() {
             <Section>
                 <AdminWrapper>
                     <TripInfoBox>
-                        <InfoTitle>Viagens Cadastradas</InfoTitle>
-                        <ButtonContainer><Button text='Nova viagem' size='150px' route='/admin/create_new_trip'/></ButtonContainer>
+                        <InfoTitle>Viagens</InfoTitle>
+                        <ButtonBox>
+                            <RouteLink to='/admin/create_new_trip'>
+                                <FunctionsButton text='Nova viagem'/>
+                            </RouteLink>
+                        </ButtonBox>
+                        <MenuIcon/>
                     </TripInfoBox>
                     <ArrowLeftBox onClick={carouselLeftClick}><LeftArrow/></ArrowLeftBox>
                     <PlanetCardsView ref={carousel}>

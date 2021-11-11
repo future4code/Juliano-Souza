@@ -1,5 +1,5 @@
 // Styles
-import { Container, Section, CandidatesWrapper, Candidates, TitleAndButtonBox, ButtonsBox, PrimaryInfo, Title, ProfileWrapper, Name, Age, Profession, Country, ApplicationText, Icons, CheckIcon, CloseIcon } from './style'
+import { Container, Section, CandidatesWrapper, Candidates, TitleAndButtonBox, ButtonBox, ButtonsBox, PrimaryInfo, Title, ProfileWrapper, Name, Age, Profession, Country, ApplicationText, Icons, CheckIcon, CloseIcon, LinkRouter, MenuIcon } from './style'
 
 
 import { useParams } from 'react-router'
@@ -15,7 +15,7 @@ import { useNavigate } from 'react-router'
 // Components
 import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
-import { Button } from '../../components/Button'
+import { FunctionsButton } from '../../components/FunctionsButton'
 
 
 export function TripDetails() {
@@ -39,10 +39,15 @@ export function TripDetails() {
                     <TitleAndButtonBox>
                         <Title>Candidatos</Title>
                         <ButtonsBox>
-                            <div onClick={() => deleteTrip(params.id, navigate)}>
-                                <Button size='150px' text='Deletar Viagem' margin='0 10px 0 0' />
-                            </div>
-                            <Button size='150px' text='Aprovados' route={`/admin/trip_details/${params.id}/approved`}/>
+                            <ButtonBox onClick={() => deleteTrip(params.id, navigate)}>
+                                <FunctionsButton text='Deletar Viagem'/>
+                            </ButtonBox>
+                            <ButtonBox>
+                                <LinkRouter to={`/admin/trip_details/${params.id}/approved`}>
+                                    <FunctionsButton text='Aprovados'/>
+                                </LinkRouter>
+                            </ButtonBox>
+                            <MenuIcon/>
                         </ButtonsBox>
                     </TitleAndButtonBox>
                     <Candidates>

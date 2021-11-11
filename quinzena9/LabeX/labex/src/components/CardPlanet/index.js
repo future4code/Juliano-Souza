@@ -25,7 +25,7 @@ export function CardPlanet({ trip }) {
                         <Caracteristic>Duração: {durationInDays} dias</Caracteristic>
                         <Caracteristic>Data: {date}</Caracteristic>
                     </CaracteristicsWrapper>
-                    {/* <Price>Por R$ <Value>{''}</Value></Price> */}
+                    {/* <Price>Por R$ <Value>{'221.990'}</Value></Price> */}
                     <Image src={Saturn} alt={planet}/>
             </Container>
         </>

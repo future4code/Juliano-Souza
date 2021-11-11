@@ -1,7 +1,11 @@
 import styled from "styled-components";
-import { IoIosCheckmark, IoIosClose } from "react-icons/io";
+import { Link } from "react-router-dom";
 
+// Assets
 import blob from '../../assets/Images/blob-grey.svg'
+import { IoIosCheckmark, IoIosClose } from "react-icons/io";
+import { RiMenuFill } from "react-icons/ri";
+
 
 export const Container = styled.div`
     width: 100%;
@@ -138,4 +142,29 @@ export const CloseIcon = styled(IoIosClose)`
     &:hover {
         color: red;
     }
+`
+export const LinkRouter = styled(Link)`
+    color: inherit;
+    text-decoration: none;
+`
+
+
+// Icon
+
+export const MenuIcon = styled(RiMenuFill)`
+    font-size: 35px;
+    cursor: pointer;
+    display: none;
+    @media (max-width: 650px) {
+        display: block;
+    }
+`
+
+export const ButtonBox = styled.div`
+    margin-left: 10px;
+    @media (max-width: 650px) {
+        display: none;
+        
+    }
+    
 `

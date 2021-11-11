@@ -1,7 +1,10 @@
-import styled from 'styled-components'
-import blob from '../../assets/Images/blob-grey.svg'
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { RiMenuFill } from "react-icons/ri";
+
+// Assets
+import styled from 'styled-components'
+import blob from '../../assets/Images/blob-grey.svg'
 
 
 export const Container = styled.div`
@@ -47,12 +50,6 @@ export const PlanetCardsView = styled.div`
 `
 export const InfoTitle = styled.h3`
     font-size: 35px;
-    @media (max-width: 805px) {
-        font-size: 24px;
-    }
-    @media (max-width: 550px) {
-        font-size: 22px;
-    }
 `
 export const ArrowBox = styled.div`
     display: flex;
@@ -89,12 +86,12 @@ export const TripInfoBox = styled.div`
     padding-left: 5px;
     width: 100%;
     margin-top: -8px;
-    @media (max-width: 550px) {
+    /* @media (max-width: 550px) {
         display: flex;
         flex-flow: column;
         align-items: center;
         padding-bottom: 10px;
-    }
+    } */
 `
 export const LinkRouter = styled(Link)`
     color: inherit;
@@ -134,4 +131,25 @@ export const ArrowLeftBox = styled.div`
     &:hover {
         background: linear-gradient(0deg, transparent 0%, #00000070 50%, transparent 100%);
     }
+`
+export const RouteLink = styled(Link)`
+    color: inherit;
+    text-decoration: none;
+`
+
+// Menu
+
+export const MenuIcon = styled(RiMenuFill)`
+    font-size: 35px;
+    cursor: pointer;
+    display: none;
+    @media (max-width: 650px) {
+        display: block;
+    }
+`
+export const ButtonBox = styled.div`
+    @media (max-width: 650px) {
+        display: none;
+    }
+    
 `

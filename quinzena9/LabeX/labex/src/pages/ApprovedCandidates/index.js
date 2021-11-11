@@ -1,5 +1,5 @@
 // Styles
-import { Container, Section, CandidatesWrapper, Candidates, TitleAndButtonBox, ButtonsBox, PrimaryInfo, Title, ProfileWrapper, Name, Age, Profession, Country, ApplicationText } from './style'
+import { Container, Section, CandidatesWrapper, Candidates, TitleAndButtonBox, ButtonBox, PrimaryInfo, Title, ProfileWrapper, Name, Age, Profession, Country, ApplicationText, LinkRouter, MenuIcon } from './style'
 
 
 import { useParams } from 'react-router'
@@ -12,7 +12,7 @@ import { useProtectedPage } from "../../hooks/useProtectedPage"
 // Components
 import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
-import { Button } from '../../components/Button'
+import { FunctionsButton } from '../../components/FunctionsButton'
 
 export function ApprovedCandidates() {
 
@@ -33,9 +33,12 @@ export function ApprovedCandidates() {
                 <CandidatesWrapper>
                     <TitleAndButtonBox>
                         <Title>Aprovados</Title>
-                        <ButtonsBox>
-                            <Button size='150px' text='Candidatos' route={`/admin/trip_details/${params.id}`}/>
-                        </ButtonsBox>
+                        <ButtonBox>
+                            <LinkRouter to={`/admin/trip_details/${params.id}`}>
+                                <FunctionsButton text='Candidatos'></FunctionsButton>
+                            </LinkRouter>
+                        </ButtonBox>
+                        <MenuIcon/>
                     </TitleAndButtonBox>
                     <Candidates>
                         {approved?.map(approvedCandidate => {
