@@ -70,7 +70,8 @@ export const Approved = styled.div`
     height: 100%;
 `
 export const Title = styled.h3`
-    font-size: 35px;
+    font-size: 75px;
+    letter-spacing: -4px;
 `
 export const ProfileWrapper = styled.div`
     padding: 10px 16px;
@@ -155,14 +156,14 @@ export const MenuIcon = styled(RiMenuFill)`
     font-size: 35px;
     cursor: pointer;
     display: none;
-    @media (max-width: 650px) {
+    @media (max-width: 905px) {
         display: block;
     }
 `
 
 export const ButtonBox = styled.div`
     margin-left: 10px;
-    @media (max-width: 650px) {
+    @media (max-width: 905px) {
         display: none;
         
     }

@@ -49,7 +49,8 @@ export const PlanetCardsView = styled.div`
 
 `
 export const InfoTitle = styled.h3`
-    font-size: 35px;
+    font-size: 75px;
+    letter-spacing: -4px;
 `
 export const ArrowBox = styled.div`
     display: flex;

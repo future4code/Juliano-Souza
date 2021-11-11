@@ -11,6 +11,8 @@ export function Header({buttonText, route}) {
 
     let token = localStorage.getItem('Token')
 
+    let pathname = window.location.pathname
+
     const logOut = () => {
         localStorage.removeItem('Token')
         navigate('/')
@@ -23,7 +25,7 @@ export function Header({buttonText, route}) {
                     {buttonText}
                 </LinkRouter>
             </Login>
-            {token && <Logout onClick={logOut}>SAIR</Logout>}
+            {token && pathname !== '/' && <Logout onClick={logOut}>LOGOUT</Logout>}
         </Container>
     )
 }

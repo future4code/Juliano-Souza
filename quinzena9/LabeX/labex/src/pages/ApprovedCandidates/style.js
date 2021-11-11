@@ -67,7 +67,8 @@ export const Approved = styled.div`
     height: 100%;
 `
 export const Title = styled.h3`
-    font-size: 35px;
+    font-size: 75px;
+    letter-spacing: -4px;
 `
 export const ProfileWrapper = styled.div`
     padding: 10px 16px;

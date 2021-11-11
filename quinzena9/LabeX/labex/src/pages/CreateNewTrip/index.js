@@ -15,7 +15,7 @@ export function CreateNewTrip() {
 
     useProtectedPage()
 
-    const { token, newTripValues, setNewTripValues } = useContext(AdminContext)
+    const { newTripValues, setNewTripValues } = useContext(AdminContext)
 
     return (
         <Container>

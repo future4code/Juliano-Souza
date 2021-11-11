@@ -1,5 +1,3 @@
-// import { useContext, useEffect } from 'react'
-
 // Styles
 import { Container, Main, Presentation, Title, Description, TitleDecorationBox, TitleDecoration } from './style'
 
@@ -9,7 +7,6 @@ import { Footer } from '../../components/Footer'
 import { Button } from '../../components/Button'
 
 // Hooks
-
 
 export function Home() {
 
