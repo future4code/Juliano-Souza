@@ -1,4 +1,4 @@
-import { FaArrowLeft } from "react-icons/fa";
+import { FaAngleLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { RiMenuFill } from "react-icons/ri";
 
@@ -29,28 +29,35 @@ export const Section = styled.div`
 export const AdminWrapper = styled.div`
     padding: 20px;
     width: 80%;
-    height: 80%;
+    height: 450px;
     background-color: #2C2C2C;
     border-radius: 12px;
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
     position: relative;
+    @media (max-width: 650px) {
+        width: 95%;
+        /* border-radius: 0; */
+        padding: 20px 10px;
+    }
 `
 export const PlanetCardsView = styled.div`
     max-width: 90vw;
-    height: 70%;
+    height: 80%;
     display: flex;
     flex-direction: row;
     scroll-behavior: smooth;
     justify-content: flex-start;
     overflow-x: hidden;
     gap: 4px;
-
 `
 export const InfoTitle = styled.h3`
     font-size: 75px;
     letter-spacing: -4px;
+    @media (max-width: 650px) {
+        font-size: 50px;
+    }
 `
 export const ArrowBox = styled.div`
     display: flex;
@@ -60,7 +67,7 @@ export const ArrowBox = styled.div`
         width: 60px;
     }
 `
-export const LeftArrow = styled(FaArrowLeft)`
+export const LeftArrow = styled(FaAngleLeft)`
     font-size: 34px;
     cursor: pointer;
     opacity: 0.8;
@@ -104,7 +111,7 @@ export const ButtonContainer = styled.div`
     height: 100%;
 `
 export const ArrowRigthBox = styled.div`
-    display: flex;
+    display: ${p => p.menuOpen ? 'flex' : 'none'};
     justify-content: center;
     align-items: center;
     width: 40px;
@@ -119,7 +126,7 @@ export const ArrowRigthBox = styled.div`
     }
 `
 export const ArrowLeftBox = styled.div`
-    display: flex;
+    display: ${p => p.menuOpen ? 'flex' : 'none'};
     justify-content: center;
     align-items: center;
     width: 40px;
@@ -137,20 +144,34 @@ export const RouteLink = styled(Link)`
     color: inherit;
     text-decoration: none;
 `
-
 // Menu
-
 export const MenuIcon = styled(RiMenuFill)`
     font-size: 35px;
     cursor: pointer;
-    display: none;
+    display: ${p => p.menuOpen ? 'none' : 'block'};
     @media (max-width: 650px) {
         display: block;
     }
 `
 export const ButtonBox = styled.div`
+    display: ${p => p.menuOpen ? 'block' : 'none'};
     @media (max-width: 650px) {
         display: none;
     }
-    
+`
+// Conditional
+
+export const CardSection = styled.div`
+    width: 100%;
+    height: 300px;
+    display: flex;
+    align-items: center;
+`
+export const ButtonAdminSection = styled.div`
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
 `

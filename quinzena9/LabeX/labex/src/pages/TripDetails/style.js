@@ -29,13 +29,16 @@ export const Section = styled.div`
 export const CandidatesWrapper = styled.div`
     padding: 20px;
     width: 80%;
-    height: 80%;
+    height: 450px;
     background-color: #2C2C2C;
     border-radius: 12px;
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-start;
     align-items: flex-end;
+    @media (max-width: 905px) {
+        width: 95%;
+    }
 `
 export const TitleAndButtonBox = styled.div`
     width: 100%;
@@ -46,7 +49,6 @@ export const TitleAndButtonBox = styled.div`
 export const ButtonsBox = styled.div`
     display: flex;
     align-items: center;
-    /* background-color: green; */
 `
 export const Candidates = styled.div`
     width: 100%;
@@ -65,13 +67,18 @@ export const Candidates = styled.div`
     }
 `
 export const Approved = styled.div`
-    /* background-color: green; */
     width: 40%;
     height: 100%;
 `
 export const Title = styled.h3`
     font-size: 75px;
     letter-spacing: -4px;
+    @media (max-width: 905px) {
+        font-size: 50px;
+    }
+    @media (max-width: 380px) {
+        font-size: 45px;
+    }
 `
 export const ProfileWrapper = styled.div`
     padding: 10px 16px;
@@ -120,7 +127,6 @@ export const ApplicationText = styled.p`
     font-size: 14px;
     color: #FFFFFF95;
 `
-
 // Icons
 export const Icons = styled.div`
     width: 85px;
@@ -149,23 +155,31 @@ export const LinkRouter = styled(Link)`
     text-decoration: none;
 `
 
-
 // Icon
-
 export const MenuIcon = styled(RiMenuFill)`
     font-size: 35px;
     cursor: pointer;
-    display: none;
+    display: ${p => p.menuOpen ? 'none' : 'block'};
     @media (max-width: 905px) {
         display: block;
     }
 `
-
 export const ButtonBox = styled.div`
     margin-left: 10px;
+    display: ${p => p.menuOpen ? 'block' : 'none'};
     @media (max-width: 905px) {
         display: none;
         
     }
-    
+`
+export const ButtonAdminSection = styled.div`
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+`
+export const DeleteButton = styled.div`
+    margin-right: 20px;
 `

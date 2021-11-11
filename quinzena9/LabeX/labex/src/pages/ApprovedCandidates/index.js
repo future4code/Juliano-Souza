@@ -1,5 +1,5 @@
 // Styles
-import { Container, Section, CandidatesWrapper, Candidates, TitleAndButtonBox, ButtonBox, PrimaryInfo, Title, ProfileWrapper, Name, Age, Profession, Country, ApplicationText, LinkRouter, MenuIcon } from './style'
+import { Container, Section, CandidatesWrapper, Candidates, TitleAndButtonBox, ButtonBox, PrimaryInfo, Title, ProfileWrapper, Name, Age, Profession, Country, ApplicationText, LinkRouter, MenuIcon, ButtonAdminSection } from './style'
 
 
 import { useParams } from 'react-router'
@@ -20,7 +20,7 @@ export function ApprovedCandidates() {
 
     let params = useParams()
 
-    const { token } = useContext(AdminContext)
+    const { token, menuIsOpen, setMenuIsOpen } = useContext(AdminContext)
 
     const tripDetail = useRequestData(`${BASE_URL}`, 'get', `/trip/${params.id}`, '', `${token}`)
 
@@ -33,32 +33,39 @@ export function ApprovedCandidates() {
                 <CandidatesWrapper>
                     <TitleAndButtonBox>
                         <Title>Aprovados</Title>
-                        <ButtonBox>
+                        <ButtonBox menuOpen={menuIsOpen.approved}>
                             <LinkRouter to={`/admin/trip_details/${params.id}`}>
                                 <FunctionsButton text='Candidatos'></FunctionsButton>
                             </LinkRouter>
                         </ButtonBox>
-                        <MenuIcon/>
+                        <MenuIcon onClick={() => setMenuIsOpen({...menuIsOpen, approved: !menuIsOpen.approved})} menuOpen={menuIsOpen.approved}/>
                     </TitleAndButtonBox>
-                    <Candidates>
-                        {approved?.map(approvedCandidate => {
+                    {menuIsOpen.approved ? 
+                        <Candidates>
+                            {approved?.map(approvedCandidate => {
 
-                            let { id, name, age, profession, country, applicationText } = approvedCandidate
+                                let { id, name, age, profession, country, applicationText } = approvedCandidate
 
-                            return (
-                                <ProfileWrapper key={id}>
-                                    <PrimaryInfo>
-                                        <Name>{name}</Name>
-                                        <Age>{age}</Age>
-                                        <Profession>{profession}</Profession>
-                                        <Country>{country}</Country>
-                                    </PrimaryInfo>
-                                    <ApplicationText>{applicationText}</ApplicationText>
-                                </ProfileWrapper>
-                            )
-                        })}
-                    </Candidates>
-                </CandidatesWrapper>
+                                return (
+                                    <ProfileWrapper key={id}>
+                                        <PrimaryInfo>
+                                            <Name>{name}</Name>
+                                            <Age>{age}</Age>
+                                            <Profession>{profession}</Profession>
+                                            <Country>{country}</Country>
+                                        </PrimaryInfo>
+                                        <ApplicationText>{applicationText}</ApplicationText>
+                                    </ProfileWrapper>
+                                )
+                            })}
+                        </Candidates>
+                        :
+                        <ButtonAdminSection>
+                            <LinkRouter to={`/admin/trip_details/${params.id}`}>
+                                <FunctionsButton text='Candidatos'></FunctionsButton>
+                            </LinkRouter>
+                        </ButtonAdminSection>}
+                    </CandidatesWrapper>
             </Section>
             <Footer/>
         </Container>

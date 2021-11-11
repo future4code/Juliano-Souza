@@ -27,7 +27,7 @@ export const Section = styled.div`
 export const CandidatesWrapper = styled.div`
     padding: 20px;
     width: 80%;
-    height: 80%;
+    height: 450px;
     background-color: #2C2C2C;
     border-radius: 12px;
     display: flex;
@@ -69,6 +69,9 @@ export const Approved = styled.div`
 export const Title = styled.h3`
     font-size: 75px;
     letter-spacing: -4px;
+    @media (max-width: 750px) {
+        font-size: 50px;
+    }
 `
 export const ProfileWrapper = styled.div`
     padding: 10px 16px;
@@ -120,20 +123,28 @@ export const LinkRouter = styled(Link)`
     color: inherit;
     text-decoration: none;
 `
-
 // Icon
 
 export const MenuIcon = styled(RiMenuFill)`
     font-size: 35px;
     cursor: pointer;
-    display: none;
+    display: ${p => p.menuOpen ? 'none' : 'block'};
     @media (max-width: 650px) {
         display: block;
     }
 `
 export const ButtonBox = styled.div`
+    display: ${p => p.menuOpen ? 'block' : 'none'};
     @media (max-width: 650px) {
         display: none;
     }
     
+`
+export const ButtonAdminSection = styled.div`
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
 `

@@ -11,13 +11,19 @@ export const ButtonType = styled.button`
     background-color: #FFFFFF;
     border: none;
     cursor: pointer;
-    color: #000 !important;
+    color: #000;
     margin: ${p => p.margin};
     transition: 200ms ease-in-out;
     border-radius: 8px;
     &:hover {
         background-color: #3236FD;
-        color: #FFF !important;
+        color: #FFF;
+    }
+    @media (max-width: 730px) {
+        &:hover {
+            background-color: #FFFFFF;
+            color: #000;
+        }
     }
 `
 export const LinkRouter = styled(Link)`

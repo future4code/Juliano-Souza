@@ -1,16 +1,19 @@
 import { useProtectedPage } from "../../hooks/useProtectedPage"
 import { BASE_URL } from '../../constants/urls'
 import { useRequestData } from '../../hooks/useRequestData'
-import { useRef } from 'react'
+import { useContext, useRef } from 'react'
 
 // Styles
-import { Container, Section, AdminWrapper, PlanetCardsView, InfoTitle, LeftArrow, RightArrow, TripInfoBox, LinkRouter, ArrowLeftBox, ArrowRigthBox, RouteLink, MenuIcon, ButtonBox } from './style'
+import { Container, Section, AdminWrapper, PlanetCardsView, InfoTitle, LeftArrow, RightArrow, TripInfoBox, LinkRouter, ArrowLeftBox, ArrowRigthBox, RouteLink, MenuIcon, ButtonBox, CardSection, ButtonAdminSection } from './style'
 
 // Components
 import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
 import { CardPlanet } from "../../components/CardPlanet"
 import { FunctionsButton } from "../../components/FunctionsButton"
+
+// Contexts
+import { AdminContext } from '../../contexts/AdminContext'
 
 export function AdminHome() {
 
@@ -26,6 +29,8 @@ export function AdminHome() {
 
     useProtectedPage()
 
+    const { menuIsOpen, setMenuIsOpen } = useContext(AdminContext)
+
     const trips = useRequestData(BASE_URL, 'get', '/trips')
 
     return (
@@ -35,25 +40,33 @@ export function AdminHome() {
                 <AdminWrapper>
                     <TripInfoBox>
                         <InfoTitle>Viagens</InfoTitle>
-                        <ButtonBox>
+                        <ButtonBox menuOpen={menuIsOpen.tripDetails}>
                             <RouteLink to='/admin/create_new_trip'>
                                 <FunctionsButton text='Nova viagem'/>
                             </RouteLink>
                         </ButtonBox>
-                        <MenuIcon/>
+                        <MenuIcon onClick={() => setMenuIsOpen({...menuIsOpen, tripDetails: !menuIsOpen.tripDetails})} menuOpen={menuIsOpen.tripDetails}/>
                     </TripInfoBox>
-                    <ArrowLeftBox onClick={carouselLeftClick}><LeftArrow/></ArrowLeftBox>
-                    <PlanetCardsView ref={carousel}>
-                        {trips && trips.map(trip => {
-                            return (
-                                <LinkRouter to={`/admin/trip_details/${trip.id}`} key={trip.id}>
-                                    <CardPlanet trip={trip}/>
-                                </LinkRouter>
-                            )
-                        })}
-                        
-                    </PlanetCardsView>
-                    <ArrowRigthBox onClick={carouselRightClick}><RightArrow/></ArrowRigthBox>
+                    <ArrowLeftBox menuOpen={menuIsOpen.tripDetails} onClick={carouselLeftClick}><LeftArrow/></ArrowLeftBox>
+                    {menuIsOpen.tripDetails ? 
+                        <CardSection>
+                            <PlanetCardsView ref={carousel}>
+                                {trips && trips.map(trip => {
+                                    return (
+                                        <LinkRouter to={`/admin/trip_details/${trip.id}`} key={trip.id}>
+                                            <CardPlanet trip={trip}/>
+                                        </LinkRouter>
+                                    )
+                                })}
+                            </PlanetCardsView>
+                        </CardSection>
+                        :
+                        <ButtonAdminSection>
+                            <RouteLink to='/admin/create_new_trip'>
+                                <FunctionsButton text='Nova viagem'/>
+                            </RouteLink>
+                        </ButtonAdminSection>}
+                    <ArrowRigthBox menuOpen={menuIsOpen.tripDetails} onClick={carouselRightClick}><RightArrow/></ArrowRigthBox>
                 </AdminWrapper>
             </Section>
             <Footer/>

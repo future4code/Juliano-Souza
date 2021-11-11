@@ -7,6 +7,12 @@ export function AdminContextProvider({children}) {
 
     let token = localStorage.getItem('Token')
 
+    const [menuIsOpen, setMenuIsOpen] = useState({
+        tripDetails: false,
+        candidates: false,
+        approved: false
+    })
+
     const [newTripValues, setNewTripValues] = useState({
         name: '',
         planet: '',
@@ -16,7 +22,7 @@ export function AdminContextProvider({children}) {
     })
 
     return (
-        <AdminContext.Provider value={{ newTripValues, setNewTripValues, token }}>
+        <AdminContext.Provider value={{ newTripValues, setNewTripValues, token, menuIsOpen, setMenuIsOpen }}>
             {children}
         </AdminContext.Provider>
     )

@@ -7,7 +7,7 @@ import Blob from '../../assets/Images/blob.svg'
 import Blob2 from '../../assets/Images/blob-trip.svg'
 
 // Lib
-import { FaArrowLeft } from "react-icons/fa";
+import { FaAngleLeft } from "react-icons/fa";
 
 
 export const Container = styled.div`
@@ -177,7 +177,7 @@ export const ArrowLeftBox = styled.div`
         background: linear-gradient(0deg, transparent 0%, #000000 50%, transparent 100%);
     }
 `
-export const LeftArrow = styled(FaArrowLeft)`
+export const LeftArrow = styled(FaAngleLeft)`
     font-size: 34px;
     transition: opacity 200ms ease-in-out;
 
