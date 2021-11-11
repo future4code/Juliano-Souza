@@ -40,6 +40,8 @@ export function CreateNewTrip() {
                         </Input>
                         <Label>Data</Label>
                         <Input 
+                            pattern='^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}'
+                            title='Apenas datas no formato dd/mm/yyyy'
                             type='text' value={newTripValues.date} 
                             onChange={(e) => {setNewTripValues({...newTripValues, date: e.target.value})}} 
                             placeholder='Digite a data' 
@@ -54,6 +56,8 @@ export function CreateNewTrip() {
                         </Input>
                         <Label>Duração</Label>
                         <Input 
+                            pattern='^[0-9]*'
+                            title='Apenas números'
                             type='text' value={newTripValues.durationInDays} 
                             onChange={(e) => {setNewTripValues({...newTripValues, durationInDays: e.target.value})}} 
                             placeholder='Digite a duração' 
