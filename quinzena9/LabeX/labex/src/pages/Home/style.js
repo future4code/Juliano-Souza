@@ -50,6 +50,7 @@ export const Description = styled.p`
     color: #B5B5B5;
     @media (max-width: 1050px) {
         font-size: 14px;
+        color: #FFFFFF
     }
 `
 export const TitleDecorationBox = styled.span`

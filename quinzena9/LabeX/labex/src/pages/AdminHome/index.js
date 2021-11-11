@@ -4,7 +4,7 @@ import { useRequestData } from '../../hooks/useRequestData'
 import { useRef } from 'react'
 
 // Styles
-import { Container, Section, AdminWrapper, PlanetCardsView, InfoBox, InfoTitle, ArrowBox, LeftArrow, RightArrow, TripInfoBox, LinkRouter } from './style'
+import { Container, Section, AdminWrapper, PlanetCardsView, InfoBox, InfoTitle, ArrowBox, LeftArrow, RightArrow, TripInfoBox, LinkRouter, ButtonContainer } from './style'
 
 // Components
 import { Header } from '../../components/Header'
@@ -36,7 +36,7 @@ export function AdminHome() {
                     <InfoBox>
                         <TripInfoBox>
                             <InfoTitle>Viagens Cadastradas</InfoTitle>
-                            <Button text='Nova viagem' size='150px' route='/admin/create_new_trip' />
+                            <ButtonContainer><Button text='Nova viagem' size='150px' route='/admin/create_new_trip'/></ButtonContainer>
                         </TripInfoBox>
                         <ArrowBox>
                             <LeftArrow onClick={carouselLeftClick}/>

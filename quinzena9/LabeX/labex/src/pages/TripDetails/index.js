@@ -1,5 +1,5 @@
 // Styles
-import { Container, Section, DetailsWrapper, TripData, CandidatesWrapper, Candidates, TitleAndButtonBox, ButtonsBox, PrimaryInfo, Title, ProfileWrapper, Name, Age, Profession, Country, ApplicationText, Icons, CheckIcon, CloseIcon } from './style'
+import { Container, Section, CandidatesWrapper, Candidates, TitleAndButtonBox, ButtonsBox, PrimaryInfo, Title, ProfileWrapper, Name, Age, Profession, Country, ApplicationText, Icons, CheckIcon, CloseIcon } from './style'
 
 
 import { useParams } from 'react-router'
@@ -35,43 +35,39 @@ export function TripDetails() {
         <Container>
             <Header buttonText='Voltar' route='/admin'/>
             <Section>
-                <DetailsWrapper>
-                    <TripData>
-                        <CandidatesWrapper>
-                            <TitleAndButtonBox>
-                                <Title>Candidatos</Title>
-                                <ButtonsBox>
-                                    <div onClick={() => deleteTrip(params.id, token, navigate)}>
-                                        <Button size='150px' text='Deletar Viagem' margin='0 10px 0 0' />
-                                    </div>
-                                    <Button size='150px' text='Aprovados' route={`/admin/trip_details/${params.id}/approved`}/>
-                                </ButtonsBox>
-                            </TitleAndButtonBox>
-                            <Candidates>
-                                {candidates?.map(candidate => {
+                <CandidatesWrapper>
+                    <TitleAndButtonBox>
+                        <Title>Candidatos</Title>
+                        <ButtonsBox>
+                            <div onClick={() => deleteTrip(params.id, token, navigate)}>
+                                <Button size='150px' text='Deletar Viagem' margin='0 10px 0 0' />
+                            </div>
+                            <Button size='150px' text='Aprovados' route={`/admin/trip_details/${params.id}/approved`}/>
+                        </ButtonsBox>
+                    </TitleAndButtonBox>
+                    <Candidates>
+                        {candidates?.map(candidate => {
 
-                                    let { id, name, age, profession, country, applicationText } = candidate
+                            let { id, name, age, profession, country, applicationText } = candidate
 
-                                    return (
-                                        <ProfileWrapper key={id}>
-                                            <PrimaryInfo>
-                                                <Name>{name}</Name>
-                                                <Age>{age}</Age>
-                                                <Profession>{profession}</Profession>
-                                                <Country>{country}</Country>
-                                            </PrimaryInfo>
-                                            <Icons>
-                                                <CheckIcon onClick={() => decideCandidate(params.id, id, token, 'true')}/>
-                                                <CloseIcon onClick={() => decideCandidate(params.id, id, token, 'false')}/>
-                                            </Icons>
-                                            <ApplicationText>{applicationText}</ApplicationText>
-                                        </ProfileWrapper>
-                                    )
-                                })}
-                            </Candidates>
-                        </CandidatesWrapper>
-                    </TripData>
-                </DetailsWrapper>
+                            return (
+                                <ProfileWrapper key={id}>
+                                    <PrimaryInfo>
+                                        <Name>{name}</Name>
+                                        <Age>{age}</Age>
+                                        <Profession>{profession}</Profession>
+                                        <Country>{country}</Country>
+                                    </PrimaryInfo>
+                                    <Icons>
+                                        <CheckIcon onClick={() => decideCandidate(params.id, id, token, 'true')}/>
+                                        <CloseIcon onClick={() => decideCandidate(params.id, id, token, 'false')}/>
+                                    </Icons>
+                                    <ApplicationText>{applicationText}</ApplicationText>
+                                </ProfileWrapper>
+                            )
+                        })}
+                    </Candidates>
+                </CandidatesWrapper>
             </Section>
             <Footer/>
         </Container>

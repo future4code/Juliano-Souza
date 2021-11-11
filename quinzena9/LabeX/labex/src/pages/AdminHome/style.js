@@ -49,12 +49,19 @@ export const InfoTitle = styled.h3`
     @media (max-width: 805px) {
         font-size: 24px;
     }
+    @media (max-width: 550px) {
+        font-size: 22px;
+    }
 `
 export const InfoBox = styled.div`
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-start;
     align-items: center;
+    @media (max-width: 550px) {
+        flex-flow: column;
+        align-items: center;
+    }
 `
 export const ArrowBox = styled.div`
     display: flex;
@@ -90,9 +97,19 @@ export const TripInfoBox = styled.div`
     justify-content: space-between;
     padding-right: 15px;
     padding-left: 5px;
+    width: 100%;
+    @media (max-width: 550px) {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        padding-bottom: 10px;
+    }
 `
 export const LinkRouter = styled(Link)`
     color: inherit;
     text-decoration: none;
     min-width: 250px;
+`
+export const ButtonContainer = styled.div`
+    margin-top: 15px;
 `

@@ -1,5 +1,5 @@
 // Styles
-import { Container, Section, DetailsWrapper, TripData, CandidatesWrapper, Candidates, TitleAndButtonBox, ButtonsBox, PrimaryInfo, Title, ProfileWrapper, Name, Age, Profession, Country, ApplicationText } from './style'
+import { Container, Section, CandidatesWrapper, Candidates, TitleAndButtonBox, ButtonsBox, PrimaryInfo, Title, ProfileWrapper, Name, Age, Profession, Country, ApplicationText } from './style'
 
 
 import { useParams } from 'react-router'
@@ -30,36 +30,32 @@ export function ApprovedCandidates() {
         <Container>
             <Header buttonText='Voltar' route='/admin'/>
             <Section>
-                <DetailsWrapper>
-                    <TripData>
-                        <CandidatesWrapper>
-                            <TitleAndButtonBox>
-                                <Title>Aprovados</Title>
-                                <ButtonsBox>
-                                    <Button size='150px' text='Candidatos' route={`/admin/trip_details/${params.id}`}/>
-                                </ButtonsBox>
-                            </TitleAndButtonBox>
-                            <Candidates>
-                                {approved?.map(approvedCandidate => {
+                <CandidatesWrapper>
+                    <TitleAndButtonBox>
+                        <Title>Aprovados</Title>
+                        <ButtonsBox>
+                            <Button size='150px' text='Candidatos' route={`/admin/trip_details/${params.id}`}/>
+                        </ButtonsBox>
+                    </TitleAndButtonBox>
+                    <Candidates>
+                        {approved?.map(approvedCandidate => {
 
-                                    let { id, name, age, profession, country, applicationText } = approvedCandidate
+                            let { id, name, age, profession, country, applicationText } = approvedCandidate
 
-                                    return (
-                                        <ProfileWrapper key={id}>
-                                            <PrimaryInfo>
-                                                <Name>{name}</Name>
-                                                <Age>{age}</Age>
-                                                <Profession>{profession}</Profession>
-                                                <Country>{country}</Country>
-                                            </PrimaryInfo>
-                                            <ApplicationText>{applicationText}</ApplicationText>
-                                        </ProfileWrapper>
-                                    )
-                                })}
-                            </Candidates>
-                        </CandidatesWrapper>
-                    </TripData>
-                </DetailsWrapper>
+                            return (
+                                <ProfileWrapper key={id}>
+                                    <PrimaryInfo>
+                                        <Name>{name}</Name>
+                                        <Age>{age}</Age>
+                                        <Profession>{profession}</Profession>
+                                        <Country>{country}</Country>
+                                    </PrimaryInfo>
+                                    <ApplicationText>{applicationText}</ApplicationText>
+                                </ProfileWrapper>
+                            )
+                        })}
+                    </Candidates>
+                </CandidatesWrapper>
             </Section>
             <Footer/>
         </Container>

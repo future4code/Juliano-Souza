@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 // Styles
 import { Container, Main, Presentation, Title, Description, TitleDecorationBox, TitleDecoration } from './style'

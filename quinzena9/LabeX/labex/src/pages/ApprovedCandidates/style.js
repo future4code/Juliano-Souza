@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { IoIosCheckmark, IoIosClose } from "react-icons/io";
 
 import blob from '../../assets/Images/blob-grey.svg'
 
@@ -22,7 +21,7 @@ export const Section = styled.div`
     background-position: center;
     background-size: 75%;
 `
-export const DetailsWrapper = styled.div`
+export const CandidatesWrapper = styled.div`
     padding: 20px;
     width: 80%;
     height: 80%;
@@ -30,22 +29,8 @@ export const DetailsWrapper = styled.div`
     border-radius: 12px;
     display: flex;
     flex-flow: column nowrap;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-end;
-`
-export const TripData = styled.div`
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-` 
-export const CandidatesWrapper = styled.div`
-    display: flex;
-    flex-flow: column nowrap;
-    width: 100%;
-    height: 100%;
-    justify-content: space-between;
 `
 export const TitleAndButtonBox = styled.div`
     width: 100%;
@@ -60,7 +45,7 @@ export const ButtonsBox = styled.div`
 `
 export const Candidates = styled.div`
     width: 100%;
-    height: 450px;
+    max-height: 350px;
     padding: 10px;
     overflow-y: auto;
     ::-webkit-scrollbar-track {
