@@ -34,3 +34,7 @@ export const LinkRouter = styled(Link)`
     display: grid;
     place-items: center;
 `
+export const Logout = styled(Login)`
+    margin-left: 25px;
+    padding: 0 20px;
+`

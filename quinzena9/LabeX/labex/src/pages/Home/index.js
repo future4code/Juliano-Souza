@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+// import { useContext, useEffect } from 'react'
 
 // Styles
 import { Container, Main, Presentation, Title, Description, TitleDecorationBox, TitleDecoration } from './style'
@@ -8,17 +8,16 @@ import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
 import { Button } from '../../components/Button'
 
+// Hooks
+
+
 export function Home() {
 
-    const [tokenAcess, setTokenAcess] = useState('')
-
-    useEffect(() => {
-        setTokenAcess(localStorage.getItem('Token'))
-    }, [])
+    let token = localStorage.getItem('Token')
 
     return (
         <Container>
-            <Header buttonText={tokenAcess ? 'Admin' : 'Login'} route={ tokenAcess ? '/admin' : '/login'}/>
+            <Header buttonText={token ? 'Admin' : 'Login'} route={ token ? '/admin' : '/login'}/>
             <Main>
                 <Presentation>
                     <Title>O Futuro Chegou</Title>

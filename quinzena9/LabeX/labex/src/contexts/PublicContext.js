@@ -15,12 +15,10 @@ export function PublicContextProvider({children}) {
         profession: '',
         country: '',
     })
-
     const [loginValues, setLoginValues] = useState({
         email: '',
         password: ''
     })
-
     const [ tripName, setTripName ] = useState('')
 
     const [ tripId, setTripId ] = useState('')
