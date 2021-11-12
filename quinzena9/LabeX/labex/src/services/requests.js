@@ -21,7 +21,7 @@ export const applyToTrip = (e, tripId, formValues, setFormValues) => {
             country: '',
         })
     })
-    .catch(() => alert('Error'))
+    .catch(() => window.alert('Erro em nossos servidores...'))
 }
 
 // Login
@@ -36,7 +36,7 @@ export const login = (e, loginValues, setLoginValues, navigate) => {
             password: ''
         })
         navigate('/admin')
-    }).catch(() => alert('Oops, algo errado.'))
+    }).catch(() => alert('Verifique os dados e tente novamente'))
 
 }
 
@@ -56,7 +56,7 @@ export const createTrip = (e, newTripValues, setNewTripValues) => {
             durationInDays: ''
         })
     })
-    .catch(() => alert('Erro'))
+    .catch(() => window.alert('Erro em nossos servidores...'))
 }
 
 // Delete Trip 
@@ -67,7 +67,7 @@ export const deleteTrip = (id, navigate) => {
     .then(() => {
         navigate(`/admin`)
     })
-    .catch(() => console.log('Error'))
+    .catch(() => window.alert('Erro em nossos servidores...'))
 
 }
 

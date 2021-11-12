@@ -41,11 +41,15 @@ export const FormWrapper = styled.form`
 export const Title = styled.h3`
     font-size: 30px;
     font-weight: 700;
+    @media (max-width: 415px) {
+        font-size: 24px;
+        padding-bottom: 20px;
+    }
 `
 export const InputBox = styled.div`
     margin: 10px 0;
     width: 100%;
-    height: 320px;
+    height: 380px;
     display: flex;
     flex-flow: column;
     justify-content: center;

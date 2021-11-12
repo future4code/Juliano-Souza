@@ -18,7 +18,7 @@ export function useRequestData(BASE_URL, method, endpoint, body, token) {
                 setData(res.data)
                 setLoading(false)
             })
-            .catch(rej => console.log(rej))
+            .catch(() => window.alert('Erro em nossos servidores...'))
 
         } else if (!body && !token) {
             setLoading(true)
@@ -27,7 +27,7 @@ export function useRequestData(BASE_URL, method, endpoint, body, token) {
                 setData(res.data.trips)
                 setLoading(false)
             })
-            .catch(rej => console.log(rej))
+            .catch(() => window.alert('Erro em nossos servidores...'))
 
         } else if (!body && token){
             setLoading(true)
@@ -38,7 +38,7 @@ export function useRequestData(BASE_URL, method, endpoint, body, token) {
                 setData(res.data.trip)
                 setLoading(false)
             })
-            .catch(rej => console.log(rej))
+            .catch(() => window.alert('Erro em nossos servidores...'))
         }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
