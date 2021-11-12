@@ -34,6 +34,9 @@ export const CandidatesWrapper = styled.div`
     flex-flow: column nowrap;
     justify-content: flex-start;
     align-items: flex-end;
+    @media (max-width: 750px) {
+        width: 95%;
+    }
 `
 export const TitleAndButtonBox = styled.div`
     width: 100%;
@@ -44,7 +47,6 @@ export const TitleAndButtonBox = styled.div`
 export const ButtonsBox = styled.div`
     display: flex;
     align-items: center;
-    /* background-color: green; */
 `
 export const Candidates = styled.div`
     width: 100%;

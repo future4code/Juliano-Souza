@@ -1,9 +1,12 @@
 import { createContext, useState } from 'react'
+import { useRequestData } from '../hooks/useRequestData'
 
 export const AdminContext = createContext()
     
 
 export function AdminContextProvider({children}) {
+
+
 
     let token = localStorage.getItem('Token')
 
@@ -24,7 +27,7 @@ export function AdminContextProvider({children}) {
     })
 
     return (
-        <AdminContext.Provider value={{ newTripValues, setNewTripValues, token, menuIsOpen, setMenuIsOpen, loading, setLoading }}>
+        <AdminContext.Provider value={{ newTripValues, setNewTripValues, token, menuIsOpen, setMenuIsOpen, loading, setLoading, useRequestData }}>
             {children}
         </AdminContext.Provider>
     )
