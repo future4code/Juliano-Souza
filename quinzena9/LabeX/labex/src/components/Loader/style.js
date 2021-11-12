@@ -13,5 +13,4 @@ export const LoaderCircle = styled.div`
     height: 90px;
     width: 90px;
     margin: 0 auto;
-    margin-top: 7%;
 `

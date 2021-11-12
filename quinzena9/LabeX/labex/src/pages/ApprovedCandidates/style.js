@@ -148,3 +148,9 @@ export const ButtonAdminSection = styled.div`
     align-items: center;
     justify-content: center;
 `
+export const LoaderWrapper = styled.div`
+    height: 100%;
+    width: 100%;
+    display: grid;
+    align-items: center;
+`

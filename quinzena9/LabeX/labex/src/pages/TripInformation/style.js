@@ -200,3 +200,12 @@ export const ArrowRigthBox = styled.div`
         background: linear-gradient(0deg, transparent 0%, #000000 50%, transparent 100%);
     }
 `
+
+// Loader 
+
+export const LoaderWrapper = styled.div`
+    height: 65%;
+    width: 100%;
+    display: grid;
+    align-items: center;
+`

@@ -185,7 +185,6 @@ export const DeleteButton = styled.div`
 `
 
 export const NoItensMessage = styled.span`
-    /* background-color: red; */
     width: 100%;
     height: 100%;
     display: flex;
@@ -193,4 +192,10 @@ export const NoItensMessage = styled.span`
     justify-content: center;
     font-size: 25px;
     padding-bottom: 60px;
+`
+export const LoaderWrapper = styled.div`
+    height: 100%;
+    width: 100%;
+    display: grid;
+    align-items: center;
 `
