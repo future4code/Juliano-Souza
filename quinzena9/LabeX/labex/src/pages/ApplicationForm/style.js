@@ -49,11 +49,16 @@ export const Title = styled.h3`
 export const InputBox = styled.div`
     margin: 10px 0;
     width: 100%;
-    height: 380px;
+    height: 320px;
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: flex-start;
+    @media (max-width: 415px) {
+        font-size: 24px;
+        padding-bottom: 20px;
+        height: 380px;
+    }
 `
 export const Input = styled.input`
     width: 100%;
