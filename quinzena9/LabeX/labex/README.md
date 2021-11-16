@@ -27,8 +27,6 @@
 
 <h1>Tela Login 🏠</h1>
 
-<img width='700px' src='' />
-
 <p>Aqui você fará o login que dará acesso a parte de administrador</p>
 
 <img width='700px' src='https://user-images.githubusercontent.com/77923171/141541033-3be2140e-f3e9-484d-acae-b26c06c4a8c6.png' />
